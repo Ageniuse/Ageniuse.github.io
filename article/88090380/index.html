@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          微信点餐课程 - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.huweihuang.com/article/88090380/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>微信点餐课程</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2019-10-29
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+<p>20190303 17:00</p>
+<p>有微信支付的操作</p>
+<p>应该是基于微信公众的</p>
+<p>卖家和买家消息互通       有推送 websocket</p>
+<p>订单详情页     基于微信的模板消息       有微信支付</p>
+<p>用户下单        商家界面直接弹框   提示商家    还有音乐声音</p>
+<p>商家完结订单         用户立即受到消息  基于微信的模板消息</p>
+<p>前后端分离开发</p>
+<p><img alt="" class="has" height="416" src="https://img-blog.csdnimg.cn/20190303171123646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="857"></p>
+<p><img alt="" class="has" height="330" src="https://img-blog.csdnimg.cn/20190303171145209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="999"></p>
+<p><img alt="" class="has" height="523" src="https://img-blog.csdnimg.cn/20190303171208384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="905"></p>
+<p><img alt="" class="has" height="419" src="https://img-blog.csdnimg.cn/20190303171306976.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="468"></p>
+<p><img alt="" class="has" height="513" src="https://img-blog.csdnimg.cn/20190303171344343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="950"></p>
+<p><img alt="" class="has" height="484" src="https://img-blog.csdnimg.cn/20190303171408513.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="465"></p>
+<p><img alt="" class="has" height="360" src="https://img-blog.csdnimg.cn/20190303171432505.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="892"></p>
+<p><img alt="" class="has" height="585" src="https://img-blog.csdnimg.cn/20190303171506633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="587"></p>
+<p><img alt="" class="has" height="112" src="https://img-blog.csdnimg.cn/20190303171534736.png" width="292">看完了</p>
+<p><img alt="" class="has" height="457" src="https://img-blog.csdnimg.cn/20190303171617491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="758"></p>
+<p><img alt="" class="has" height="109" src="https://img-blog.csdnimg.cn/20190303171642205.png" width="856"></p>
+<p><img alt="" class="has" height="481" src="https://img-blog.csdnimg.cn/20190303171718844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1016"></p>
+<p><img alt="" class="has" height="534" src="https://img-blog.csdnimg.cn/2019030317175912.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="950"></p>
+<p><img alt="" class="has" height="495" src="https://img-blog.csdnimg.cn/20190303171932221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1038"></p>
+<p><img alt="" class="has" height="517" src="https://img-blog.csdnimg.cn/20190303172005328.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="932"></p>
+<p><img alt="" class="has" height="443" src="https://img-blog.csdnimg.cn/20190303172038726.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1082"></p>
+<p><img alt="" class="has" height="426" src="https://img-blog.csdnimg.cn/20190303172058950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="354">    这个也不错大家可以看看</p>
+<p><img alt="" class="has" height="537" src="https://img-blog.csdnimg.cn/20190303172753242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="793"></p>
+<p> </p>
+<p>2-3 数据库服务.wmv</p>
+<p><img alt="" class="has" height="450" src="https://img-blog.csdnimg.cn/20190303172840732.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="516"></p>
+<p><img alt="" class="has" height="514" src="https://img-blog.csdnimg.cn/20190303172937756.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1012"></p>
+<p><img alt="" class="has" height="522" src="https://img-blog.csdnimg.cn/20190303173109936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1049"></p>
+<p> </p>
+<p>第一张表      商品表</p>
+<p><img alt="" class="has" height="417" src="https://img-blog.csdnimg.cn/20190303173206393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="638"></p>
+<p>--- SQL希望大家也写一下哦--老师</p>
+<p>这里是用企业开发标准还是用varchar                     comment   '商品名称',(做备注)</p>
+<p>这里id就不能使用int 自增类型     是有上限的      淘宝就不是这样id是用varchar的</p>
+<p>create table 'product_info' (</p>
+<p>         --企业级的用varchar，自己玩的项目可以用自增的但数量大了可能不够用</p>
+<p>           ‘product_id’ varchar(32) not null,(这里id就不能使用int 自增类型,是有上限的,淘宝就不是这样id是用varchar的)</p>
+<p>           'product_name'  varchar(64) not null  comment   '商品名称',(做备注)</p>
+<p>           'product_price'    decimal(8,2)  not null comment '单价', (价格使用decimal)</p>
+<p>           ‘product_stock’   int  not null  comment  '库存',(需要加减)'</p>
+<p>           'product_description'  varchar(64)  comment '描述',   (都是2的n次方)</p>
+<p>           'product_icon'  varchar(512) comment    '小图',    （存url有点长）</p>
+<p>           'category_type'  int  not   null  comment  '类目编号',    （类目不会太多）</p>
+<p>           'create_time'  timestamp not null <strong>default current_timestamp </strong>comment '创建时间',</p>
+<p>           (默认为当前时间   创建时间mysql自动写)</p>
+<p>           'update_time'  timestamp not null <strong>default current_timestamp</strong> on update current_timestamp comment '修改时间',</p>
+<p>              --MYSQL5.7才可以default current_timestamp</p>
+<p>           (默认为当前时间   创建时间mysql自动写     on update current_timestamp  更新时自动更新)</p>
+<p>         （这里提醒一下 mysql5.6是不能2个字段都是 default current_timestamp，5.7就没错了  版本要一致和老师）</p>
+<p>          primary key ('product_id')        (经常对id查询  建立主键     这样有索引)</p>
+<p>)comment   '商品表'；</p>
+<p> </p>
+<p>create_time和update_time 加上   数据库处理   我们是不用处理的</p>
+<p> </p>
+<p><br>
+ </p>
+<p> </p>
+<p>类目不会太多   int  够了   自增</p>
+<p>create table 'product_category'(</p>
+<p>         ‘category_id’  int  not  null auto_increment,   类目不会太多   int  够了   自增</p>
+<p>        -- 类目不太可能爆多，所以可以自增</p>
+<p>         'category_name'  varchar(64)  not null comment '类目名字',</p>
+<p>         'category_type'    int not null comment '类目编号',</p>
+<p>           'create_time'  timestamp not null <strong>default current_timestamp </strong>comment '创建时间',</p>
+<p>           'update_time'  timestamp not null <strong>default current_timestamp</strong> on update current_timestamp comment '修改时间',</p>
+<p>          -- MYSQL5.7才可以default current_timestamp</p>
+<p>           primary key ('category_id')  ,</p>
+<p>          ( 会经常根据类别查询    建立索引   不能有相同的类别  所以建立     约束索引) </p>
+<p>         unique key 'uqe_category_type'  ('category_type')  -- 类目是唯一的</p>
+<p>) comment '类目表';</p>
+<p> </p>
+<p><br>
+ </p>
+<p>订单主表</p>
+<p>当订单太多int  就不够了  用字符串</p>
+<p>create table 'order_master'(</p>
+<p>        'order_id'  varchar(32)  not  null,</p>
+<p>        'buyer_name'  varchar(32) not null comment '买家名字',</p>
+<p>        'buyer_phone' varchar(32) not null  comment '买家电话',</p>
+<p>       'buyer_address' varchar(128) not null comment '买家地址',</p>
+<p>       'buyer_openid'  varchar(64)  not null comment '买家微信openid',</p>
+<p>       'order_amount' decimal(8,2) not null comment '订单总金额',</p>
+<p>       'order_status'  tinyint(3) not null default '0' comment '订单状态，默认0新订单',</p>
+<p>       'pay_status'   tinyint(3)  not null default '0' comment '支付状态，默认0未支付',</p>
+<p>       'create_time'  timestamp not null <strong>default current_timestamp </strong>comment '创建时间',</p>
+<p>       'update_time'  timestamp not null <strong>default current_timestamp</strong> on update current_timestamp comment  '修改时间',</p>
+<p>      -- MYSQL5.7才可以default current_timestamp</p>
+<p>       primary key ('order_id') ,     (经常主键查询)</p>
+<p>       key  'idx_buyer_openid'  ('buyer_openid')      (经常需要用  用户id   openid查询  建立所以)</p>
+<p>) comment ‘订单表’;</p>
+<p> </p>
+<p>****************************************************************************************************************************</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>yjb(去除清明的空格)</p>
+<p>create table `product_info`(<br>
+ `product_id` varchar(32) not null,<br>
+ `product_name` varchar(64) not null comment '商品名称',<br>
+ `product_price` decimal(8,2) not null comment '单价',<br>
+ `product_stock` int not null comment '库存',<br>
+ `product_description` varchar(64) comment '描述',<br>
+ `product_icon` varchar(512) comment '小图',<br>
+ `category_type` int not null comment '类目编号',<br>
+ `create_time` timestamp not null default current_timestamp comment '创建时间',<br>
+ `update_time` timestamp not null default current_timestamp on update current_timestamp comment '更新时间',<br>
+ primary key (`product_id`)<br>
+)comment '商品表';</p>
+<p><br>
+ </p>
+<p>create table `product_info`(<br>
+    `product_id` varchar(32) not null, <br>
+    `product_name` varchar(64) not null comment '商品名称',<br>
+    `product_price` decimal(8,2) not null comment '单价',<br>
+    `product_stock` int not null comment '库存',<br>
+    `product_description` varchar(64) comment '描述',<br>
+    `product_icon` varchar(512) comment '小图',<br>
+    `category_type` int not null comment '类目编号',<br>
+    `create_time` timestamp not null default current_timestamp comment '创建时间',<br>
+    `update_time` timestamp not null default current_timestamp on update current_timestamp comment '更新时间', <br>
+    primary key (`product_id`)<br>
+) comment '商品表';</p>
+<p> </p>
+<p>-- yjb(去除清明的空格)<br>
+create table `product_category`(<br>
+ `category_id` int not null auto_increment,<br>
+ `category_name` varchar(64) not null comment '类目名字',<br>
+ `category_type` int not null comment '类目编号',<br>
+ `create_time` timestamp not null default current_timestamp comment '创建时间',<br>
+ `update_time` timestamp not null default current_timestamp on update current_timestamp comment '更新时间',<br>
+ primary key (`category_id`),<br>
+ unique key `uqe_category_type` (`category_type`)<br>
+) comment '类目表';</p>
+<p> create table `product_category`(<br>
+ `category_id` int not null auto_increment,   <br>
+ `category_name` varchar(64) not null comment '类目名字',<br>
+ `category_type` int not null comment '类目编号',<br>
+ `create_time` timestamp not null default current_timestamp comment '创建时间',<br>
+ `update_time` timestamp not null default current_timestamp on update current_timestamp comment '更新时间',  <br>
+ primary key (`category_id`),<br>
+ unique key `uqe_category_type` (`category_type`)  <br>
+) comment '类目表'<br>
+ </p>
+<p>-- yjb(去除清明的空格)</p>
+<p> create table `order_master`(<br>
+        `order_id` varchar(32) not null ,<br>
+        `buyer_name` varchar(32) not null comment '买家名字',<br>
+        `buyer_phone` varchar(32) not null comment '买家电话',<br>
+        `buyer_address` varchar(128) not null comment '买家地址',<br>
+        `buyer_openid` varchar(64)   not null comment '买家微信openid',<br>
+        `order_amount` decimal(8,2) not null comment '订单总金额',<br>
+        `order_status` tinyint(3) not null default '0' comment '订单状态，默认0新订单',<br>
+        `pay_status` tinyint(3) not null default '0' comment '支付状态，默认为0未支付',<br>
+    `create_time` timestamp not null default current_timestamp comment '创建时间',<br>
+    `update_time` timestamp not null default current_timestamp on update current_timestamp comment '更新时间',<br>
+    primary key (`order_id`),<br>
+    key `idx_buyer_openid` (`buyer_openid`)<br>
+) comment '订单表';</p>
+<p>create table `order_master`(<br>
+    `order_id` varchar(32) not null,<br>
+    `buyer_name` varchar(32) not null comment '买家名字',<br>
+    `buyer_phone` varchar(32) not null comment '买家电话',<br>
+    `buyer_address` varchar(128) not null comment '买家地址',<br>
+    `buyer_openid` varchar(64) not null comment '买家微信openid',<br>
+    `order_amount` decimal(8,2) not null comment '订单总金额',<br>
+    `order_status` tinyint(3) not null default '0' comment '订单状态，默认0新下单',<br>
+    `pay_status` tinyint(3) not null default '0' comment '支付状态，默认0未支付',<br>
+    `create_time` timestamp not null default current_timestamp comment '创建时间',<br>
+    `update_time` timestamp not null default current_timestamp on update current_timestamp comment '更新时间',  <br>
+    primary key (`order_id`),<br>
+    key `idx_buyer_openid` (`buyer_openid`)<br>
+) comment '订单表';</p>
+<p> </p>
+<p>-- yjb<br>
+create table `order_detail`(<br>
+    `detail_id` varchar(32) not null ,<br>
+    `order_id` varchar(32)  not null,<br>
+    `product_id` varchar(32) not null,<br>
+    `product_name` varchar(64) not null comment '商品名字',<br>
+    `product_price` decimal(8,2) not null comment '商品价格',<br>
+    `product_quantity` int not null comment '商品数量',<br>
+    `product_icon` varchar(512) comment '商品小图',<br>
+    `create_time` timestamp not null default current_timestamp comment '创建时间',<br>
+    `update_time` timestamp not null default current_timestamp on update current_timestamp comment '更新时间',  -- MYSQL5.7才可以default current_timestamp        <br>
+    primary key (`detail_id`),<br>
+    key `idx_order_id` (`detail_id`)<br>
+) comment '订单详情表';<br>
+ </p>
+<p>create table `order_detail`(<br>
+    `detail_id` varchar(32) not null,<br>
+    `order_id` varchar(32) not null,<br>
+    `product_id` varchar(32) not null,<br>
+    `product_name` varchar(64) not null comment '商品名字',<br>
+    `product_price` decimal(8,2) not null comment '商品价格',<br>
+    `product_quantity` int not null comment '商品数量',<br>
+ `product_icon` varchar(512) comment '商品小图',<br>
+ `create_time` timestamp not null default current_timestamp comment '创建时间',<br>
+ `update_time` timestamp not null default current_timestamp on update current_timestamp comment '更新时间',  -- MYSQL5.7才可以default current_timestamp<br>
+ primary key (`detail_id`),<br>
+ key `idx_order_id`(`order_id`)<br>
+) comment '订单详情表';</p>
+<p> </p>
+<p>    key 'idx_order_id'  ('order_id')         建立索引    ‘idx_order_id’  是索引名字     一般是idx开头</p>
+<p><img alt="" class="has" height="151" src="https://img-blog.csdnimg.cn/20190303211449353.png" width="247"></p>
+<p> </p>
+<p><img alt="" class="has" height="354" src="https://img-blog.csdnimg.cn/20190303211556889.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="558"></p>
+<p><img alt="" class="has" height="269" src="https://img-blog.csdnimg.cn/20190303211629125.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="391"></p>
+<p><img alt="" class="has" height="394" src="https://img-blog.csdnimg.cn/20190303211648554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="617"></p>
+<p><img alt="" class="has" height="345" src="https://img-blog.csdnimg.cn/20190303211717252.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="575"></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><img alt="" class="has" height="393" src="https://img-blog.csdnimg.cn/20190303173136372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="622"></p>
+<p> </p>
+<p> </p>
+<p>2-3看完了</p>
+<p> </p>
+<p>20190304   9:00开始第几个视频来着</p>
+<p style="margin-left:0cm;">3-1开发环境搭建</p>
+<p style="margin-left:0cm;">虚拟机的使用   在网上学习了 vue.js这门课</p>
+<p> </p>
+<p><img alt="" class="has" height="525" src="https://img-blog.csdnimg.cn/20190304140629281.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="928"></p>
+<p><img alt="" class="has" height="573" src="https://img-blog.csdnimg.cn/2019030414070457.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="998"></p>
+<p style="margin-left:0cm;">安装成功后</p>
+<p><img alt="" class="has" height="707" src="https://img-blog.csdnimg.cn/20190304140820387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="922"></p>
+<p>管理---&gt;导入虚拟电脑</p>
+<p><img alt="" class="has" height="461" src="https://img-blog.csdnimg.cn/20190304165745360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="864"></p>
+<p><img alt="" class="has" height="563" src="https://img-blog.csdnimg.cn/2019030416580118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="698"></p>
+<p> </p>
+<p> </p>
+<p><img alt="" class="has" height="676" src="https://img-blog.csdnimg.cn/20190304140755346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="936"></p>
+<p style="margin-left:0cm;">双击就可以导入虚拟机了</p>
+<p><img alt="" class="has" height="701" src="https://img-blog.csdnimg.cn/20190304140839265.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="767"></p>
+<p><img alt="" class="has" height="424" src="https://img-blog.csdnimg.cn/20190304133818739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="433" src="https://img-blog.csdnimg.cn/20190304140856242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="830"></p>
+<p><img alt="" class="has" height="414" src="https://img-blog.csdnimg.cn/20190304133731152.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="497" src="https://img-blog.csdnimg.cn/20190304133736451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="465" src="https://img-blog.csdnimg.cn/201903041337449.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="327"></p>
+<p><img alt="" class="has" height="511" src="https://img-blog.csdnimg.cn/20190304133751571.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="404"></p>
+<p><img alt="" class="has" height="354" src="https://img-blog.csdnimg.cn/20190304133756972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="344" src="https://img-blog.csdnimg.cn/20190304133804924.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="493" src="https://img-blog.csdnimg.cn/20190304140943686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="829"></p>
+<p> </p>
+<p style="margin-left:0cm;">网段看不出来（就是你不会网络知识）网段是啥也不知道</p>
+<p><img alt="" class="has" height="277" src="https://img-blog.csdnimg.cn/20190304133831673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="314" src="https://img-blog.csdnimg.cn/20190304133838704.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><br>
+以太网适配器 本地连接:</p>
+<p>   连接特定的 DNS 后缀 . . . . . . . :<br>
+   描述. . . . . . . . . . . . . . . : Realtek PCIe GBE Family Controller<br>
+   物理地址. . . . . . . . . . . . . : 4C-ED-FB-65-48-C4<br>
+   DHCP 已启用 . . . . . . . . . . . : 是<br>
+   自动配置已启用. . . . . . . . . . : 是<br>
+   本地链接 IPv6 地址. . . . . . . . : fe80::95ab:d119:ea4a:c005%12(首选)<br>
+   IPv4 地址 . . . . . . . . . . . . : <span style="color:#f33b45;"><strong>192.168.0.118</strong></span>(首选)<br>
+   子网掩码  . . . . . . . . . . . . : 255.255.255.0<br>
+   获得租约的时间  . . . . . . . . . : 2019年3月4日 星期一 上午 9:38:58<br>
+   租约过期的时间  . . . . . . . . . : 2019年3月4日 星期一 下午 8:09:02<br>
+   默认网关. . . . . . . . . . . . . : 192.168.0.1<br>
+   DHCP 服务器 . . . . . . . . . . . : 192.168.0.1<br>
+   DHCPv6 IAID . . . . . . . . . . . : 256699899<br>
+   DHCPv6 客户端 DUID  . . . . . . . : 00-01-00-01-23-97-B0-93-4C-ED-FB-65-48-C4</p>
+<p>   DNS 服务器  . . . . . . . . . . . : 192.168.0.1<br>
+                                       8.8.8.8<br>
+                                       114.114.114.114<br>
+   TCPIP 上的 NetBIOS  . . . . . . . : 已启用</p>
+<p>以太网适配器 VirtualBox Host-Only Network:</p>
+<p>   连接特定的 DNS 后缀 . . . . . . . :<br>
+   描述. . . . . . . . . . . . . . . : VirtualBox Host-Only Ethernet Adapter<br>
+   物理地址. . . . . . . . . . . . . : 0A-00-27-00-00-17<br>
+   DHCP 已启用 . . . . . . . . . . . : 否<br>
+   自动配置已启用. . . . . . . . . . : 是<br>
+   本地链接 IPv6 地址. . . . . . . . : fe80::fdc4:c0bc:f9ae:d7b2%23(首选)<br>
+   IPv4 地址 . . . . . . . . . . . . : 192.168.56.1(首选)<br>
+   子网掩码  . . . . . . . . . . . . : 255.255.255.0<br>
+   默认网关. . . . . . . . . . . . . :<br>
+   DHCPv6 IAID . . . . . . . . . . . : 386531367<br>
+   DHCPv6 客户端 DUID  . . . . . . . : 00-01-00-01-23-97-B0-93-4C-ED-FB-65-48-C4</p>
+<p>   DNS 服务器  . . . . . . . . . . . : fec0:0:0:ffff::1%1<br>
+                                       fec0:0:0:ffff::2%1<br>
+                                       fec0:0:0:ffff::3%1<br>
+   TCPIP 上的 NetBIOS  . . . . . . . : 已启用</p>
+<p>隧道适配器 isatap.{0D23D3EF-E0A9-4A92-ADB5-E0E20883C764}:<br>
+ </p>
+<p>（虚拟机ping主机）</p>
+<p><img alt="" class="has" height="528" src="https://img-blog.csdnimg.cn/20190304193159477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="763"></p>
+<p>C:\Users\Administrator&gt;ping 192.168.0.162    （主机ping虚拟机）</p>
+<p>正在 Ping 192.168.0.162 具有 32 字节的数据:<br>
+来自 192.168.0.162 的回复: 字节=32 时间&lt;1ms TTL=64<br>
+来自 192.168.0.162 的回复: 字节=32 时间&lt;1ms TTL=64<br>
+来自 192.168.0.162 的回复: 字节=32 时间&lt;1ms TTL=64<br>
+来自 192.168.0.162 的回复: 字节=32 时间&lt;1ms TTL=64</p>
+<p>192.168.0.162 的 Ping 统计信息:<br>
+    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，<br>
+往返行程的估计时间(以毫秒为单位):<br>
+    最短 = 0ms，最长 = 0ms，平均 = 0ms</p>
+<p>C:\Users\Administrator&gt;</p>
+<p> </p>
+<p><a href="https://192.168.0.162/" rel="noopener" target="_blank">http://192.168.0.162/</a></p>
+<p>一定要保证主机和虚拟机要相互ping通   </p>
+<p><img alt="" class="has" height="176" src="https://img-blog.csdnimg.cn/20190304133902413.png" width="554"></p>
+<p><img alt="" class="has" height="218" src="https://img-blog.csdnimg.cn/20190304133907559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p>创建数据库</p>
+<p><img alt="" class="has" height="381" src="https://img-blog.csdnimg.cn/2019030413391397.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="452" src="https://img-blog.csdnimg.cn/20190304133918395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="417" src="https://img-blog.csdnimg.cn/20190304133924821.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="251" src="https://img-blog.csdnimg.cn/20190304194703924.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="631"></p>
+<p><img alt="" class="has" height="209" src="https://img-blog.csdnimg.cn/20190304194847325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="506"></p>
+<p><img alt="" class="has" height="372" src="https://img-blog.csdnimg.cn/20190304133933563.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="296" src="https://img-blog.csdnimg.cn/20190304133938757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554">上面有写过sql的</p>
+<p><img alt="" class="has" height="257" src="https://img-blog.csdnimg.cn/20190304133947841.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="260" src="https://img-blog.csdnimg.cn/20190304133953111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="304" src="https://img-blog.csdnimg.cn/20190304133957850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="172" src="https://img-blog.csdnimg.cn/2019030413400341.png" width="334"></p>
+<p><img alt="" class="has" height="395" src="https://img-blog.csdnimg.cn/20190304134008634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p style="margin-left:0cm;">不然使用官方的下载一下依赖真的是慢成狗了都</p>
+<p><img alt="" class="has" height="234" src="https://img-blog.csdnimg.cn/20190304134018812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="365"></p>
+<p><img alt="" class="has" height="452" src="https://img-blog.csdnimg.cn/20190304134023588.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="585" src="https://img-blog.csdnimg.cn/20190304134031332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="468"></p>
+<p><img alt="" class="has" height="362" src="https://img-blog.csdnimg.cn/20190304134037157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="335" src="https://img-blog.csdnimg.cn/20190304134045778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="326" src="https://img-blog.csdnimg.cn/2019030413405118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="324" src="https://img-blog.csdnimg.cn/20190304134056812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="315" src="https://img-blog.csdnimg.cn/20190304134101966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="299" src="https://img-blog.csdnimg.cn/20190304134106907.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="275" src="https://img-blog.csdnimg.cn/20190304134111457.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="371" src="https://img-blog.csdnimg.cn/2019030413411670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="261" src="https://img-blog.csdnimg.cn/20190304134120951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p><img alt="" class="has" height="280" src="https://img-blog.csdnimg.cn/20190304134125792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="640"></p>
+<p><img alt="" class="has" height="450" src="https://img-blog.csdnimg.cn/20190304134135508.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="805"></p>
+<p style="margin-left:0cm;"><img alt="" class="has" height="400" src="https://img-blog.csdnimg.cn/20190305113524736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1033"></p>
+<p style="margin-left:0cm;">之后就在这个项目中测试代码了</p>
+<p style="margin-left:0cm;"> </p>
+<p style="margin-left:0cm;"> </p>
+<p style="margin-left:0cm;">日志</p>
+<p><img alt="" class="has" height="184" src="https://img-blog.csdnimg.cn/20190304134152379.png" width="182"></p>
+<p><img alt="" class="has" height="175" src="https://img-blog.csdnimg.cn/20190304134156442.png" width="336"></p>
+<p><img alt="" class="has" height="220" src="https://img-blog.csdnimg.cn/20190304134159496.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="332"></p>
+<p><img alt="" class="has" height="228" src="https://img-blog.csdnimg.cn/20190304134206647.png" width="328"></p>
+<p><img alt="" class="has" height="215" src="https://img-blog.csdnimg.cn/20190304134211638.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="325"></p>
+<p><img alt="" class="has" height="579" src="https://img-blog.csdnimg.cn/20190305152104571.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1055"></p>
+<p><img alt="" class="has" height="447" src="https://img-blog.csdnimg.cn/20190305162457704.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="727"></p>
+<p><img alt="" class="has" height="264" src="https://img-blog.csdnimg.cn/20190305162528824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="449"></p>
+<p>如何下载源码？？  基本上每个视频都有一个配套的源码 （就是tag）  有的没有  但是关系不大   </p>
+<p>视频老师保留了每个版本的代码</p>
+<p>教一下大家gitee如何下载源码每个分支切换 下载</p>
+<p><img alt="" class="has" height="417" src="https://img-blog.csdnimg.cn/2019030518502062.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="736"></p>
+<p><img alt="" class="has" height="261" src="https://img-blog.csdnimg.cn/20190305185115100.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="554"></p>
+<p> </p>
+<p><img alt="" class="has" height="429" src="https://img-blog.csdnimg.cn/20190305185040307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="709"></p>
+<p>如何查看对应分支的代码？？</p>
+<p><img alt="" class="has" height="522" src="https://img-blog.csdnimg.cn/20190305184538598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="741"></p>
+<p><img alt="" class="has" height="247" src="https://img-blog.csdnimg.cn/20190305184641200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="515"></p>
+<p><img alt="" class="has" height="504" src="https://img-blog.csdnimg.cn/20190305184808102.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="615"></p>
+<p><img alt="" class="has" height="491" src="https://img-blog.csdnimg.cn/20190305185352917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="725"></p>
+<p>git 不会赶紧去学一下    公司基本都是用的    不会就麻烦了  </p>
+<p> </p>
+<p>4-1 买家类目-dao（上）</p>
+<p><img alt="" class="has" height="367" src="https://img-blog.csdnimg.cn/20190305185639950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="405"></p>
+<p><img alt="" class="has" height="473" src="https://img-blog.csdnimg.cn/2019030518571072.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="657"></p>
+<p><img alt="" class="has" height="526" src="https://img-blog.csdnimg.cn/20190305192413555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="864"></p>
+<p><img alt="" class="has" height="503" src="https://img-blog.csdnimg.cn/20190305192525710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="835"></p>
+<p><img alt="" class="has" height="410" src="https://img-blog.csdnimg.cn/20190305192634109.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="893"></p>
+<p>修改pom.xml就要刷新一下</p>
+<p>创建数据库表映射过来的对象</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Spring Boot 引入spring-boot-starter-data-jpa包报错 <br><img alt="这里写图片描述" class="has" src="https://img-blog.csdn.net/20180830105802946?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3MjEzNTcz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"><br>
+解决：需要把pom文件重新加载一下 <br><img alt="这里写图片描述" class="has" src="https://img-blog.csdn.net/20180830105955295?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3MjEzNTcz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>廖师兄SpringBoot微信点餐实战项目视频</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>廖师兄SpringBoot微信点餐实战项目视频</p>
+<p>廖师兄SpringBoot微信点餐实战项目视频</p>
+<p> </p>
+<p> </p>
+<p> </p>
+</div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/85773430/" data-toggle="tooltip" data-placement="top" title="第13步 用户模块前端（Admin）">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/huwh_" target="_blank">CSDN Blog 胡伟煌</a></li>
+                    
+                        <li><a href="http://dockone.io/people/胡伟煌" target="_blank">DockOne 胡伟煌</a></li>
+                    
+                        <li><a href="https://yq.aliyun.com/u/huweihuang" target="_blank">阿里云栖社区 胡伟煌</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/huweihuang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2019 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.huweihuang.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://www.huweihuang.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

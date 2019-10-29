@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          最新版Intellij IDEA视频教程  20170814 - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.huweihuang.com/article/87854701/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>最新版Intellij IDEA视频教程  20170814</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2019-10-29
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+<p>01课程介绍和软件安装.avi</p>
+<p>02Intellij IDEA常用快捷键1132.avi</p>
+<p>03Intellij IDEA安装Tomcat和Maven.avi</p>
+<p>04Intellij IDEA使用Maven Helper插件分.avi</p>
+<p>05Intellij IDEA中Git安装和使用.avi</p>
+<p>06Intellij IDEA连接MySQL数据库.avi</p>
+<p>07Intellij IDE使用GsonFormat转化json.avi</p>
+<p>08Intellij IDEA使用Markdown文本编辑器.avi</p>
+<p>09Intellij IDEA使用FindBugs查找bug.avi</p>
+<p>10Intellij IDEA使用ECTranslation翻译.avi</p>
+<p>11Intellij IDEA使用CheckStyle-IDEA.avi</p>
+<p>12Intellij IDEA使用MyBatisCodeHelp.avi</p>
+<p> </p>
+<p>idea  和 eclipse  是目前主流的开发软件</p>
+<p>idea 开发工具有很多的好用工具</p>
+<p><img alt="" class="has" height="410" src="https://img-blog.csdnimg.cn/20190221091818578.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="552"></p>
+<p>01课程介绍和软件安装.avi</p>
+<p>百度搜索软件安装即可  idea2017.2.1         注册码自己可以注册</p>
+<p>*****************************************************************************************************************************</p>
+<p>02Intellij IDEA常用快捷键1132.avi</p>
+<p>快捷键设置为eclipse风格</p>
+<p><img alt="" class="has" height="573" src="https://img-blog.csdnimg.cn/20190221092437182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1046"></p>
+<p><img alt="" class="has" height="572" src="https://img-blog.csdnimg.cn/20190221092520981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="865"></p>
+<p><img alt="" class="has" height="505" src="https://img-blog.csdnimg.cn/20190221092557741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="653"></p>
+<p>非常常用的快捷键     加快开发速度</p>
+<p>ctrl+shift+r     查找某个文件</p>
+<p>选中某个类名   ctrl+o     可以查看当前类下的所有方法</p>
+<p>ctrl+F   查找</p>
+<p>ctrl+D   删除这行</p>
+<p>ctrl+alt+向下键     复制这行</p>
+<p>alt+回车    导入包</p>
+<p>alt+insert     生成构造函数  和   set 和get函数    tostring()    equals()和hashcode()     </p>
+<p>sout       生成输出system.out.println();</p>
+<p>psvm     生成main方法</p>
+<p>选中类   按住ctrl+H    可以查找该类   在那些文件中使用到了  --- 好像不行   find in path</p>
+<p><img alt="" class="has" height="884" src="https://img-blog.csdnimg.cn/20190223202851246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="650"></p>
+<p>上面这些要记住  又不是很多....</p>
+<p>快捷键很多一定要总结  记到自己的笔记本上</p>
+<p>例如</p>
+<p><img alt="" class="has" height="567" src="https://img-blog.csdnimg.cn/20190222093907401.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="977"></p>
+<p>做笔记是非常好的习惯  ---老师      推荐使用有道笔记或者印象笔记</p>
+<p><img alt="" class="has" height="503" src="https://img-blog.csdnimg.cn/20190222094039670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="550"></p>
+<p>这个习惯好    大家可以借鉴一下---老师</p>
+<p>*****************************************************************************************************************************</p>
+<p>03Intellij IDEA安装Tomcat和Maven.avi</p>
+<p>百度下载maven  很简单</p>
+<p><img alt="" class="has" height="640" src="https://img-blog.csdnimg.cn/20190222095123934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1156"></p>
+<p>File---》Setting</p>
+<p><img alt="" class="has" height="664" src="https://img-blog.csdnimg.cn/20190222095511117.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="631" src="https://img-blog.csdnimg.cn/20190222095738680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1147"></p>
+<p><img alt="" class="has" height="510" src="https://img-blog.csdnimg.cn/20190222095932106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1186"></p>
+<p><img alt="" class="has" height="525" src="https://img-blog.csdnimg.cn/20190222100106407.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1192"></p>
+<p><img alt="" class="has" height="521" src="https://img-blog.csdnimg.cn/20190222100159805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="423" src="https://img-blog.csdnimg.cn/20190222100311352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="396" src="https://img-blog.csdnimg.cn/20190222100426762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="638"></p>
+<p>meaven安装讲解完了</p>
+<p><img alt="" class="has" height="553" src="https://img-blog.csdnimg.cn/20190222100652696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="828"></p>
+<p><img alt="" class="has" height="781" src="https://img-blog.csdnimg.cn/20190223134413887.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="911"></p>
+<p><img alt="" class="has" height="760" src="https://img-blog.csdnimg.cn/20190223134453653.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1039"></p>
+<p><img alt="" class="has" height="650" src="https://img-blog.csdnimg.cn/20190223134537644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1064"></p>
+<p><img alt="" class="has" height="678" src="https://img-blog.csdnimg.cn/20190223134701812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1098"></p>
+<p><img alt="" class="has" height="665" src="https://img-blog.csdnimg.cn/20190223134739543.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="618" src="https://img-blog.csdnimg.cn/20190223135104485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="781"></p>
+<p><img alt="" class="has" height="757" src="https://img-blog.csdnimg.cn/20190223135229203.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="995"></p>
+<p><img alt="" class="has" height="662" src="https://img-blog.csdnimg.cn/20190223135316294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1059"></p>
+<p> </p>
+<p>*****************************************************************************************************************************</p>
+<p>04Intellij IDEA使用Maven Helper插件分.avi</p>
+<p>这个插件用来管理pom.xml文件的    </p>
+<p><img alt="" class="has" height="679" src="https://img-blog.csdnimg.cn/20190223135503167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="836"></p>
+<p><img alt="" class="has" height="668" src="https://img-blog.csdnimg.cn/20190223135729815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1198"></p>
+<p>打开pom文件就可以看到插件的效果了</p>
+<p><img alt="" class="has" height="682" src="https://img-blog.csdnimg.cn/2019022314012936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1142"></p>
+<p><img alt="" class="has" height="733" src="https://img-blog.csdnimg.cn/20190223140902735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="571" src="https://img-blog.csdnimg.cn/20190223141051998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1000"></p>
+<p><img alt="" class="has" height="671" src="https://img-blog.csdnimg.cn/20190223141231126.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="982"></p>
+<p><img alt="" class="has" height="692" src="https://img-blog.csdnimg.cn/20190223141412171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1089"></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><img alt="" class="has" height="521" src="https://img-blog.csdnimg.cn/20190223141826588.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1016"></p>
+<p><img alt="" class="has" height="500" src="https://img-blog.csdnimg.cn/2019022314194238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="919"></p>
+<p><img alt="" class="has" height="650" src="https://img-blog.csdnimg.cn/20190223143352664.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="937"></p>
+<pre class="has">
+<code class="language-html">&lt;exclusions&gt;这个标签是插件主动帮助我们加的  节约了我们很多时间</code></pre>
+<p>确实非常好用  可以为我们节省好多的时间</p>
+<p>*****************************************************************************************************************************</p>
+<p>05Intellij IDEA中Git安装和使用.avi</p>
+<p>git 下载</p>
+<p><img alt="" class="has" height="642" src="https://img-blog.csdnimg.cn/20190223151753996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="890"></p>
+<p><img alt="" class="has" height="712" src="https://img-blog.csdnimg.cn/20190223151827901.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="958"></p>
+<p>idea上安装git   </p>
+<p>File--》setting</p>
+<p><img alt="" class="has" height="738" src="https://img-blog.csdnimg.cn/20190223151916218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1121"></p>
+<p><img alt="" class="has" height="621" src="https://img-blog.csdnimg.cn/20190223152126539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="521" src="https://img-blog.csdnimg.cn/20190223152140731.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1052"></p>
+<p><img alt="" class="has" height="714" src="https://img-blog.csdnimg.cn/20190223152236727.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="701" src="https://img-blog.csdnimg.cn/20190223152341144.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="833"></p>
+<p><img alt="" class="has" height="675" src="https://img-blog.csdnimg.cn/20190223152415394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="934"></p>
+<p><img alt="" class="has" height="681" src="https://img-blog.csdnimg.cn/20190223152553392.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="933"></p>
+<p><img alt="" class="has" height="561" src="https://img-blog.csdnimg.cn/20190223152807246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="806"></p>
+<p><img alt="" class="has" height="489" src="https://img-blog.csdnimg.cn/20190223152836900.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="771"></p>
+<p><img alt="" class="has" height="711" src="https://img-blog.csdnimg.cn/20190223152857156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="900"></p>
+<p><img alt="" class="has" height="705" src="https://img-blog.csdnimg.cn/20190223152926181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="739" src="https://img-blog.csdnimg.cn/2019022315295684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="663" src="https://img-blog.csdnimg.cn/20190223153029685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1157"></p>
+<p><img alt="" class="has" height="738" src="https://img-blog.csdnimg.cn/20190223153134635.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="580" src="https://img-blog.csdnimg.cn/2019022315330641.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1168"></p>
+<p><img alt="" class="has" height="817" src="https://img-blog.csdnimg.cn/2019022315341180.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="747" src="https://img-blog.csdnimg.cn/2019022315360156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="908"></p>
+<p><img alt="" class="has" height="724" src="https://img-blog.csdnimg.cn/20190223153648318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1038"></p>
+<p><img alt="" class="has" height="538" src="https://img-blog.csdnimg.cn/20190223153731506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="979"></p>
+<p><img alt="" class="has" height="511" src="https://img-blog.csdnimg.cn/20190223153814719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="901"></p>
+<p><img alt="" class="has" height="349" src="https://img-blog.csdnimg.cn/20190223153928917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="832"></p>
+<p> </p>
+<h1 id="gitee码云-github同时配置ssh-key">Gitee(码云)、Github同时配置ssh key</h1>
+<p>2018年07月06日 21:03:35 <a href="https://me.csdn.net/weixin_36191602" rel="noopener" target="_blank">_Liz</a> 阅读数：3039更多</p>
+<p>所属专栏： <a href="https://blog.csdn.net/column/details/21903.html" rel="noopener" target="_blank">Linux</a></p>
+<p> 版权声明： https://blog.csdn.net/weixin_36191602/article/details/80946242</p>
+<p> </p>
+<p><a id="cd_ssh_0"></a>一、<code>cd ~/.ssh</code></p>
+<p><a id="key_1"></a>二、通过下面的命令，依次生成两个平台的key</p>
+<pre class="has">
+<code>$ ssh-keygen -t rsa -C "xxxxxxx@qq.com" -f "github_id_rsa"
+$ ssh-keygen -t rsa -C "xxxxxxx@qq.com" -f "gitee_id_rsa"
+</code></pre>
+<ul><li> </li>
+</ul><p>完成后，.ssh文件夹生成以下文件<br><img alt="" class="has" src="https://img-blog.csdn.net/20180706204827787?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNjE5MTYwMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<p><a id="public_keygiteegithub_8"></a>三、把public key复制到gitee和github</p>
+<p>执行命令<code>cat github_id_rsa.pub</code>把第二行到结尾的内容复制到github的ssh中保存<br><img alt="" class="has" src="https://img-blog.csdn.net/20180706205317167?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNjE5MTYwMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"><br>
+同样的操作，添加gitee的ssh</p>
+<p><a id="configssh_12"></a>四、创建config文件解决ssh冲突</p>
+<p>在.ssh文件夹下执行命令<code>vi config</code><br>
+文件中添加以下内容</p>
+<pre class="has">
+<code># gitee
+Host gitee.com
+HostName gitee.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/gitee_id_rsa
+
+# github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/github_id_rsa
+</code></pre>
+<p><a id="_28"></a>五、测试</p>
+<p>执行<br><code>ssh -T git@gitee.com</code><br>
+成功则返回<br><code>Welcome to Gitee.com ,yourname!</code><br>
+执行<br><code>ssh -T git@github.com</code><br>
+成功则返回<br><code>Hi xxx! You've successfully authenticated, but GitHub does not provide shell access.</code></p>
+<p>*****************************************************************************************************************************</p>
+<p>06Intellij IDEA连接MySQL数据库.avi</p>
+<p><img alt="" class="has" height="640" src="https://img-blog.csdnimg.cn/20190223160607705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="913"></p>
+<p><img alt="" class="has" height="737" src="https://img-blog.csdnimg.cn/20190223160721561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="670"></p>
+<p><img alt="" class="has" height="653" src="https://img-blog.csdnimg.cn/20190223162159306.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="895"></p>
+<p><img alt="" class="has" height="620" src="https://img-blog.csdnimg.cn/201902231622562.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="912"></p>
+<p><img alt="" class="has" height="435" src="https://img-blog.csdnimg.cn/20190223162356329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1132"></p>
+<p><img alt="" class="has" height="486" src="https://img-blog.csdnimg.cn/2019022316243587.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="596"></p>
+<p><img alt="" class="has" height="420" src="https://img-blog.csdnimg.cn/20190223162532867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="758"></p>
+<p><img alt="" class="has" height="652" src="https://img-blog.csdnimg.cn/20190223162823751.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="624"></p>
+<p><img alt="" class="has" height="402" src="https://img-blog.csdnimg.cn/20190223162903631.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="682"></p>
+<p><img alt="" class="has" height="685" src="https://img-blog.csdnimg.cn/20190223163211894.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1034"></p>
+<p><img alt="" class="has" height="663" src="https://img-blog.csdnimg.cn/20190223163322295.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p> </p>
+<p>*****************************************************************************************************************************</p>
+<p>07Intellij IDE使用GsonFormat转化json.avi</p>
+<p>idea方便的   json转换为java对象   非常方便    提高我们的开发效率</p>
+<p><img alt="" class="has" height="560" src="https://img-blog.csdnimg.cn/20190223164626486.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="869"></p>
+<p><img alt="" class="has" height="633" src="https://img-blog.csdnimg.cn/20190223164809386.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1018"></p>
+<p>alt+s    和  alt+insert    都是可以的</p>
+<p>{"msg":"当天没有专家排班！","returnNo":"333"}</p>
+<p><img alt="" class="has" height="505" src="https://img-blog.csdnimg.cn/20190223164907506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="743"></p>
+<p><img alt="" class="has" height="601" src="https://img-blog.csdnimg.cn/20190223164936787.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="938"></p>
+<p><img alt="" class="has" height="640" src="https://img-blog.csdnimg.cn/20190223165113168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="993"></p>
+<p><img alt="" class="has" height="665" src="https://img-blog.csdnimg.cn/20190223165207304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="910"></p>
+<p>这个虽然用的不是很多       但是有一天很复杂的json就可以用这个插件    可以快速的生成java对象</p>
+<p> </p>
+<p>*****************************************************************************************************************************</p>
+<p>08Intellij IDEA使用Markdown文本编辑器.avi</p>
+<p>markdown   现在是非常的流行的    我们可以写出非常漂亮的文章来  </p>
+<p><img alt="" class="has" height="618" src="https://img-blog.csdnimg.cn/20190223171410322.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="796"></p>
+<p><img alt="" class="has" height="663" src="https://img-blog.csdnimg.cn/20190223171507830.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1156"></p>
+<p><img alt="" class="has" height="578" src="https://img-blog.csdnimg.cn/2019022317155181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="851"></p>
+<p>开发过程中我们需要写一些开发文档    我们就可以使用这些   markdown创建好看的文本文档</p>
+<p>一个#代表一级标题</p>
+<p>2个#代表二级标题</p>
+<p>-加空格代表  列表     -  ；-  ；</p>
+<p>**我是加粗部分**       2个星号之间是加粗的文字部分</p>
+<p>当然idea支持的markdown是非常弱的  还是我上课用的这个markdown比较好用</p>
+<p><img alt="" class="has" height="703" src="https://img-blog.csdnimg.cn/20190223171823992.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="987"></p>
+<p><img alt="" class="has" height="595" src="https://img-blog.csdnimg.cn/20190223172026278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1064"></p>
+<p><img alt="" class="has" height="650" src="https://img-blog.csdnimg.cn/20190223172142744.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1145"></p>
+<p> </p>
+<p>*****************************************************************************************************************************</p>
+<p>09Intellij IDEA使用FindBugs查找bug.avi</p>
+<p>代码越写越多   bug是不容易找到的使用插件可以帮助我们快速定位bug  </p>
+<p><img alt="" class="has" height="642" src="https://img-blog.csdnimg.cn/20190223190703222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p> </p>
+<p><img alt="" class="has" height="687" src="https://img-blog.csdnimg.cn/20190223190757887.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="722" src="https://img-blog.csdnimg.cn/20190223190843207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1042"></p>
+<p><img alt="" class="has" height="747" src="https://img-blog.csdnimg.cn/20190223190924723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1010"></p>
+<p><img alt="" class="has" height="735" src="https://img-blog.csdnimg.cn/20190223191005931.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="921"></p>
+<p><img alt="" class="has" height="501" src="https://img-blog.csdnimg.cn/20190223191050921.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="944"></p>
+<p><img alt="" class="has" height="570" src="https://img-blog.csdnimg.cn/20190223191444986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1163"></p>
+<p><img alt="" class="has" height="650" src="https://img-blog.csdnimg.cn/20190223191635778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="713" src="https://img-blog.csdnimg.cn/201902231917024.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="742" src="https://img-blog.csdnimg.cn/20190223191748101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1199"></p>
+<p><img alt="" class="has" height="700" src="https://img-blog.csdnimg.cn/20190223191838328.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="735" src="https://img-blog.csdnimg.cn/20190223192003844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1038"></p>
+<p><img alt="" class="has" height="792" src="https://img-blog.csdnimg.cn/20190223192110753.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1045"></p>
+<p><img alt="" class="has" height="733" src="https://img-blog.csdnimg.cn/20190223192312796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="853"></p>
+<p><img alt="" class="has" height="734" src="https://img-blog.csdnimg.cn/20190223192451319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="804"></p>
+<p>可以了解一下    还是很有用  可以快速定位问题</p>
+<p>*****************************************************************************************************************************</p>
+<p>10Intellij IDEA使用ECTranslation翻译.avi</p>
+<p><img alt="" class="has" height="761" src="https://img-blog.csdnimg.cn/20190223203549678.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1180"></p>
+<p><img alt="" class="has" height="694" src="https://img-blog.csdnimg.cn/20190223203628818.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1143"></p>
+<p><img alt="" class="has" height="473" src="https://img-blog.csdnimg.cn/20190223203705114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="847"></p>
+<p><img alt="" class="has" height="711" src="https://img-blog.csdnimg.cn/2019022320405230.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1094"></p>
+<p> </p>
+<p>*****************************************************************************************************************************</p>
+<p>11Intellij IDEA使用CheckStyle-IDEA.avi</p>
+<p><img alt="" class="has" height="605" src="https://img-blog.csdnimg.cn/20190223204955983.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1059"></p>
+<p><img alt="" class="has" height="711" src="https://img-blog.csdnimg.cn/20190223205021385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="861"></p>
+<p><img alt="" class="has" height="751" src="https://img-blog.csdnimg.cn/20190223205149198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="686"></p>
+<p><img alt="" class="has" height="779" src="https://img-blog.csdnimg.cn/20190223205211571.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="671"></p>
+<p><img alt="" class="has" height="587" src="https://img-blog.csdnimg.cn/20190223205249110.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="803"></p>
+<p><img alt="" class="has" height="637" src="https://img-blog.csdnimg.cn/20190223205326935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="666"></p>
+<p><img alt="" class="has" height="837" src="https://img-blog.csdnimg.cn/2019022320541113.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="692"></p>
+<p><img alt="" class="has" height="721" src="https://img-blog.csdnimg.cn/2019022320553531.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="934"></p>
+<p><img alt="" class="has" height="615" src="https://img-blog.csdnimg.cn/20190223205604460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="808"></p>
+<p><img alt="" class="has" height="710" src="https://img-blog.csdnimg.cn/20190223205705184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1186"></p>
+<p><img alt="" class="has" height="658" src="https://img-blog.csdnimg.cn/20190223205753570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1095"></p>
+<p>可以按照自己公司的代码规范     写对应的样式</p>
+<p> </p>
+<p> </p>
+<p>*****************************************************************************************************************************</p>
+<p>12Intellij IDEA使用MyBatisCodeHelp.avi      要收费没练习了</p>
+<p><img alt="" class="has" height="601" src="https://img-blog.csdnimg.cn/20190223210133101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="975"></p>
+<p> </p>
+<p><img alt="" class="has" height="653" src="https://img-blog.csdnimg.cn/20190223210352294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="933"></p>
+<p><img alt="" class="has" height="561" src="https://img-blog.csdnimg.cn/20190223210458782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="827"></p>
+<p><img alt="" class="has" height="558" src="https://img-blog.csdnimg.cn/20190223210531629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="781"></p>
+<p><img alt="" class="has" height="686" src="https://img-blog.csdnimg.cn/20190223210543311.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="904"></p>
+<p><img alt="" class="has" height="661" src="https://img-blog.csdnimg.cn/20190223210556128.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1059"></p>
+<p> </p>
+<p><img alt="" class="has" height="655" src="https://img-blog.csdnimg.cn/20190223210635150.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="616" src="https://img-blog.csdnimg.cn/20190223210716576.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1061"></p>
+<p><img alt="" class="has" height="593" src="https://img-blog.csdnimg.cn/20190223210857559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="902"></p>
+<p><img alt="" class="has" height="599" src="https://img-blog.csdnimg.cn/20190223210933324.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1114"></p>
+<p><img alt="" class="has" height="578" src="https://img-blog.csdnimg.cn/2019022321101377.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1089"></p>
+<p><img alt="" class="has" height="635" src="https://img-blog.csdnimg.cn/20190223211045650.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+<p><img alt="" class="has" height="561" src="https://img-blog.csdnimg.cn/2019022321134011.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="980"></p>
+<p><strong>*Mapper.xml配置文件  写的扫描的文件类型  名字要修改！！！！！</strong></p>
+<p><img alt="" class="has" height="599" src="https://img-blog.csdnimg.cn/20190223211603687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1114"></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p> </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/87861236/" data-toggle="tooltip" data-placement="top" title="pagerhelper">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/87382856/" data-toggle="tooltip" data-placement="top" title="毕业设计word  表格标题   图表标题">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/huwh_" target="_blank">CSDN Blog 胡伟煌</a></li>
+                    
+                        <li><a href="http://dockone.io/people/胡伟煌" target="_blank">DockOne 胡伟煌</a></li>
+                    
+                        <li><a href="https://yq.aliyun.com/u/huweihuang" target="_blank">阿里云栖社区 胡伟煌</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/huweihuang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2019 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.huweihuang.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://www.huweihuang.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
