@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          mysql5.5安装配置  在阿里云服务器上  本地navicat连接 - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wangmh1995.gitee.io/article/97784184/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>mysql5.5安装配置  在阿里云服务器上  本地navicat连接</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2019-07-30
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+                                            <p> </p>
+
+<h1 id="mysql-55安装配置教程">MySQL 5.5安装配置教程.</h1>
+
+<p>2018年03月20日 19:18:49 <a href="https://me.csdn.net/weixin_38239039" rel="noopener" data-token="cf4c25dd7fdad885bdce2edd98a50502" target="_blank">沸点数据</a> 阅读数 18046</p>
+
+<p>1、官网下载MySQL 5.5。</p>
+
+<p>下载地址：https://dev.mysql.com/downloads/mysql/5.5.html#downloads</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320185250289?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p> </p>
+
+<p>2、安装MySQL5.5</p>
+
+<p>注意：安装之前，请关闭杀毒软件。</p>
+
+<p>（1）打开下载的mysql-5.5.59-winx64.msi</p>
+
+<p>（2）点击Next</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320185800247?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（3）选中复选框，选择下一步。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/201803201858466?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（4）选择自定义安装。选择安装类型，有“Typical（默认）”、“Complete（完全）”、“Custom（用户自定义）”三个选项，选择“Custom”，按“next”键继续。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320190214979?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（5）安装路径更改。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320190252410?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/2018032019032939?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（6）点击安装</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320190500598?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（7）点击下一步</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320190514739?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（8）点击finish</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320190528647?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（9）点击Next</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320190730242?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320191018882?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>3、MySQL配置：</p>
+
+<p>（1）安装完成了，出现如下界面将进入mysql配置向导。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320190956197?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（2）选择配置方式，“Detailed Configuration（手动精确配置）”、“Standard Configuration（标准配置）”，我们选择“Detailed Configuration”，方便熟悉配置过程。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320191104236?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（3）选择服务器类型，“Developer Machine（开发测试类，mysql占用很少资源）”、“Server Machine（服务器类型，mysql占用较多资源）”、“Dedicated MySQL Server Machine（专门的数据库服务器，mysql占用所有可用资源）” </p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/2018032019113071?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（4）选择mysql数据库的大致用途，“Multifunctional Database（通用多功能型，好）”、“Transactional Database Only（服务器类型，专注于事务处理，一般）”、“Non-Transactional Database Only（非事务处理型，较简单，主要做一些监控、记数用，对MyISAM数据类型的支持仅限于non-transactional），按“Next”继续。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320191803785?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（5）选择网站并发连接数，同时连接的数目，“DecisionSupport(DSS)/OLAP（20个左右）”、“Online Transaction Processing(OLTP)（500个左右）”、“Manual Setting（手动设置，自己输一个数）”。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320191733547?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320191742544?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（6）是否启用TCP/IP连接，设定端口，如果不启用，就只能在自己的机器上访问mysql数据库了，在这个页面上，您还可以选择“启用标准模式”（Enable Strict Mode），这样MySQL就不会允许细小的语法错误。如果是新手，建议您取消标准模式以减少麻烦。但熟悉MySQL以后，尽量使用标准模式，因为它可以降低有害数据进入数据库的可能性。按“Next”继续。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320191657397?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（7）就是对mysql默认数据库语言编码进行设置（重要），一般选UTF-8，按 “Next”继续。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320191629208?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（8）选择是否将mysql安装为windows服务，还可以指定ServiceName（服务标识名称），是否将mysql的bin目录加入到WindowsPATH（加入后，就可以直接使用bin下的文件，而不用指出目录名，比如连接，“mysql.exe-uusername -ppassword;”就可以了，不用指出mysql.exe的完整地址，很方便），我这里全部打上了勾，ServiceName不变。按“Next”继续。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320191601520?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（9）询问是否要修改默认root用户（超级管理）的密码。“Enableroot access from remote machines（是否允许root用户在其它的机器上登陆，如果要安全，就不要勾上，如果要方便，就勾上它）”。最后“Create An Anonymous Account（新建一个匿名用户，匿名用户可以连接数据库，不能操作数据，包括查询）”，一般就不用勾了，设置完毕，按“Next”继续。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320191528228?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p>（10）确认设置无误，按“Execute”使设置生效，即完成MYSQL的安装和配置。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180320191451679?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"><img alt="" class="has" src="https://img-blog.csdn.net/20180320191459590?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+
+<p> </p>
+
+<p><strong>注意：设置完毕，按“Finish”后有一个比较常见的错误，就是不能“Startservice”，一般出现在以前有安装mysql的服务器上，解决的办法，先保证以前安装的mysql服务器彻底卸载掉了；不行的话，检查是否按上面一步所说，之前的密码是否有修改，照上面的操作；如果依然不行，将mysql安装目录下的data文件夹备份，然后删除，在安装完成后，将安装生成的 data文件夹删除，备份的data文件夹移回来，再重启mysql服务就可以了，这种情况下，可能需要将数据库检查一下，然后修复一次，防止数据出错。</strong></p>
+
+<p><strong><img alt="" class="has" src="https://img-blog.csdn.net/20180320191402207?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIzOTAzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></strong></p>
+
+<p> </p>
+
+<p><strong>解决方法：</strong></p>
+
+<p><strong>1, 卸载MySQL</strong></p>
+
+<p><strong>2, WindowsXp系统删除目录C:\Documents and Settings\All Users\Application Data\</strong></p>
+
+<p><strong>windows 7\8\10操作系统删除目录C:\ProgramData\MySQL</strong></p>
+
+<p><strong>3、重新安装就可以了</strong></p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<h1 id="1130-host-xxx-is-not-allowed-to-connect-to-this-mysql-server">1130 - Host XXX is not allowed to connect to this MySQL server。</h1>
+
+<p>2018年08月30日 11:30:25 <a href="https://me.csdn.net/h985161183" rel="noopener" data-token="9ed68261cee164dafa3458a8e8a4d10a" target="_blank">B-W</a> 阅读数 8196</p>
+
+<p>1.在用Navicat配置远程连接Mysql数据库时遇到如下报错信息，这是由于Mysql配置了不支持远程连接引起的。</p>
+
+<p><img alt="" class="has" height="418" src="https://img-blog.csdn.net/20180830112425221?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2g5ODUxNjExODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="475"></p>
+
+<p>2.在安装Mysql数据库的主机上登录root用户：</p>
+
+<p>mysql -u root -p</p>
+
+<p><img alt="" class="has" height="298" src="https://img-blog.csdn.net/20180830112621212?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2g5ODUxNjExODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="517"></p>
+
+<p>3.依次执行如下命令：</p>
+
+<p>use mysq;</p>
+
+<p>select host from user where user='root';</p>
+
+<p>可以看到当前主机配置信息为localhost.</p>
+
+<p><img alt="" class="has" height="191" src="https://img-blog.csdn.net/20180830112659631?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2g5ODUxNjExODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="508"></p>
+
+<p>4.执行update user set host = '%' where user ='root'将Host设置为通配符%。</p>
+
+<p>Host设置了“%”后便可以允许远程访问。</p>
+
+<p><img alt="" class="has" height="231" src="https://img-blog.csdn.net/20180830112758841?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2g5ODUxNjExODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="392"></p>
+
+<p>5.Host修改完成后记得执行flush privilegs使配置立即生效。</p>
+
+<p><img alt="" class="has" height="361" src="https://img-blog.csdn.net/20180830112844313?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2g5ODUxNjExODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="418"></p>
+
+<p>6.使用navicat 成功连接至mysql</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<h1 id="navicat连接不上阿里云mysql的解决方法">Navicat连接不上阿里云Mysql的解决方法</h1>
+
+<p><a href="https://www.jianshu.com/u/e471c4ab14e3" rel="noopener" data-token="46b86574ea89059bcf9e81f209c0c4a2" target="_blank"><img alt="96" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQuamlhbnNodS5pby91c2Vycy91cGxvYWRfYXZhdGFycy83NjQ0NzY4L2NiMmNmOGY0LWRhNTgtNGI2ZS04NjVlLTVmNWI1NzdkNmZmNi5qcGc_aW1hZ2VNb2dyMi9hdXRvLW9yaWVudC9zdHJpcHxpbWFnZVZpZXcyLzEvdy85Ni9oLzk2"></a> <a href="https://www.jianshu.com/u/e471c4ab14e3" rel="noopener" data-token="46b86574ea89059bcf9e81f209c0c4a2" target="_blank">大头菜学长</a> <a>关注</a></p>
+
+<p>2019.05.16 16:03* 字数 187 阅读 85评论 0喜欢 0</p>
+
+<p>下面笔者总结了连接不上Mysql时遇到的问题（PS：阿里云的Centos6.8）</p>
+
+<p>Linux系统安装数据库的流程可以参考文章：<a href="https://www.jianshu.com/p/5549939bd218" rel="noopener" data-token="a2d2d3948f9fb019fa21810dc1585183" target="_blank">Linux环境下安装MySQL数据库</a></p>
+
+<p> </p>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy83NjQ0NzY4LTM4NjM1MzY0OWE2ZjM3OTcucG5nP2ltYWdlTW9ncjIvYXV0by1vcmllbnQvc3RyaXAlN0NpbWFnZVZpZXcyLzIvdy8xMDAwL2Zvcm1hdC93ZWJw"></p>
+
+<p>首先要确认的是3306端口是不是对外开放了。Mysql默认状态是不开放对外访问的，所以这应该是大多数问题所在。</p>
+
+<p>1.实例列表中点击管理按钮</p>
+
+<p> </p>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy83NjQ0NzY4LTA5ZWZhMzFhMTc3MzE0MTcucG5nP2ltYWdlTW9ncjIvYXV0by1vcmllbnQvc3RyaXAlN0NpbWFnZVZpZXcyLzIvdy8xMDAwL2Zvcm1hdC93ZWJw"></p>
+
+<p>2.点击管理进入实例页面后，选择本实例安全组后，选择配置规则</p>
+
+<p> </p>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy83NjQ0NzY4LTAyZTk1ZGFjZWQ5ZjMyZDUucG5nP2ltYWdlTW9ncjIvYXV0by1vcmllbnQvc3RyaXAlN0NpbWFnZVZpZXcyLzIvdy8xMDAwL2Zvcm1hdC93ZWJw"></p>
+
+<p>3.配置规则页面选择添加安全组规则</p>
+
+<p> </p>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy83NjQ0NzY4LWMzODVjYzRlMDM0NmExNzkucG5nP2ltYWdlTW9ncjIvYXV0by1vcmllbnQvc3RyaXAlN0NpbWFnZVZpZXcyLzIvdy82MDYvZm9ybWF0L3dlYnA"></p>
+
+<p>4.完成配置后就可以连接数据库了</p>
+
+<p> </p>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy83NjQ0NzY4LTczMDNmZjNjNGI3Yzc0MzMucG5nP2ltYWdlTW9ncjIvYXV0by1vcmllbnQvc3RyaXAlN0NpbWFnZVZpZXcyLzIvdy84NTgvZm9ybWF0L3dlYnA"></p>
+
+<p>PS：完美解决...折腾了一个小时</p>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy83NjQ0NzY4LTU2ZWY4NmEyNTIzNDBkMzQucG5nP2ltYWdlTW9ncjIvYXV0by1vcmllbnQvc3RyaXAlN0NpbWFnZVZpZXcyLzIvdy8xMjIvZm9ybWF0L3dlYnA"></p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+                                    </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/97947766/" data-toggle="tooltip" data-placement="top" title="mysql删除索引  增加索引">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/97777278/" data-toggle="tooltip" data-placement="top" title="怎样往阿里云windows服务器传文件">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
+                    
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yangjiabin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2019 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wangmh1995.gitee.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wangmh1995.gitee.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

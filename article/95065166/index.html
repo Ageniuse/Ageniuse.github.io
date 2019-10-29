@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          GitLab创建项目    命令上传代码 - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wangmh1995.gitee.io/article/95065166/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>GitLab创建项目    命令上传代码</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2019-07-08
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+                                            <p>注册哪里要验证点击图片  这里需要外网 有可能</p>
+
+<p> </p>
+
+<p><img alt="" class="has" height="667" src="https://img-blog.csdnimg.cn/20190708155418297.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1059"></p>
+
+<p><img alt="" class="has" height="760" src="https://img-blog.csdnimg.cn/20190708155647342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1042"></p>
+
+<p><img alt="" class="has" height="765" src="https://img-blog.csdnimg.cn/20190708155815604.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1026"></p>
+
+<p><img alt="" class="has" height="363" src="https://img-blog.csdnimg.cn/20190708155926176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="676"></p>
+
+<p>右键gitbash</p>
+
+<p> </p>
+
+<p>首次将本地创建项目推送远程代码仓库</p>
+
+<p>touch readme.md  创建readme文件</p>
+
+<p>git init   初始化git</p>
+
+<p>git status   查看修改状态</p>
+
+<p>git add .    添加至本地仓库管理</p>
+
+<p>git status   检查是否添加成功</p>
+
+<p>git commit -am 'first '   推送本地仓库并加注释</p>
+
+<p>git remote add origin git@gitee.com:yjb1091947832/demoproject.git   连接远程仓库</p>
+
+<p>git branch  查看分支</p>
+
+<p>git push -u origin master  推送远程报错  远程代码确实更新</p>
+
+<p><span style="color:#f33b45;">git pull     按照git提示拉取      **************这里压根就没用到*************</span></p>
+
+<p><span style="color:#f33b45;">git push -u origin master     还是报错</span></p>
+
+<p><span style="color:#f33b45;">git push -u -f origin master     加-f 强行覆盖远程仓库代码  就可以了</span></p>
+
+<p><span style="color:#f33b45;">yjb1091947832@163.com            **************这里压根就没用到*************</span></p>
+
+<p>第二次及以后推送代码至远程仓库</p>
+
+<p>git status   查看修改状态</p>
+
+<p>git add .    添加至本地仓库管理</p>
+
+<p>git status   检查是否添加成功</p>
+
+<p>git commit -am 'second'  本地仓库推送注释</p>
+
+<p>git branch  查看分支</p>
+
+<p>git pull     先拉取防止代码冲突</p>
+
+<p>git push -u origin master    推送   </p>
+
+<p>git push  就可以了</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi<br><span style="color:#f33b45;">$ touch readme.md</span></p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi<br><span style="color:#f33b45;">$ git init</span><br>
+Initialized empty Git repository in E:/unicomWorkSpace/demoproject_GitLabLianxi/.git/</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git status</span><br>
+On branch master</p>
+
+<p>No commits yet</p>
+
+<p>Untracked files:<br>
+  (use "git add &lt;file&gt;..." to include in what will be committed)</p>
+
+<p>        .gitignore<br>
+        1.txt<br>
+        pom.xml<br>
+        readme.md<br>
+        src/</p>
+
+<p>nothing added to commit but untracked files present (use "git add" to track)</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git add .</span><br>
+warning: LF will be replaced by CRLF in .gitignore.<br>
+The file will have its original line endings in your working directory.<br>
+warning: LF will be replaced by CRLF in pom.xml.<br>
+The file will have its original line endings in your working directory.<br>
+warning: LF will be replaced by CRLF in src/main/java/com/unicom/DemoprojectApplication.java.<br>
+The file will have its original line endings in your working directory.<br>
+warning: LF will be replaced by CRLF in src/main/resources/application.yml.<br>
+The file will have its original line endings in your working directory.<br>
+warning: LF will be replaced by CRLF in src/test/java/com/unicom/DemoprojectApplicationTests.java.<br>
+The file will have its original line endings in your working directory.</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git status</span><br>
+On branch master</p>
+
+<p>No commits yet</p>
+
+<p>Changes to be committed:<br>
+  (use "git rm --cached &lt;file&gt;..." to unstage)</p>
+
+<p>        new file:   .gitignore<br>
+        new file:   1.txt<br>
+        new file:   pom.xml<br>
+        new file:   readme.md<br>
+        new file:   src/main/java/com/unicom/DemoprojectApplication.java<br>
+        new file:   src/main/java/com/unicom/common/ResultVOUtil.java<br>
+        new file:   src/main/java/com/unicom/common/ResultVo.java<br>
+        new file:   src/main/java/com/unicom/common/resut.java<br>
+        new file:   src/main/java/com/unicom/controller/UserController.java<br>
+        new file:   src/main/java/com/unicom/dao/UserMapper.java<br>
+        new file:   src/main/java/com/unicom/dataobject/User.java<br>
+        new file:   src/main/java/com/unicom/repository/UserRepository.java<br>
+        new file:   src/main/java/com/unicom/service/UserService.java<br>
+        new file:   src/main/java/com/unicom/service/impl/UserServiceImpl.java<br>
+        new file:   src/main/java/com/unicom/w.java<br>
+        new file:   src/main/resources/application.yml<br>
+        new file:   src/main/resources/mapper/UserMapper.xml<br>
+        new file:   src/test/java/com/unicom/DemoprojectApplicationTests.java<br>
+        new file:   src/test/java/com/unicom/repository/UserRepositoryTest.java</p>
+
+<p><br>
+Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git commit -am '1'</span><br>
+[master (root-commit) 5e6e696] 1<br>
+ 19 files changed, 623 insertions(+)<br>
+ create mode 100644 .gitignore<br>
+ create mode 100644 1.txt<br>
+ create mode 100644 pom.xml<br>
+ create mode 100644 readme.md<br>
+ create mode 100644 src/main/java/com/unicom/DemoprojectApplication.java<br>
+ create mode 100644 src/main/java/com/unicom/common/ResultVOUtil.java<br>
+ create mode 100644 src/main/java/com/unicom/common/ResultVo.java<br>
+ create mode 100644 src/main/java/com/unicom/common/resut.java<br>
+ create mode 100644 src/main/java/com/unicom/controller/UserController.java<br>
+ create mode 100644 src/main/java/com/unicom/dao/UserMapper.java<br>
+ create mode 100644 src/main/java/com/unicom/dataobject/User.java<br>
+ create mode 100644 src/main/java/com/unicom/repository/UserRepository.java<br>
+ create mode 100644 src/main/java/com/unicom/service/UserService.java<br>
+ create mode 100644 src/main/java/com/unicom/service/impl/UserServiceImpl.java<br>
+ create mode 100644 src/main/java/com/unicom/w.java<br>
+ create mode 100644 src/main/resources/application.yml<br>
+ create mode 100644 src/main/resources/mapper/UserMapper.xml<br>
+ create mode 100644 src/test/java/com/unicom/DemoprojectApplicationTests.java<br>
+ create mode 100644 src/test/java/com/unicom/repository/UserRepositoryTest.java</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br>
+$ git remote add origin https://gitlab.com/yangjiabin/demoproject_gitlablianxi.git</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git branch</span><br>
+* master</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git push -u origin master</span><br>
+Counting objects: 39, done.<br>
+Delta compression using up to 4 threads.<br>
+Compressing objects: 100% (26/26), done.<br>
+Writing objects: 100% (39/39), 9.20 KiB | 336.00 KiB/s, done.<br>
+Total 39 (delta 1), reused 0 (delta 0)<br>
+To https://gitlab.com/yangjiabin/demoproject_gitlablianxi.git<br>
+ * [new branch]      master -&gt; master<br>
+Branch 'master' set up to track remote branch 'master' from 'origin'.</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ touch eee.txt</span></p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git status</span><br>
+On branch master<br>
+Your branch is up to date with 'origin/master'.</p>
+
+<p>Untracked files:<br>
+  (use "git add &lt;file&gt;..." to include in what will be committed)</p>
+
+<p>        eee.txt</p>
+
+<p>nothing added to commit but untracked files present (use "git add" to track)</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git add .</span></p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git status</span><br>
+On branch master<br>
+Your branch is up to date with 'origin/master'.</p>
+
+<p>Changes to be committed:<br>
+  (use "git reset HEAD &lt;file&gt;..." to unstage)</p>
+
+<p>        new file:   eee.txt</p>
+
+<p><br>
+Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git commit -am 'second'</span><br>
+[master b15bc46] second<br>
+ 1 file changed, 0 insertions(+), 0 deletions(-)<br>
+ create mode 100644 eee.txt</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git branch</span><br>
+* master</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git pull</span><br>
+Already up to date.</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br><span style="color:#f33b45;">$ git push</span><br>
+Counting objects: 2, done.<br>
+Delta compression using up to 4 threads.<br>
+Compressing objects: 100% (2/2), done.<br>
+Writing objects: 100% (2/2), 220 bytes | 220.00 KiB/s, done.<br>
+Total 2 (delta 1), reused 0 (delta 0)<br>
+To https://gitlab.com/yangjiabin/demoproject_gitlablianxi.git<br>
+   5e6e696..b15bc46  master -&gt; master</p>
+
+<p>Administrator@USER-20170819XG MINGW64 /e/unicomWorkSpace/demoproject_GitLabLianxi (master)<br>
+$<br>
+ </p>
+
+<p><img alt="" class="has" height="795" src="https://img-blog.csdnimg.cn/20190708160817934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1015"></p>
+
+<p><img alt="" class="has" height="840" src="https://img-blog.csdnimg.cn/20190708161037298.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="680"></p>
+
+<p> </p>
+
+<p><img alt="" class="has" height="691" src="https://img-blog.csdnimg.cn/2019070816115090.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1006"></p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+                                    </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/95776125/" data-toggle="tooltip" data-placement="top" title="系统架构设计师考试999999999999">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/95063145/" data-toggle="tooltip" data-placement="top" title="强行覆盖远程的gitlab  出错">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
+                    
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yangjiabin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2019 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wangmh1995.gitee.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wangmh1995.gitee.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

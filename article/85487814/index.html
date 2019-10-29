@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          第9步    spring 配置    springmvc配置 - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wangmh1995.gitee.io/article/85487814/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>第9步    spring 配置    springmvc配置</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2018-12-31
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+                                            <p>spring配置</p>
+
+<p>有5个网址   springboot</p>
+
+<p>再讲一遍  spring的学习最好的方法是运行  官方demo  学习它里面的配置   。</p>
+
+<p>我们不可能一下子理解spring里面的源码   </p>
+
+<p>spring配置直接复制好了      视频老师也是从官方demo中复制过来的</p>
+
+<p><img alt="" class="has" height="658" src="https://img-blog.csdnimg.cn/20181231213236366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="526"></p>
+
+<p><img alt="" class="has" height="439" src="https://img-blog.csdnimg.cn/20181231213311258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="409"></p>
+
+<p><img alt="" class="has" height="632" src="https://img-blog.csdnimg.cn/2018123121340653.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="537"></p>
+
+<p><img alt="" class="has" height="569" src="https://img-blog.csdnimg.cn/20181231213453655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="416"></p>
+
+<p>直接复制</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>********************************************************************************************************************************************</p>
+
+<p>1.首先讲web.xml</p>
+
+<pre class="has">
+<code class="language-html">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5"&gt;
+
+    &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt;
+
+
+
+    &lt;!-- CharacterEncodingFilter  配置过滤器 为了转码用的 --&gt;
+    &lt;filter&gt;
+        &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+        &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;encoding&lt;/param-name&gt;
+            &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+        &lt;/init-param&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;forceEncoding&lt;/param-name&gt;
+            &lt;param-value&gt;true&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/filter&gt;
+    &lt;filter-mapping&gt;
+        &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+        &lt;!--  /*  拦截所有请求 走CharacterEncodingFilter
+             我们就不用再写转utf-8这种了
+           过滤所有的请求    --&gt;
+        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+    &lt;/filter-mapping&gt;
+
+
+
+
+
+    &lt;listener&gt;
+        &lt;!--     web容器启动和关闭的监听器   只是监听web容器的启动和关闭     --&gt;
+        &lt;listener-class&gt;org.springframework.web.context.request.RequestContextListener&lt;/listener-class&gt;
+    &lt;/listener&gt;
+
+
+
+
+
+
+    &lt;listener&gt;
+        &lt;!--  ContextLoaderListener   web容器和spring容器进行整合进行监听     --&gt;
+        &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+    &lt;/listener&gt;
+    &lt;context-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;
+            &lt;!--    指向spring配置文件    --&gt;
+            classpath:applicationContext.xml
+            &lt;!--   ContextLoaderListener 会 通过applicationContext.xml、
+                   将spring容器和web容器进行整合
+             --&gt;
+        &lt;/param-value&gt;
+    &lt;/context-param&gt;
+
+
+
+
+
+
+
+    &lt;servlet&gt;
+        &lt;!--DispatcherServlet    配置spring-mvc   --&gt;
+        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+        
+
+        &lt;!--  指定SpringMVC的文件  不写是   默认dispatcher-servlet.xml名字   --&gt;
+        &lt;!--&lt;init-param&gt;--&gt;
+            &lt;!--&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;--&gt;
+            &lt;!--&lt;param-value&gt;/WEB-INF/spring-mvc.xml&lt;/param-value&gt;--&gt;
+            &lt;!--&lt;param-value&gt;/WEB-INF/xxxx.xml (叫什么名字都可以)&lt;/param-value&gt;--&gt;
+        &lt;!--&lt;/init-param&gt;--&gt;
+        
+        
+        &lt;!--   servlet的配置  当大于等于0 就在容器启动时初始化这个servlet
+        小于0或不指定 只有请求时才初始化servlet--&gt;
+        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+
+
+
+    &lt;servlet-mapping&gt;
+        &lt;!-- DispatcherServlet  dispatcher 引用上面的springmvc配置 拦截所有的*.do   --&gt;
+        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;
+        &lt;!--  springmvc 将所有的*.do进行拦截 --&gt;
+        &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+
+
+    &lt;!--NFDFlightDataTaskListener 监听器--&gt;
+    &lt;!--&lt;listener&gt;--&gt;
+        &lt;!--&lt;listener-class&gt;com.zjyouth.utils.NFDFlightDataTaskListener&lt;/listener-class&gt;--&gt;
+    &lt;!--&lt;/listener&gt;--&gt;
+
+&lt;/web-app&gt;
+
+</code></pre>
+
+<p> </p>
+
+<p>********************************************************************************************************************************************</p>
+
+<p>1.首先讲web.xml</p>
+
+<p>2.再讲一下spring容器的主配置     applicationContext.xml</p>
+
+<pre class="has">
+<code class="language-html">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/task
+     http://www.springframework.org/schema/task/spring-task-3.0.xsd
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"&gt;
+
+
+    &lt;!--    spring容器的主配置   --&gt;
+
+
+    &lt;!--      扫描com.zjyouth下的一些注解 可以很方便的进行注入
+    &lt;context:component-scan base-package="com.zjyouth" annotation-config="true"/&gt;
+  --&gt;
+    &lt;context:component-scan base-package="com.zjut" annotation-config="true"/&gt;
+
+    &lt;!-- 定时 --&gt;
+    &lt;context:component-scan base-package="com.zjyouth.*" /&gt;
+    &lt;task:executor id="executor" pool-size="5" /&gt;
+    &lt;task:scheduler id="scheduler" pool-size="10" /&gt;
+    &lt;task:annotation-driven executor="executor" scheduler="scheduler" /&gt;
+
+
+
+
+    &lt;!--    &lt;context:annotation-config/&gt;--&gt;
+
+
+    &lt;!--
+            在使用spectj注解实现springAOP：
+            1.需要使用@Aspect注解来标注切面
+            2.可以使用@before,@afterRuning,@around,@afterThrowning注解，来标注通知
+            3.必须有切入点point-cut,使用@pointcut(execution(""))注解来标注切入点
+            4.在aop.xml中，需要有
+            https://blog.csdn.net/qq_37761074/article/details/72859266
+            Spring配置- - -&lt;aop:aspectj-autoproxy /&gt;
+            2017年11月01日 11:54:08 阅读数：488更多
+            个人分类： 日记
+            版权声明：本文为博主原创文章，未经博主允许不得转载。 https://blog.csdn.net/ke_zhang_123/article/details/78412536
+            &lt;aop:aspectj-autoproxy proxy-target-class="true"/&gt; 基于类的动态代理(依赖于CGlib库)
+            通过配置织入@Aspectj切面
+    --&gt;
+    &lt;!--  aop的配置   spring配置文分成多个文件   datasource.xml   --&gt;
+    &lt;aop:aspectj-autoproxy/&gt;
+
+
+
+    &lt;!--   spring配置文件  dataSource分出来的子文件  --&gt;
+    &lt;import resource="applicationContext-datasource.xml"/&gt;
+
+
+&lt;/beans&gt;</code></pre>
+
+<p>********************************************************************************************************************************************</p>
+
+<p>1.首先讲web.xml</p>
+
+<p>2.再讲一下spring容器的主配置     applicationContext.xml</p>
+
+<p>3.spring配置文件 dataSource分出来的子文件   applicationContext-datasource.xml</p>
+
+<pre class="has">
+<code class="language-html">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"&gt;
+
+    &lt;!--    spring容器的自配置文件   --&gt;
+    &lt;!--      扫描com.zjyouth下的所有注解 
+ &lt;context:component-scan base-package="com.zjyouth" annotation-config="true"/&gt;
+  --&gt;
+    &lt;context:component-scan base-package="com.zjut" annotation-config="true"/&gt;
+
+
+    &lt;!--  将常量分离出来  分出1个文件  --&gt;
+    &lt;bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"&gt;
+        &lt;property name="order" value="2"/&gt;
+        &lt;property name="ignoreUnresolvablePlaceholders" value="true"/&gt;
+        &lt;property name="locations"&gt;
+            &lt;list&gt;
+                &lt;!--  将常量分离出来  分出1个文件    --&gt;
+                &lt;value&gt;classpath:datasource.properties&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+        &lt;!--     指定字符集   --&gt;
+        &lt;property name="fileEncoding" value="utf-8"/&gt;
+    &lt;/bean&gt;
+
+
+
+
+
+    &lt;!--   dbcp数据库连接池配置    使用dbcp数据库连接池   --&gt;
+    &lt;bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"&gt;
+        &lt;property name="driverClassName" value="${db.driverClassName}"/&gt;
+        &lt;property name="url" value="${db.url}"/&gt;
+        &lt;property name="username" value="${db.username}"/&gt;
+        &lt;property name="password" value="${db.password}"/&gt;
+        &lt;!-- 连接池启动时的初始值 --&gt;
+        &lt;property name="initialSize" value="${db.initialSize}"/&gt;
+        &lt;!-- 连接池的最大值 --&gt;
+        &lt;property name="maxActive" value="${db.maxActive}"/&gt;
+        &lt;!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 --&gt;
+        &lt;property name="maxIdle" value="${db.maxIdle}"/&gt;
+        &lt;!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 --&gt;
+        &lt;property name="minIdle" value="${db.minIdle}"/&gt;
+        &lt;!-- 最大建立连接等待时间。如果超过此时间将接到异常。设为－1表示无限制 --&gt;
+        &lt;property name="maxWait" value="${db.maxWait}"/&gt;
+        &lt;!--#给出一条简单的sql语句进行验证 --&gt;
+         &lt;!--&lt;property name="validationQuery" value="select getdate()" /&gt;--&gt;
+        &lt;property name="defaultAutoCommit" value="${db.defaultAutoCommit}"/&gt;
+        &lt;!-- 回收被遗弃的（一般是忘了释放的）数据库连接到连接池中 --&gt;
+         &lt;!--&lt;property name="removeAbandoned" value="true" /&gt;--&gt;
+        &lt;!-- 数据库连接过多长时间不用将被视为被遗弃而收回连接池中 --&gt;
+         &lt;!--&lt;property name="removeAbandonedTimeout" value="120" /&gt;--&gt;
+        &lt;!-- #连接的超时时间，默认为半小时。 --&gt;
+        &lt;property name="minEvictableIdleTimeMillis" value="${db.minEvictableIdleTimeMillis}"/&gt;
+
+        &lt;!--# 失效检查线程运行时间间隔，要小于MySQL默认--&gt;
+        &lt;property name="timeBetweenEvictionRunsMillis" value="40000"/&gt;
+        &lt;!--# 检查连接是否有效--&gt;
+        &lt;property name="testWhileIdle" value="true"/&gt;
+        &lt;!--# 检查连接有效性的SQL语句--&gt;
+        &lt;property name="validationQuery" value="SELECT 1 FROM dual"/&gt;
+    &lt;/bean&gt;
+
+
+
+    &lt;!--   这个配置重要 是mybatis的sqlSesstion的bean   --&gt;
+    &lt;bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"&gt;
+        &lt;!--    ref="dataSource"  指的是上面dpcp数据库连接池     --&gt;
+        &lt;property name="dataSource" ref="dataSource"/&gt;
+        &lt;!--  这个就能读取到mybatis的所有的实现  --&gt;
+        &lt;property name="mapperLocations" value="classpath*:mappers/*Mapper.xml"&gt;&lt;/property&gt;
+
+        &lt;!-- 分页插件   在加上 pom中配置jar  mybatis的分页插件就配置好了  --&gt;
+        &lt;property name="plugins"&gt;
+            &lt;array&gt;
+                &lt;bean class="com.github.pagehelper.PageHelper"&gt;
+                    &lt;property name="properties"&gt;
+                        &lt;value&gt;
+                            &lt;!--  指明一下方言是mysql   --&gt;
+                            dialect=mysql
+                        &lt;/value&gt;
+                    &lt;/property&gt;
+                &lt;/bean&gt;
+            &lt;/array&gt;
+        &lt;/property&gt;
+
+    &lt;/bean&gt;
+
+    &lt;!--   mybatis 扫描包的方式    --&gt;
+    &lt;!--    mybatis的一个扫描   会扫描dao层  对service层提供接口  这个配置很重要 
+      --&gt;
+    &lt;bean name="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer"&gt;
+        &lt;!-- （空格删一些不然报错） &lt;property name="basePackage" value="com.zjyouth.dao"/&gt; --&gt;
+        &lt;property name="basePackage" value="com.zjut.rtcf.dao"/&gt;
+    &lt;/bean&gt;
+
+
+    &lt;!--  spring事务管理的配置     --&gt;
+    &lt;!-- 使用@Transactional进行声明式事务管理需要声明下面这行 --&gt;
+    &lt;tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" /&gt;
+    &lt;!-- 事务管理 --&gt;
+    &lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;
+       &lt;!--  数据库连接池 dbcp   --&gt;
+        &lt;property name="dataSource" ref="dataSource"/&gt;
+        &lt;!-- 提交事务失败 出错是否回滚  true 回滚  --&gt;
+        &lt;property name="rollbackOnCommitFailure" value="true"/&gt;
+    &lt;/bean&gt;
+
+
+&lt;/beans&gt;</code></pre>
+
+<p> spring配置讲完了  </p>
+
+<p>********************************************************************************************************************************************</p>
+
+<p>1.首先讲web.xml</p>
+
+<p>2.再讲一下spring容器的主配置     applicationContext.xml</p>
+
+<p>3.spring配置文件 dataSource分出来的子文件   applicationContext-datasource.xml     spring配置讲完了  </p>
+
+<p>4.再讲一下spring mvc配置     dispatcher-servlet.xml  (名字可以在web.xml里面修改)</p>
+
+<p> </p>
+
+<pre class="has">
+<code class="language-html">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+   http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc.xsd"&gt;
+
+    &lt;!--   springmvc配置文件 这个是默认的名字  dispatcher-servlet.xml    --&gt;
+
+
+    &lt;!--   扫描controller注解 
+    &lt;context:component-scan base-package="com.zjyouth" annotation-config="true"/&gt;
+    --&gt;
+    &lt;context:component-scan base-package="com.zjut.rtcf" annotation-config="true"/&gt;
+
+    &lt;mvc:annotation-driven&gt;
+        &lt;mvc:message-converters&gt;
+            &lt;bean class="org.springframework.http.converter.StringHttpMessageConverter"&gt;
+                &lt;property name="supportedMediaTypes"&gt;
+                    &lt;list&gt;
+                        &lt;!--  配置字符集  --&gt;
+                        &lt;value&gt;text/plain;charset=UTF-8&lt;/value&gt;
+                        &lt;value&gt;text/html;charset=UTF-8&lt;/value&gt;
+                    &lt;/list&gt;
+                &lt;/property&gt;
+            &lt;/bean&gt;
+            &lt;!--  @ResponseBody  注解将对象数据直接转换为json数据  --&gt;
+            &lt;!--   SpringMVC自动进行反序列化的时候 的配置类  Jackson配置类  --&gt;
+            &lt;bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"&gt;
+                &lt;!--  返回对象的时候  返回的可以是null    通过配置就过滤这个   本项目使用默认配置就不要了 --&gt;
+                &lt;!--&lt;property name="objectMapper"&gt;--&gt;
+                    &lt;!--&lt;bean class="org.codehaus.jackson.map.ObjectMapper"&gt;--&gt;
+                        &lt;!--&lt;property name="serializationInclusion" value="NON_EMPTY"/&gt;--&gt;
+                    &lt;!--&lt;/bean&gt;--&gt;
+                &lt;!--&lt;/property&gt;--&gt;
+                &lt;property name="supportedMediaTypes"&gt;
+                    &lt;list&gt;
+                        &lt;!--  字符集    --&gt;
+                        &lt;value&gt;application/json;charset=UTF-8&lt;/value&gt;
+                    &lt;/list&gt;
+                &lt;/property&gt;
+            &lt;/bean&gt;
+        &lt;/mvc:message-converters&gt;
+    &lt;/mvc:annotation-driven&gt;
+
+
+    &lt;!--       --&gt;
+    &lt;!-- 文件上传   直接使用SpringMVC提供的multipart这个工具就好了   --&gt;
+    &lt;bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"&gt;
+        &lt;property name="maxUploadSize" value="10485760"/&gt; &lt;!--   单位字节   上传的最大字节10m  --&gt;
+        &lt;property name="maxInMemorySize" value="4096" /&gt;    &lt;!-- 单位字节   最大内存4M  块的大小 --&gt;
+        &lt;property name="defaultEncoding" value="UTF-8"&gt;&lt;/property&gt;  &lt;!--   默认编码    --&gt;
+    &lt;/bean&gt;
+
+
+     &lt;!--  SpringMVC配置讲完了   --&gt;
+
+&lt;/beans&gt;
+</code></pre>
+
+<p> </p>
+
+<p>********************************************************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>                                    </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/85491070/" data-toggle="tooltip" data-placement="top" title="第10步 (1)logback.xml日志配置(2) ftp(上传文件)服务器配置(3) idea注入和自动编译配置(4)项目提交gitee(5)fe助手和restlet client">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/85486488/" data-toggle="tooltip" data-placement="top" title="第8步  第2剑客  mybatis plugin    第三剑客 page helper      csdn每天最多发多少文章 是20篇，刚刚才试了。2014">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
+                    
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yangjiabin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2019 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wangmh1995.gitee.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wangmh1995.gitee.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

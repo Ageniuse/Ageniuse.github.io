@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://www.huweihuang.com/article/87881523/">
+    <link rel="canonical" href="http://wangmh1995.gitee.io/article/87881523/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -93,7 +93,7 @@
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by 杨加彬 on
-                            2019-10-29
+                            2019-02-22
                         </span>
                     </div>
                 
@@ -140,14 +140,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,12 +211,66 @@
                 post-container">
 
                 <div class="htmledit_views" id="content_views">
-<p>git  clone  。。    拉取代码master</p>
-<p>git clone -b  分支名  。。。    拉取分支名</p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p> </div>
+                                            <p>git  clone  。。    拉取代码master</p>
+
+<p>git clone -b  分支名  。。。    拉取分支名</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<h1 id="git更新分支-提交代码-切换分支-合并分支"><a href="https://www.cnblogs.com/gaoquanquan/p/9501981.html" rel="noopener" id="cb_post_title_url" data-token="ee8aacedcff699dac4b48bdb07ba9c1f" target="_blank">git——更新分支、提交代码、切换分支、合并分支</a></h1>
+
+<p>　　还是直接贴教程吧：<a href="https://git-scm.com/book/zh/v2" rel="noopener" data-token="5931705c1795c9ee896683ac507e2b6c" target="_blank">https://git-scm.com/book/zh/v2</a></p>
+
+<p> 如何把本地idea上的项目上传到github上：<a href="https://www.cnblogs.com/gougouyangzi/articles/9429280.html" rel="noopener" data-token="75a59565b5710a9303bf29c69e2762e3" target="_blank">https://www.cnblogs.com/gougouyangzi/articles/9429280.html</a></p>
+
+<p>1.owner在远程库更新了分支，但是在我这里git branch -a查看不到新的分支，</p>
+
+<p>　　解决办法：git fetch origin --prune 更新一下分支信息，然后再git branch -a就能看到新的分支了~</p>
+
+<p>2.提交代码到远程库：</p>
+
+<p>　　git status                          # 查看本地代码状态</p>
+
+<p>　　git add .                           # 添加修改代码到缓存</p>
+
+<p>　　git commit -m "一些信息"   # 提交</p>
+
+<p>　　git push 仓库地址               # push进去了！</p>
+
+<p>3.切换分支：</p>
+
+<p>　　git checkout -b 分支名  #新建分支</p>
+
+<p>　　git branch -a</p>
+
+<p>　　git checkout 分支名</p>
+
+<p>4.多人协作的工作模式通常是这样：</p>
+
+<ol><li>
+	<p>首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改；</p>
+	</li>
+	<li>
+	<p>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</p>
+	</li>
+	<li>
+	<p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+	</li>
+	<li>
+	<p>没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch-name&gt;</code>推送就能成功！</p>
+	</li>
+</ol><p>　　 5. 如果<code>git pull</code>提示<code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</code>。</p>
+
+<p>5.将本地代码与远程库关联</p>
+
+<p>　　先要在github上新建一个项目</p>
+
+<p>　　然后 git push -u 项目地址 分支名称</p>
+                                    </div>
                 
 
                 <hr>
@@ -298,11 +352,9 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://blog.csdn.net/huwh_" target="_blank">CSDN Blog 胡伟煌</a></li>
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
                     
-                        <li><a href="http://dockone.io/people/胡伟煌" target="_blank">DockOne 胡伟煌</a></li>
-                    
-                        <li><a href="https://yq.aliyun.com/u/huweihuang" target="_blank">阿里云栖社区 胡伟煌</a></li>
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
                     
                 </ul>
                 
@@ -389,7 +441,7 @@
 
                 
                     <li>
-                        <a target="_blank"  href="https://github.com/huweihuang">
+                        <a target="_blank"  href="https://github.com/yangjiabin">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -465,7 +517,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://www.huweihuang.com/js/jquery.tagcloud.js",function(){
+        async("http://wangmh1995.gitee.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -530,7 +582,7 @@
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
-<img src="http://www.huweihuang.com/img/icon_wechat.png" width="0" height="0" />
+<img src="http://wangmh1995.gitee.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>

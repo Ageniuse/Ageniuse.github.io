@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          很有道理的内容 - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wangmh1995.gitee.io/article/99707018/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>很有道理的内容</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2019-08-18
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+                                            <h2 id=""> </h2>
+
+<p><a href="https://www.zhihu.com/question/316879977/answer/658783460" rel="noopener" data-token="6e4765494b41e048530e8e3cb8114285" target="_blank">男生选女朋友最看重的是什么?</a></p>
+
+<p><a href="https://www.zhihu.com/people/chenxuan007beijing" rel="noopener" data-token="bd89022ddbb5fe54fdc4938247053e33" target="_blank"><img alt="病毒营销陈轩" class="has" height="38" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9waWMxLnpoaW1nLmNvbS81MC92Mi1hMmVmZGZkOTMyMjMwY2Y0ZTc5NzJmMTJlMmI2Y2Y2ZF94cy5qcGc" width="38"></a></p>
+
+<p><a href="https://www.zhihu.com/people/chenxuan007beijing" rel="noopener" data-token="bd89022ddbb5fe54fdc4938247053e33" target="_blank">病毒营销陈轩</a></p>
+
+<p>被赞同30万，被收藏24万，顶级病毒营销专家，加个人微信送书</p>
+
+<p>12,540 人也赞同了该回答</p>
+
+<p>有女孩给我发私信：<br>
+“我是个很好的女孩，漂亮身材好，白领一枚，可是原生家庭很糟糕，家境贫穷，我交了几个男朋友，都嫌弃我家庭不好，男人看家境是不是不是真爱啊？如果一个女孩家境不好，择偶时候是不是很受影响啊？”</p>
+
+<p><br>
+我的回答：</p>
+
+<p><br>
+女孩的家境，当然是男人考虑的标准，甚至在有些人眼里是“首要标准”。你爹如果有亿万家产，他自然能少奋斗一辈子，哈哈。如此现实且有执行力的男人，反正我身边认识的，没有不飞黄腾达的。</p>
+
+<p><br>
+(一)爱情说透了，其实挺没劲！</p>
+
+<p><br>
+你问我男的关注女生的家境吗？当然关注，就跟女生关注男生的家境一样。</p>
+
+<p><br>
+16岁时男生还可以凭借容貌俊美混一混爱情；20岁之后上了大学，如果没有强有力的家境支撑，再俊美的男生也是屌丝。</p>
+
+<p><br>
+钞票是男人的羽毛，RMB是男人的实力。这是千百年来大自然的分工。可以咒骂，但早点看透了，至少不撞墙不碰壁不跌坑，早点接受了，至少不会沦落为loser或hater。</p>
+
+<p><br>
+在中国，想成为一个所谓优秀的男人真的不简单！即使英俊有才，也得首先有钱；即使幽默体贴，也得有车有房；即使肌肉发达，也得职业体面；即使灶边炉台，也得懂红酒浪漫。好容易你能西装革履为自己带盐，台下姐姐又要求你脱掉衬衫，亮出八块腹肌来！</p>
+
+<p><br>
+北宋网红张先，80岁时娶了一位18岁的小妾。在苏轼面前炫耀，即兴赋诗一首：“我本八十卿十八，卿是红颜我白发，与卿颠倒本同庚，只隔中间一花甲”。</p>
+
+<p><br>
+年轻男人会输给老男人，无论是财富地位个人修养，满足的都是女性最核心的“安全感”的需求。女性肩负生儿育女的使命，安全舒适的生活保障对她具有致命的诱惑力。当然，成熟女人也会输给年轻女孩。所以我说过：女人需要一个男人，而不是男孩；男人需要一个女孩，而不是女人。</p>
+
+<p>如果被爱情小说和网剧洗脑，轻易陷入一段感情，结局不仅失控，甚至后悔莫及。</p>
+
+<p><br>
+男人要求你：貌美如花性格好，但你的家境的意义对他而言，确实非同一般；</p>
+
+<p><br>
+女人要求你：相貌堂堂父母双亡，但如果你没钱，确实你连谈恋爱的资格，其实都没有。<br>
+这应该就是所有的现实！</p>
+
+<p><br>
+(二)他和她，究竟在顾虑什么？</p>
+
+<p><br>
+每一个人的家境，都意味着代际传承，穷与富是结果，但更是原因！原生家庭对一个人的深刻塑造，根本就不是荷尔蒙驱动下的男欢女爱所能奢望影响的。</p>
+
+<p><br>
+没错，你爱的是他，但其实爱是他背后的家庭，他的成长环境，他在这个环境中对你这个角色的要求和评价标准。</p>
+
+<p><br>
+我举个例子。一个小白领嫁给了有家庭暴力传统的男人（谈恋爱时当然不显山不露水）。新婚第二天，亲爱的丈夫就没来由地给了她一个大巴掌，她直接就蒙了，哭着找公公婆婆说理，敬爱的公公冷着脸，抬手又是一巴掌，出手相当重，直接打晕过去。于是家里人将她扔到床上，就各自忙自己的事情去了。</p>
+
+<p><br>
+食人族部落的孩子，会将吃人这件事看得理所应当！这就是原生家庭的威力！</p>
+
+<p><br>
+他或她清晰地知道，改变不了你，更改变不了你的家庭，更更改变不了你成长的环境和风水。所以选择离开，一定是对彼此未来负责的明智之举。</p>
+
+<p><br>
+(三)门当户对，靠不靠谱？</p>
+
+<p><br>
+穷人家的女儿，缺的绝对不是宠爱，而是见识！是充裕经济条件支撑下的视野、格局和心态的提升。是多情境高效率的社交训练。</p>
+
+<p><br>
+为什么很多男的发达后，都忙不迭的抛弃槽糠之妻？是男的无耻吗？道德上的批判从来于事无补且幼稚可笑。</p>
+
+<p><br>
+为什么不是女的跟不上男的了？在冷酷的竞争环境训练下，男人的学习能力、个人境界等得到急速提升，而女的自我学习能力和意愿丧失，越来越没有共同语言。张艺谋的第一任妻子肖华呢？王石的原配呢？高晓松的沈欢呢？周立波之前的老婆呢？</p>
+
+<p><br>
+幼齿时喜欢翩翩白衣美少年，青春期喜欢才华横溢浪荡男，御姐时喜欢永往直前小正太，女王后喜欢宅心仁厚傻瓜蛋。。。是每个内心有灵光发肤存温暖的小女子的心路历程。但曾经的耳鬓厮磨，现在的鸡飞狗跳！原因何在？后来才发现，门当户对，绝对是真理！要不然，你说的话他听不懂！你流的泪他很纳闷。这样的日子过下去，究竟有何意义？</p>
+
+<p><br>
+门当户对的本质是价值观契合，意味着两人成长环境相似，夫妻质素相当。意味着在未来各种情景的考验下，彼此能最小化沟通成本，夫唱妇随，风雨同舟。保证团队凝聚力和战斗力。</p>
+
+<p><br><span style="color:#f33b45;">所以，爱情极其考验情商，而情商的本质更是智商，爱情上的智慧抉择，其实是想通看透之后的冷血。</span></p>
+
+<p><span style="color:#f33b45;">是通过他她的家庭，洞穿他的未来，洞悉他未来在艰难的情境下的应激反应。“上医治未病”，提前忍痛规避，所谓的事前管理，所谓的不走弯路，就是捷径。都是同样的道理。</span></p>
+
+<p><br>
+(四)过有觉知的生活！</p>
+
+<p><br>
+你要知道，我们都是环境的产物，是几十年来情景训练下的傀儡，是被各种概念植入下的宿命的棋子。</p>
+
+<p>夫妻是前世缘分，但20来岁的你，看上的也许是20来岁这个情境下的他（她），当30岁时呢？当那时候你和他三观打架，鸡飞狗跳时，十年的感情瞬间仿佛陌生人，靠什么继续维系这段关系？靠什么继续走下去？</p>
+
+<p><br><span style="color:#f33b45;">真爱是什么？我没见过。我只见过有情义的、讲情义的普通的男男女女，这些人真心让人感动。所以善良比聪明更重要。找个善良的男孩吧。去见见他的父母就一目了然了。</span></p>
+
+<p><br>
+原生家庭的糟糕绝不仅仅是经济条件的糟糕，而是视野、格局和心态糟糕所导致的的经济条件的糟糕。这才是真正糟糕的原生家庭。这种成长环境带来的是错误的思维方式和选人的眼光。也许这才是一切的根源。在你父母共生环境中，你会近乎本能地选择父亲的模板或者反例。这也许是挫折的源起。</p>
+
+<p><br>
+男人关心你的家境也是好事。坦诚相对呗。同时一定要随时观照自己的情绪波动和应激反应，随时反省自己的思维方式和格局大小，时刻警惕原生家庭对你的影响。防止坏习惯的代际传承。过有觉知的生活！</p>
+
+<p><br>
+祝福！祝福是必须的，</p>
+
+<p>祝你幸福，祝你主动得获得幸福，祝你获得主动的幸福。</p>
+
+<p>THE END</p>
+
+<p> </p>
+
+<p><br>
+**********************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>*******************************************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>*******************************************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>*******************************************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>*******************************************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>*******************************************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>*******************************************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>*******************************************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+                                    </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/99847097/" data-toggle="tooltip" data-placement="top" title="公司电脑重装经验   ThinkPad E480     win7重装">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/99593852/" data-toggle="tooltip" data-placement="top" title="联通 培训 c班还    20190814">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
+                    
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yangjiabin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2019 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wangmh1995.gitee.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wangmh1995.gitee.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

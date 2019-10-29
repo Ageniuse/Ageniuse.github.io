@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          3-8 基于SpringBoot连接数据库与配置MyBatis实操     创建表sql - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wangmh1995.gitee.io/article/98479738/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>3-8 基于SpringBoot连接数据库与配置MyBatis实操     创建表sql</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2019-08-05
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+                                            <p>11                    13-8 基于SpringBoot连接数据库与配置MyBatis实操</p>
+
+<p>springSecurity提供了     现成的基于内存管理的类     </p>
+
+<p>shiro则必须自己设计这样的类      需要自己设计用户权限这样的体系</p>
+
+<p>这里基于RBAC简单的设计一套</p>
+
+<p><img alt="" class="has" height="692" src="https://img-blog.csdnimg.cn/20190805222846287.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+
+<p><img alt="" class="has" height="692" src="https://img-blog.csdnimg.cn/20190805222916775.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+
+<p><img alt="" class="has" height="692" src="https://img-blog.csdnimg.cn/20190805222947657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+
+<p><img alt="" class="has" height="820" src="https://img-blog.csdnimg.cn/20190805223050977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+
+<p> </p>
+
+<p><img alt="" class="has" height="588" src="https://img-blog.csdnimg.cn/20190806143230145.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1141"></p>
+
+<p> </p>
+
+<p><img alt="" class="has" height="588" src="https://img-blog.csdnimg.cn/20190806143323145.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1141"></p>
+
+<p> </p>
+
+<p><img alt="" class="has" height="588" src="https://img-blog.csdnimg.cn/20190806143504280.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1141"></p>
+
+<p> </p>
+
+<pre class="has">
+<code class="language-html">-- 权限表 --
+CREATE TABLE permission (
+  pid int(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL DEFAULT '',
+  url VARCHAR(255) DEFAULT '',
+  PRIMARY KEY (pid)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO permission VALUES ('1', 'add', '');
+INSERT INTO permission VALUES ('2', 'delete', '');
+INSERT INTO permission VALUES ('3', 'edit', '');
+INSERT INTO permission VALUES ('4', 'query', '');
+
+-- 用户表 --
+CREATE TABLE user(
+  uid int(11) NOT NULL AUTO_INCREMENT,
+  username VARCHAR(255) NOT NULL DEFAULT '',
+  password VARCHAR(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (uid)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO user VALUES ('1', 'admin', '123');
+INSERT INTO user VALUES ('2', 'demo', '123');
+
+-- 角色表 --
+CREATE TABLE role(
+  rid int(11) NOT NULL AUTO_INCREMENT,
+  rname VARCHAR(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (rid)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO role VALUES ('1', 'admin');
+INSERT INTO role VALUES ('2', 'customer');
+
+-- 权限角色关系表 --
+CREATE TABLE permission_role (
+  rid int(11) NOT NULL ,
+  pid int(11) NOT NULL ,
+  KEY idx_rid (rid),
+  KEY idx_pid (pid)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO permission_role VALUES ('1', '1');
+INSERT INTO permission_role VALUES ('1', '2');
+INSERT INTO permission_role VALUES ('1', '3');
+INSERT INTO permission_role VALUES ('1', '4');
+INSERT INTO permission_role VALUES ('2', '1');
+INSERT INTO permission_role VALUES ('2', '4');
+
+-- 用户角色关系表 --
+CREATE TABLE user_role (
+  uid int(11) NOT NULL ,
+  rid int(11) NOT NULL ,
+  KEY idx_uid (uid),
+  KEY idx_rid (rid)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO user_role VALUES (1, 1);
+INSERT INTO user_role VALUES (2, 2);</code></pre>
+
+<p> </p>
+
+<p>//mapper的配置</p>
+
+<p>1.扫描mapper的路径</p>
+
+<p>2.使用spring要告诉它扫描相关的注解</p>
+
+<p><img alt="" class="has" height="588" src="https://img-blog.csdnimg.cn/20190806143924132.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1141"></p>
+
+<p><img alt="" class="has" height="692" src="https://img-blog.csdnimg.cn/20190806154744588.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+
+<p>现在写几个case     需要些几个realm     shiro的授权和登录     需要实现相关的认证和授权    核心是自定义的realm</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>********************************************************************************************************************************************</p>
+
+<p> </p>
+
+<pre class="has">
+<code class="language-html">package com.mmall.demo2;
+
+import com.mmall.demo2.model.Permission;
+import com.mmall.demo2.model.Role;
+import com.mmall.demo2.model.User;
+import com.mmall.demo2.service.UserService;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+//需要实现  AuthorizingRealm
+public class AuthRealm extends AuthorizingRealm {
+
+
+    //需要注入user的serviece
+    @Autowired
+    private UserService userService;
+
+
+    // 2、授权
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+        //授权是在验证登录成功之后进行的   在认证登录之后我们会将user这个对象放到session 中
+        //s所以我们先从session 中取出这个对象
+
+        //通过这个方法可以取出session 中的对象     相当于从session中获取用户
+        User user = (User) principals.fromRealm(this.getClass().getName()).iterator().next();
+        List&lt;String&gt; permissionList = new ArrayList&lt;&gt;();//一个角色有多个权限
+        List&lt;String&gt; roleNameList = new ArrayList&lt;&gt;();//一个用户有多个角色
+        Set&lt;Role&gt; roleSet = user.getRoles();//用户所有的角色
+        if (CollectionUtils.isNotEmpty(roleSet)) {//用户的角色不为空  遍历用户所有的角色
+            //这里只有一个循环  不是2个循环 看清楚了
+            for(Role role : roleSet) {// 角色
+                roleNameList.add(role.getRname());//存储用户名下的角色名称
+                Set&lt;Permission&gt; permissionSet = role.getPermissions();//角色有可能重复权限这里使用set 可以去重复
+                if (CollectionUtils.isNotEmpty(permissionSet)) {//如果该角色下面有权限
+                    for (Permission permission : permissionSet) {
+                        permissionList.add(permission.getName());//每个角色的权限 都加进去  set可以去重复
+                    }
+                }
+            }
+        }
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        info.addStringPermissions(permissionList);
+        info.addRoles(roleNameList);
+        return info;
+    }
+
+    // 1、首先先写   认证登录
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException    {
+        //首先先写   传入的token  转换为 UsernamePasswordToken    强行转换就可以了
+        UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) token;
+        String username = usernamePasswordToken.getUsername();
+        User user = userService.findByUsername(username);//获取用户
+        // 完成了认证登录的部分    参数       用户对象      认证器就是密码             当前类名
+        return new SimpleAuthenticationInfo(user, user.getPassword(), this.getClass().getName());
+        // 上面是转换为AuthenticationInfo这个对象         1、这就完成认证登录功能     2、接下来写授权
+    }
+
+
+    //上面  1,2 完成  就需要 校验user.getPassword(),是否是我们要求的规则  实现一个接口传入即可
+    //CredentialMatcher  
+    //public class CredentialMatcher extends SimpleCredentialsMatcher {
+
+}
+
+
+
+
+
+
+
+
+
+******************************************************************************************************
+
+</code></pre>
+
+<pre class="has">
+<code class="language-html">package com.mmall.demo2;
+
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
+
+public class CredentialMatcher extends SimpleCredentialsMatcher {
+
+
+    // 完成了简单的密码校验的重写
+    @Override
+    public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
+        //首先token强转
+        UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) token;
+        //强转后获取password   得到是数组强转String   这个是user对象中的password字段
+        String password = new String(usernamePasswordToken.getPassword());
+        //获取数据库密码   其实就是我们刚刚传入的值
+        String dbPassword = (String) info.getCredentials();//强转
+        //验证规则  自己定义就好了   这里就写是否相等就好了
+        return this.equals(password, dbPassword);
+    }
+
+    //完成 shiro的认证和授权    和密码校验规则之后
+    //我们需要将他们注入到我们这个shiro的配置中
+    //public class ShiroConfiguration {</code></pre>
+
+<pre class="has">
+
+
+<code class="language-html">}</code></pre>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<pre>
+<code class="language-html hljs">package com.mmall.demo2;
+
+import org.apache.shiro.cache.MemoryConstrainedCacheManager;
+import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.LinkedHashMap;
+
+
+//这个类是shrio的核心配置
+//在springboot中用@Configuration  作为标识   在项目启动时自动配置这个类
+@Configuration
+public class ShiroConfiguration {
+
+    //1、首先写密码和自定义规则   定义自己的类
+    @Bean("credentialMatcher")
+    public CredentialMatcher credentialMatcher() {
+        return new CredentialMatcher();//直接声明这个实例即可   拿到这个bean就可以拿到校验规则
+    }
+
+    //2.自定义authRealm 完成
+    @Bean("authRealm")                 // 用上下文的bean   这里从spring中取出来 就上bean的名字
+    public AuthRealm authRealm(@Qualifier("credentialMatcher") CredentialMatcher matcher) {
+        AuthRealm authRealm = new AuthRealm();//定义real的实例
+        authRealm.setCacheManager(new MemoryConstrainedCacheManager());
+        authRealm.setCredentialsMatcher(matcher);//实例中给出自己的密码比较器
+        return authRealm;
+    }
+
+    //3、realm的上一层是securityManager     注入的是上一步中的realm
+    @Bean("securityManager")
+    public SecurityManager securityManager(@Qualifier("authRealm") AuthRealm authRealm) {
+        //这里使用DefaultWebSecurityManager
+        DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
+        //把第二步定义的authRealm放进去
+        manager.setRealm(authRealm);
+        return manager;
+    }
+
+
+   //4.shiroFilter   注入上一步的securityManager   这里返回值是ShiroFilter的工厂Bean
+    @Bean("shiroFilter")
+    public ShiroFilterFactoryBean shiroFilter(@Qualifier("securityManager") SecurityManager manager) {
+        //首先声明实例   把securityManager 先注入进去
+        ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
+        bean.setSecurityManager(manager);
+
+        //定义登录的url
+        bean.setLoginUrl("/login");
+        //定义登录成功后跳转的url
+        bean.setSuccessUrl("/index");
+        //定义没有权限访问的url
+        bean.setUnauthorizedUrl("/unauthorized");
+
+        //定义最核心的 某系请求怎么拦截      定义权限配置
+        LinkedHashMap&lt;String, String&gt; filterChainDefinitionMap = new LinkedHashMap&lt;&gt;();
+        //第一个参数是我们访问的请求   第二个参数是我们使用的是什么样的拦截器
+        filterChainDefinitionMap.put("/index", "authc");//主页必须登录  authc
+        filterChainDefinitionMap.put("/login", "anon");//登录不用校验
+        filterChainDefinitionMap.put("/loginUser", "anon");
+        filterChainDefinitionMap.put("/admin", "roles[admin]");
+        filterChainDefinitionMap.put("/edit", "perms[edit]");
+        filterChainDefinitionMap.put("/druid/**", "anon");
+        filterChainDefinitionMap.put("/**", "user");
+        bean.setFilterChainDefinitionMap(filterChainDefinitionMap);//设置进filter
+
+        //authc是什么含义？？  含义是前面的url使用authc的拦截器进行验证
+        //在enum DefaultFilter中
+        //常用的就这几个
+
+        return bean;
+    }
+    //  这样当项目启动的时候  shirofiler首先初始化  会依次初始化下去
+    //  一层一层的就会初始化下去
+    //
+
+
+
+
+
+
+
+
+    //下面的2个类  使得shiro和spring关联是我们自己定制的
+
+
+    //配置一下shiro和spring之间的几个类    参数传入securityManager
+    @Bean
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(@Qualifier("securityManager") SecurityManager securityManager) {
+        //给一个实例
+        AuthorizationAttributeSourceAdvisor advisor = new AuthorizationAttributeSourceAdvisor();
+        //设置securityManager
+        advisor.setSecurityManager(securityManager);
+        return advisor;//这样spring对securityManager使用就是我们自定义的securityManager
+    }
+
+    //z这个不用配置  只要出入shrio的管理就好了
+    @Bean
+    public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
+        DefaultAdvisorAutoProxyCreator creator = new DefaultAdvisorAutoProxyCreator();
+        creator.setProxyTargetClass(true);//默认是false
+        return creator;
+    }
+    
+    
+    
+    //shrio的整个流程全部讲解完毕了
+}
+</code></pre>
+
+<p> </p>
+
+<p> </p>
+
+<p><img alt="" class="has" height="748" src="https://img-blog.csdnimg.cn/20190807101211122.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<pre>
+<code class="language-html hljs">## database ##
+spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8
+spring.datasource.username=root
+spring.datasource.password=root
+
+## mybatis ##
+#  mybatis.xml文件的位置
+mybatis.mapper-locations=mappers/*.xml
+#  mybatis使用到的实体类pojo对象   都放到这个包下面
+mybatis.type-aliases-package=com.mmall.demo2.model
+
+
+
+## jsp ##    定义页面的位置   jsp放置在pages目录下面
+spring.mvc.view.prefix=/pages/
+spring.mvc.view.suffix=.jsp
+
+</code></pre>
+
+<p>******************************************************************************************************</p>
+
+<p><img alt="" class="has" height="652" src="https://img-blog.csdnimg.cn/20190807104035563.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="979"></p>
+
+<p>在main文件夹中新加webapp文件夹，springboot默认将页面放在webapp下面   我们配置了jsp前缀为pages文件夹下面</p>
+
+<p> </p>
+
+<p><img alt="" class="has" height="480" src="https://img-blog.csdnimg.cn/20190807111916246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="915"></p>
+
+<p><img alt="" class="has" height="597" src="https://img-blog.csdnimg.cn/20190807112007777.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1200"></p>
+
+<p>******************************************************************************************************</p>
+
+<p><img alt="" class="has" height="748" src="https://img-blog.csdnimg.cn/2019080712053171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1179"></p>
+
+<p><img alt="" class="has" height="748" src="https://img-blog.csdnimg.cn/201908071206240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1179"></p>
+
+<p> </p>
+
+<pre>
+<code class="language-html hljs">package com.mmall.demo2;
+
+import com.alibaba.druid.support.http.StatViewServlet;
+import com.alibaba.druid.support.http.WebStatFilter;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+
+import javax.sql.DataSource;
+
+
+//@Configuration  加上这个注解在项目启动时就配置
+@Configuration
+public class DruidConfiguration {
+
+    @Bean
+    public ServletRegistrationBean statViewServlet() {
+        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
+        //白名单：     设置允许访问的bean
+        servletRegistrationBean.addInitParameter("allow", "127.0.0.1");
+        //设置不允许访问的ip
+        //IP黑名单 (存在共同时，deny优先于allow) : 如果满足deny的即提示:Sorry, you are not permitted to view this page.
+        servletRegistrationBean.addInitParameter("deny", "192.168.1.100");
+        //登录查看信息的账号密码.          查看druid登录信息的用户名和密码
+        servletRegistrationBean.addInitParameter("loginUsername", "druid");
+        servletRegistrationBean.addInitParameter("loginPassword", "12345678");
+        //是否能够重置数据.
+        servletRegistrationBean.addInitParameter("resetEnable", "false");
+        return servletRegistrationBean;
+    }
+
+    @Bean
+    public FilterRegistrationBean statFilter() {
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new WebStatFilter());
+        //添加过滤规则.      拦截那些请求
+        filterRegistrationBean.addUrlPatterns("/*");
+        //添加不需要忽略的格式信息.     过滤那些请求
+        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+        return filterRegistrationBean;
+    }
+
+    @Bean
+    PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor() {
+        return new PersistenceExceptionTranslationPostProcessor();
+    }
+
+    //配置数据库的基本链接信息   信息也是是从application.properties文件中读取
+    @Bean(name = "dataSource")
+    @Primary
+    @ConfigurationProperties(prefix = "spring.datasource")    //可以在application.properties中直接导入
+    public DataSource dataSource() {
+        return DataSourceBuilder.create().type(com.alibaba.druid.pool.DruidDataSource.class).build();
+    }
+
+    @Bean
+    public SqlSessionFactoryBean sqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) throws Exception {
+        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+        bean.setDataSource(dataSource);
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        //最后指定mapper文件  有了这些就可以轻松的监控数据库的请求
+        bean.setMapperLocations(resolver.getResources("classpath:/mappers/*.xml"));
+        return bean;
+    }
+}
+//访问http://localhost:8080/druid/index.html   用户名是上定义的druid 12345678
+//可以对数据库进行监控</code></pre>
+
+<p> </p>
+
+<p> </p>
+
+<p><img alt="" class="has" height="748" src="https://img-blog.csdnimg.cn/20190807122107882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1179"></p>
+
+<p> </p>
+
+<p> </p>
+
+<p>阿里的druid数据源监控</p>
+
+<p><img alt="" class="has" height="748" src="https://img-blog.csdnimg.cn/20190807121752437.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1179"></p>
+
+<p>******************************************************************************************************</p>
+
+<p>代码已经上传gitee</p>
+
+<p>git@gitee.com:yjb1091947832/demo2druid.git</p>
+
+<p>这节课内容不少  建议大家多看几遍 ---   视频老师</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>******************************************************************************************************</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+                                    </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/98738367/" data-toggle="tooltip" data-placement="top" title="权限管理系统">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/98474938/" data-toggle="tooltip" data-placement="top" title="3-7 基于SpringBoot的Apache Shiro环境快速搭建与配置实操">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
+                    
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yangjiabin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2019 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wangmh1995.gitee.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wangmh1995.gitee.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
