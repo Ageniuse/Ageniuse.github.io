@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Excel转为图片 - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://ageniuse.github.io/article/104060201/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>Excel转为图片</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2020-01-21
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+                                            <h1 style="margin-left:0px;" id="java-将excel转为图片-html-xps-xml-csv"><span style="color:#333333;">Java 将Excel转为图片、html、XPS、XML、CSV</span></h1>
+
+<div style="margin-left:0px;">
+<div style="margin-left:0px;"><span style="color:#333333;"><a class="a-img" href="https://blog.51cto.com/eiceblue" rel="noopener" target="_blank"><img alt="" class="is-vip-img is-vip-img-4" height="32" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91Y2VudGVyLjUxY3RvLmNvbS9pbWFnZXMvbm9hdmF0YXJfbWlkZGxlLmdpZg" width="32"></a></span></div>
+<span style="color:#333333;"><a class="name fl" href="https://blog.51cto.com/eiceblue" rel="noopener" target="_blank">E_iceblue</a><a class="checkFollow-btn fl on" id="checkFollow1_13438008">关注</a><a class="comment comment-num fr">0人评论</a><a class="read fr">66人阅读</a><a class="time fr">2020-01-10 16:16:24</a></span>
+
+<div style="margin-left:0px;"> </div>
+</div>
+
+<div style="margin-left:0px;">
+<div style="margin-left:0px;">
+<p style="margin-left:0px;"><span style="color:#333333;"><span style="color:#3d464d;">通过文档格式转换，可满足不同办公场合对文档操作的需求。本文将介绍转换Excel文档为其他常见文档格式的方法。通过文中的方法，可支持将Excel转换为包括PDF、图片、html、XPS、XML、CSV、PCL、ODS、PostScript、以及Office Excel不同版本，如，version97-2003，version2007，version2010，version2013，version2016等在内的不同文档格式。本文以转换其中的几种文档格式为例介绍具体转换方法。</span></span></p>
+
+<p style="margin-left:0px;"><span style="color:#333333;"><span style="color:#3d464d;"><strong>使用工具：Free Spire.XLS for Java （免费版）</strong></span></span></p>
+
+<p style="margin-left:0px;"><span style="color:#333333;"><span style="color:#3d464d;"><strong>Jar文件下载及导入</strong>：<br><strong>方法1：</strong>可通过官网<a href="https://www.e-iceblue.cn/Downloads/Free-Spire-XLS-JAVA.html" rel="noopener" target="_blank">下载jar</a>文件包。下载后，解压文件，将lib文件夹下的Spire.Xls.jar导入Java程序。如下图：<br><img alt="Java 将Excel转为图片、html、XPS、XML、CSV" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zMS41MWN0by5jb20vaW1hZ2VzL2Jsb2cvMjAyMDAxLzEwLzk5ZDc5OTg1ZGJiMGU1YThiZmUyMDkxYmJlMjcxMWJiLnBuZw?x-oss-process=image/format,png"></span></span></p>
+
+<p style="margin-left:0px;"><span style="color:#333333;"><span style="color:#3d464d;"><strong>方法2：</strong>可通过<a href="https://www.e-iceblue.cn/licensing/install-spirepdf-for-java-from-maven-repository.html" rel="noopener" target="_blank">maven仓库导入</a>。</span></span></p>
+
+<h1 style="margin-left:0px;" id="java代码示例供参考"><span style="color:#333333;"><span style="color:#3d464d;">Java代码示例（供参考）</span></span></h1>
+
+<pre style="margin-left:0px;">
+<span style="color:#333333;"><span style="color:#567482;"><code><span style="color:#333333;"><strong>import</strong></span> com.spire.xls.*;
+
+public <span style="color:#333333;"><strong>class</strong></span> <span style="color:#445588;"><strong>ExcelToImg</strong></span> {
+    public <span style="color:#333333;"><strong>static</strong></span> <span style="color:#333333;"><strong>void</strong></span> main(<span style="color:#0086b3;">String</span>[] args) {
+        <span style="color:#999988;"><em>//加载Excel工作表</em></span>
+        Workbook wb = <span style="color:#333333;"><strong>new</strong></span> Workbook();
+        wb.loadFromFile(<span style="color:#dd1144;">"test.xlsx"</span>);
+
+        <span style="color:#999988;"><em>//获取工作表</em></span>
+        Worksheet sheet = wb.getWorksheets().get(<span style="color:#008080;">0</span>);
+
+        <span style="color:#999988;"><em>//调用方法将Excel工作表保存为图片</em></span>
+        sheet.saveToImage(<span style="color:#dd1144;">"ToImg.png"</span>);
+        <span style="color:#999988;"><em>//调用方法，将指定Excel单元格数据范围保存为图片</em></span>
+        <span style="color:#999988;"><em>//sheet.saveToImage("ToImg2.png",8,1,30,7);</em></span>
+
+        <span style="color:#999988;"><em>//调用方法将Excel保存为HTML</em></span>
+        sheet.saveToHtml(<span style="color:#dd1144;">"ToHtml.html"</span>);
+
+        <span style="color:#999988;"><em>//调用方法将Excel保存为XPS</em></span>
+        sheet.saveToFile(<span style="color:#dd1144;">"ToXPS.xps"</span>, <span style="color:#0086b3;">String</span>.valueOf(FileFormat.XPS));
+
+        <span style="color:#999988;"><em>//调用方法将Excel保存为CSV</em></span>
+        sheet.saveToFile(<span style="color:#dd1144;">"ToCSV.csv"</span>, <span style="color:#0086b3;">String</span>.valueOf(FileFormat.CSV));
+
+        <span style="color:#999988;"><em>//调用方法将Excel保存为XML</em></span>
+        sheet.saveToFile(<span style="color:#dd1144;">"ToXML.xml"</span>, <span style="color:#0086b3;">String</span>.valueOf(FileFormat.XML));
+
+        <span style="color:#999988;"><em>//调用方法将Excel保存为PostScript</em></span>
+        sheet.saveToFile(<span style="color:#dd1144;">"ToPostScript.postscript"</span>, <span style="color:#0086b3;">String</span>.valueOf(FileFormat.PostScript));
+
+        <span style="color:#999988;"><em>//调用方法将Excel保存为PCL</em></span>
+        sheet.saveToFile(<span style="color:#dd1144;">"ToPCL.pcl"</span>, <span style="color:#0086b3;">String</span>.valueOf(FileFormat.PCL));
+
+    }
+}
+</code></span></span></pre>
+
+<p style="margin-left:0px;"><span style="color:#333333;"><span style="color:#3d464d;">文档转换结果：<br><img alt="Java 将Excel转为图片、html、XPS、XML、CSV" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zMS41MWN0by5jb20vaW1hZ2VzL2Jsb2cvMjAyMDAxLzEwL2RhNzU0ZDM3MmRmMDJlYjJjMDUzZWFhNGI0NjY3ZjBiLnBuZw?x-oss-process=image/format,png"></span></span></p>
+
+<p style="margin-left:0px;"><span style="color:#333333;"><span style="color:#3d464d;">（本文完）</span></span></p>
+</div>
+</div>
+
+<div style="margin-left:0px;"><span style="color:#9fa3a7;">©著作权归作者所有：来自51CTO博客作者E_iceblue的原创作品</span></div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;">
+<h2 id="通过-maven-仓库安装-spire-系列-java-产品">通过 Maven 仓库安装 Spire 系列 Java 产品</h2>
+
+<p>只需简单配置，您就可以轻松将Java产品的JAR包通过Maven仓库安装到的Maven项目中。我们所有Java产品均可通过<a href="http://repo.e-iceblue.com/nexus/content/groups/public/e-iceblue/" rel="noopener" target="_blank">Maven</a>安装。下面以Spire.PDF for Java为例，详细说明如何在Maven程序中添加对JAR包的依赖。</p>
+
+<p><strong>首先</strong>，在pom.xml文件中配置Maven仓库路径。</p>
+
+<pre class="has">
+<code>&lt;repositories&gt;
+        &lt;repository&gt;
+            &lt;id&gt;com.e-iceblue&lt;/id&gt;
+            &lt;name&gt;e-iceblue&lt;/name&gt;
+            &lt;url&gt;http://repo.e-iceblue.com/nexus/content/groups/public/&lt;/url&gt;
+        &lt;/repository&gt;
+&lt;/repositories&gt;</code></pre>
+
+<p><strong>然后</strong>，在pom.xml文件中指定Spire.PDF for Java的Maven依赖。</p>
+
+<pre class="has">
+<code>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt; e-iceblue &lt;/groupId&gt;
+        &lt;artifactId&gt;spire.pdf&lt;/artifactId&gt;
+        &lt;version&gt;2.2.0&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+
+<p>配置完成后，在IDEA中，您只需点击”Import Changes”即可导入JAR包；在Eclipse中，您需要点击”Save”按钮， JAR包才会自动下载。至此，您已经成功在Maven项目中添加了Spire.PDF JAR包依赖。</p>
+
+<p><em><strong>注</strong>： Free Spire.PDF for Java的artifactId为spire.pdf.free</em></p>
+
+<pre class="has">
+<code>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;e-iceblue&lt;/groupId&gt;
+        &lt;artifactId&gt;spire.pdf.free&lt;/artifactId&gt;
+        &lt;version&gt;2.2.2&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+</div>
+
+<div style="margin-left:0px;"><a href="https://www.e-iceblue.cn/licensing/install-spirepdf-for-java-from-maven-repository.html" rel="noopener" target="_blank">https://www.e-iceblue.cn/licensing/install-spirepdf-for-java-from-maven-repository.html</a></div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"><a href="https://www.e-iceblue.cn/Introduce/Spire-XLS-JAVA.html" rel="noopener" target="_blank">https://www.e-iceblue.cn/Introduce/Spire-XLS-JAVA.html</a></div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"><a href="https://www.e-iceblue.cn/licensing/install-spirepdf-for-java-from-maven-repository.html" rel="noopener" target="_blank">https://www.e-iceblue.cn/licensing/install-spirepdf-for-java-from-maven-repository.html</a></div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"><a href="https://www.e-iceblue.cn/licensing/install-spirepdf-for-java-from-maven-repository.html" rel="noopener" target="_blank">https://www.e-iceblue.cn/licensing/install-spirepdf-for-java-from-maven-repository.html</a></div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"><a href="https://blog.51cto.com/eiceblue/2465874?source=dra" rel="noopener" target="_blank">https://blog.51cto.com/eiceblue/2465874?source=dra</a></div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"><a href="https://www.e-iceblue.cn/Introduce/Free-Spire-XLS-JAVA.html" rel="noopener" target="_blank"><span style="color:#f33b45;">https://www.e-iceblue.cn/Introduce/Free-Spire-XLS-JAVA.html</span></a></div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;">
+<p><strong>Free Spire.XLS for Java</strong> 是一款专业的 Java Excel 组件，开发人员使用它可以在 Java 应用程序中轻松实现创建、操作、转换和打印 Excel 工作表，并且运行环境无需安装 Microsoft Office 或 Microsoft Excel。</p>
+
+<p><em>Free</em> Spire.XLS for Java 支持多种 Excel 文件格式，包括 Excel 97-2003 格式（.xls），以及 Excel 2007、2010、2013 和 2016 格式（.xlsx, .xlsb, .xlsm），此外，它还支持 Open Office（.ods）格式。<em>Free</em> Spire.XLS for Java 提供了一系列丰富的操作 Excel 的功能，例如创建、读取、编辑、转换和打印 Excel 工作表，查找和替换数据，创建图表，创建自动筛选器，读取和插入超链接，合并或取消合并单元格，合并 Excel 文档，组合或取消组合 Excel 行和列，冻结或取消冻结窗口，加密或解密 Excel 工作表等。</p>
+
+<p><span style="color:#f33b45;"><em><strong>友情提示</strong>：当读写 .xls 格式的 Excel 文档时，免费版本有每个文档 5 个工作表，每个工作表 200 行的限制。读写 .xlsx 格式的 Excel 文档时没有任何限制。将 Excel 文档转换为 PDF 或其他格式时，仅支持转换前3页。我们仅对免费版进行不定期维护。</em></span></p>
+
+<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td rowspan="2" style="vertical-align:top;">
+			<p>Java</p>
+			</td>
+			<td colspan="4"> </td>
+		</tr><tr><td rowspan="3"> </td>
+			<td colspan="4" style="vertical-align:top;">
+			<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td colspan="6">
+						<ul><li>Standalone Java API</li>
+						</ul></td>
+					</tr><tr><td colspan="6">
+						<p>100% independent Java Excel class library.Doesn't require Microsoft Office installed on system.</p>
+						</td>
+					</tr></tbody></table></td>
+		</tr></tbody></table><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td rowspan="2" style="vertical-align:top;">
+			<p>Excel<br>
+			Version</p>
+			</td>
+			<td colspan="4"> </td>
+		</tr><tr><td rowspan="3"> </td>
+			<td colspan="4" style="vertical-align:top;">
+			<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td colspan="6">
+						<ul><li>Excel 97-2003</li>
+							<li>Excel 2007</li>
+							<li>Excel 2010</li>
+							<li>Excel 2013</li>
+							<li>OpenOffice</li>
+						</ul></td>
+					</tr></tbody></table></td>
+		</tr></tbody></table><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td rowspan="2" style="vertical-align:top;">
+			<p>Operation</p>
+			</td>
+			<td rowspan="3"> </td>
+		</tr><tr><td colspan="4" style="vertical-align:top;">
+			<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td colspan="6">
+						<ul><li>Import and Export data</li>
+							<li>Merge Split Cells and files</li>
+							<li>Protect, Encrypt, Decrypt</li>
+						</ul></td>
+					</tr><tr><td colspan="6">
+						<ul><li>Work with Pivot table</li>
+							<li>Work with Excel Charts</li>
+							<li>Manage Comments</li>
+						</ul></td>
+					</tr><tr><td colspan="6">
+						<ul><li>Images and shapes</li>
+							<li>Find Replace Highlight</li>
+							<li>Set auto-filters &amp; page breaks</li>
+						</ul></td>
+					</tr><tr><td colspan="6">
+						<ul><li>Manage Hyperlinks</li>
+							<li>Text and Image watermark</li>
+							<li>Header and Footer</li>
+						</ul></td>
+					</tr><tr><td colspan="6">
+						<ul><li>Conditional Formatting</li>
+							<li>Reports</li>
+							<li>Print</li>
+							<li>Excel Formula</li>
+						</ul></td>
+					</tr></tbody></table></td>
+		</tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" style="width:530px;"><tbody><tr><td rowspan="2" style="vertical-align:top;">
+			<p>Conversion</p>
+			</td>
+			<td colspan="4"> </td>
+			<td colspan="4" style="vertical-align:top;">
+			<table border="0" cellpadding="0" cellspacing="0" style="width:418px;"><tbody><tr><td>
+						<p>TEXT</p>
+						</td>
+						<td>
+						<p>HTML</p>
+						</td>
+						<td>
+						<p>PostScript</p>
+						</td>
+					</tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" style="width:418px;"><tbody><tr><td>
+						<p>XPS</p>
+						</td>
+					</tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" style="width:418px;"><tbody><tr><td>
+						<p>SVG</p>
+						</td>
+						<td>
+						<p>1</p>
+						</td>
+						<td>
+						<p>2</p>
+						</td>
+						<td>
+						<p>3</p>
+						</td>
+						<td>
+						<p>CSV</p>
+						</td>
+					</tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" style="width:418px;"><tbody><tr><td>
+						<p>PDF</p>
+						</td>
+						<td style="vertical-align:top;">
+						<p>XLsx,XLSM,XLSB,ODS</p>
+						</td>
+						<td> </td>
+					</tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" style="width:418px;"><tbody><tr><td>
+						<p>Image</p>
+						</td>
+						<td>
+						<p>XML</p>
+						</td>
+					</tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" style="width:418px;"><tbody><tr><td> </td>
+						<td colspan="4">
+						<p>Excel</p>
+						</td>
+					</tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" style="width:418px;"><tbody><tr><td>
+						<p>BMP</p>
+
+						<p>PNG</p>
+
+						<p>GIF</p>
+
+						<p>JPG</p>
+
+						<p>JPEG</p>
+						</td>
+						<td>
+						<p>1</p>
+						</td>
+						<td>
+						<p>Chart</p>
+						</td>
+					</tr></tbody></table></td>
+		</tr></tbody></table><h3 id="主要功能">主要功能</h3>
+
+<p>仅需 <em>Free</em> Spire.XLS for Java，无需 Microsoft Office</p>
+
+<p><em>Free</em> Spire.XLS for Java 是一个完全独立的 Excel 组件，它运行时不依赖 Microsoft Office 或 Microsoft Excel。</p>
+
+<p>高质量的文档转换功能</p>
+
+<p><em>Free</em> Spire.XLS for Java 不仅支持将 Excel 文档高质量地转换到 PDF、HTML、CSV、TXT、图片、XML、SVG、PostScript 和 XPS 等格式，也支持将多种流行文件格式高质量地转换为 Excel 格式。</p>
+
+<p>支持丰富的 Excel 元素</p>
+
+<p><em>Free</em> Spire.XLS for Java 支持丰富的 Excel 元素，包括批注、数据透视表、图表、形状、表格、图片、超链接、报表、文本或图片水印、Excel 公式等。此外，它还提供了多种灵活的选项用于显示和打印 Excel 工作表，例如页面分隔符、页面缩放、冻结窗口、页眉和页脚等设置， 以及 Excel 文档打印纸张大小和区域设置等。</p>
+
+<p>易于集成</p>
+
+<p><em>Free</em> Spire.XLS for Java 可以轻易地被集成到 Java 应用程序中。</p>
+
+<h3 id="屏幕截图">屏幕截图</h3>
+
+<p> </p>
+</div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+
+<div style="margin-left:0px;"> </div>
+                                    </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/104074320/" data-toggle="tooltip" data-placement="top" title="2019最新 Java商城秒杀系统的设计与实战视频教程（SpringBoot版）">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/103892826/" data-toggle="tooltip" data-placement="top" title="Java Poi 向excel中插入图片">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
+                    
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yangjiabin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2020 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ageniuse.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://ageniuse.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

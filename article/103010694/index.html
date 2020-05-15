@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          docker  买了腾讯服务器后的学习 - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://ageniuse.github.io/article/103010694/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>docker  买了腾讯服务器后的学习</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2019-11-11
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+                                            <p>腾讯云买了   打算用 </p>
+
+<p> </p>
+
+<p><br>
+登录成功后：<br>
+Last login: Mon Nov 11 13:37:02 2019 from 221.12.17.87<br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> ip addr          #查看ip地址</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> uname -r  #查看centeros内核版本  docker要求  centeros内核在3.10以上</span><br>
+3.10.0-862.el7.x86_64<br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> yum install docker         #联网安装docker  中间有一次输入y要下载东西</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> systemctl start docker     #启动docker</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker -v      #查看docker版本</span><br>
+Docker version 1.13.1, build 7f2769b/1.13.1<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">systemctl enable docker     #设置docker开机启动</span><br>
+Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.ser<br>
+vice.<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">systemctl stop docker   #也可以停止docker</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker -v    #查看docker版本</span><br>
+Docker version 1.13.1, build 7f2769b/1.13.1<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker search mysql  #在线搜索docker的mysql镜像  这个没什么用</span><br>
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?<span style="color:#f33b45;"> #刚才关闭了docker</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">systemctl start docker   # 刚才关闭了docker    启动docker</span></p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">clear    #清理界面</span></p>
+
+<p><a href="https://hub.docker.com/" rel="noopener" target="_blank">https://hub.docker.com/</a>     这里可以找docker镜像的版本</p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker search mysql  #查找mysql镜像</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker pull mysql   #拉取最新的mysql镜像 </span> <span style="color:#f33b45;">  latest最新版本的镜像</span>                                         <br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images  #查看当前下载好的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker pull mysql:5.5   #拉取mysql5.5的镜像  </span><br>
+[root@VM_0_13_centos ~]# <span style="color:#3399ea;">docker rmi d404d78aa797    #删除指定id的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images d404d78aa797   #没有用的命令。压根就没这个命令</span><br>
+ [root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps                      #查看运行中的镜像</span></p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker search tomcat         #搜索tomcat镜像</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker pull tomcat        #拉取tomcat的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images              #查看现有镜像</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker ps                      #查看运行中的镜像</span></p>
+
+<p> </p>
+
+<p> </p>
+
+<p>[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker images    #下载好的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps    #运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker run --name mytomcat2 -d tomcat  不能用  #运行镜像 </span><span style="color:#3399ea;">（忘记映射端口了  这个不能用）</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps  #运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker stop 0d9f1656799c    #停止运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps   #运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker stop 16d6eadacf1e   #停止运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps    #运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps -a    #运行中的镜像和停止的镜像</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#3399ea;"> docker start 0d9f1656799c   #启动已经停止的镜像(容器)</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps   #运行中的对象</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#3399ea;">docker stop 0d9f1656799c      #停止运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps  #运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#3399ea;">docker rm 0d9f1656799c   #删除已经停止的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps -a    #运行中的镜像和停止的镜像</span><br>
+  </p>
+
+<p> <br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps     #运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker stop 0d9f1656799c    #停止运行中的镜像</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker ps      #运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker stop 16d6eadacf1e    #停止运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps   #运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps -a    #运行中的镜像和停止的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images   #下载好的镜像  </span><br>
+[root@VM_0_13_centos ~]# <span style="color:#3399ea;">docker run -d -p 8888:8080 tomcat    #启动tomcat</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker ps    #运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps -a    #运行中的镜像和停止的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">service firewalld status     #防火墙状态</span><br>
+   Active: inactive (dead)  <br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">service firewalld stop     #停用防火墙（腾讯好像默认是停用的）</span></p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker logs 2c9f0c97245d  #日志</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#3399ea;">docker run -d -p 8889:8080 tomcat    #启动tomcat</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#3399ea;">docker run -d -p 8887:8080 tomcat    #一个镜像可以启动多个tomcat</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> </span><span style="color:#3399ea;">docker ps  #运行中的镜像（容器）</span><br>
+ <br>
+ </p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps     #查看运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker stop abefecfa6a61   #停止运行中的镜像（指定id）</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker ps    #查看运行中的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images    #查看已下载的镜像</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker run -p 3306:3306 --name mysql02 -e MYSQL_ROOT_PASSWORD=123456 -d mysql  #启动mysql（没有自定字符集）</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker stop a08a88b2ea42   #停止运行中的镜像（指定id）</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker ps -a   #查看所有运行和停止的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker rm a08a88b2ea42   #删除已经停止的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker rm 281a9b9f9fd5  #这个命令可以删除镜像也可以删除停止运行的镜像，运行中的必须停止后删除</span></p>
+
+<p><span style="color:#3399ea;">#不同版本的mysql 可以同时启动    但是端口要不一样</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker run -p 3306:3306 --name mysql5.5 -e MYSQL_ROOT_PASSWORD=123456 -d mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci   #启动mysql 并指定字符集</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#3399ea;"> docker run -p 3306:3306 --name mysql5.5 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.5 -<br>
+-character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci  #启动mysql 并指定字符集3306端口  镜像mysql5.5</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#3399ea;">docker run -p 3307:3306 --name mysql_latest -e MYSQL_ROOT_PASSWORD=123456 -d mysql:l<br>
+atest --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci  #启动mysql 并指定字符集3307端口镜mysqllatest</span><br>
+ </p>
+
+<p>上面是   第5章SpringBoot_Docker    全部看完了  挺好用的。</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>下面是   第6章SpringBoot数据访问</p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps -a   #查看已经停止和正在运行的镜像（容器）</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker start abefecfa6a61   #启动已经听通知的镜像（容器）</span><br>
+abefecfa6a61<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps   #查看正在运行的镜像（容器）</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker stop abefecfa6a61   #停止正在运行的镜像（容器）</span><br>
+ </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>第7章SpringBoot原理</p>
+
+<p>这节没用docker</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> 第8章SpringBoot缓存<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images   #查看下载好的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps     #正在运行的镜像（容器）</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps -a    #正在运行和已经停止的镜像（容器）</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker rm 13f20f7c86ae   #删除已经停止的镜像（容器）</span><br>
+13f20f7c86ae<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker rm a30fa73f63f5      #删除已经停止的镜像（容器）</span><br>
+a30fa73f63f5<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker rmi 752be83a5396    #删除已经下载好的镜像</span></p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images    #查看下载好的镜像</span></p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker pull redis    #拉取redis镜像</span></p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker run -d -p 6379:6379 --name myredis redis    #启动redis镜像并做端口映射</span></p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>第9章SpringBoot消息</p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker pull rabbitmq:3-management   #拉取rabittmq镜像</span><br>
+[root@VM_0_13_ ~]# <span style="color:#f33b45;">docker run -d -p 5672:5672 -p 15672:15672 --name myrabbitmq 5ab234e119da  #运行rabbitmq镜像</span></p>
+
+<p><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker rmi 36ed80b6a1b1   删除镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images   已经下载好的镜像</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker rmi 5ab234e119da   删除镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker stop dd491afb90ae  停止运行中的容器</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker rm dd491afb90ae  删除容器</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps -a   查看所有容器 停止和运行的都显示</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker pull rabbitmq:3-management    下载带管理界面的rabbitmq</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images    查看下载好的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker run -d -p 5672:5672 -p 15672:15672 --name myrabbitmq 36ed80b6a1b1    启动rabbitMq</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps    查看正在运行的容器</span><br>
+ </p>
+
+<p> </p>
+
+<p>第10章SpringBoot检索</p>
+
+<p>$ <span style="color:#f33b45;"> docker  pull  openjdk   #elasticearch需要java环境</span></p>
+
+<p>$ <span style="color:#f33b45;">docker  run  -d  -it  --name myopenjdk  openjdk  /bin/bash   启动java环境</span></p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker stop dcdf2364fb88  停止容器</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker rm 1bed98e3bf77  删除容器</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker search elasticsearch   搜索镜像（这个命令没什么用）</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker pull elasticsearch:5.6.9   下载elasticsearch:5.6.9镜像</span><br>
+#启动elasticsearch:5.6.9  <br>
+[root@VM_0_13_centos ~]#</p>
+
+<p><span style="color:#f33b45;">docker run -e ES_JAVA_OPTS="-Xms256m -Xmx256m" -d -p 9200:9200 -p 9300:9300 --name elasticsearch01 5c1e1ecfe33a</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker rmi 5e9d896dc62c  删除镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker pull elasticsearch:2.4.6   下载elasticsearch:2.4.6</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images  查看镜像下载好的</span><br>
+#启动elasticsearch:2.4.6  <br>
+[root@VM_0_13_centos ~]#</p>
+
+<p><span style="color:#f33b45;">docker run -e ES_JAVA_OPTS="-Xms256m -Xmx256m" -d -p 9201:9200 -p 9301:9300 --name elasticsearch02 5e9d896dc62c</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps -a    查看所有容器停止的和没有停止的</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker start 9bb596831d2d    启动容器</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps    查看正在运行的容器</span></p>
+
+<p> </p>
+
+<p> </p>
+
+<p>第11章SpringBoot任务</p>
+
+<p>这个没有docker命令</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>第12章SpringBoot安全</p>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xMzg5Njk2OS0wMWEwZWIxZDg3ZjJlZTY0LnBuZw?x-oss-process=image/format,png"></p>
+
+<p>这章也没有docker</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>第13章SpringBoot分布式</p>
+
+<p>docker images  查看下载好的镜像</p>
+
+<p>docker pull zookeeper:3.4.11    下载zookeeper</p>
+
+<p>docker run --name zookeeper01 -p 2181:2181 --restart always -d    xxxxxxxid   启动zookeeper</p>
+
+<p>docker ps</p>
+
+<p> </p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps -a   查看容器包括运行和停止的</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker stop 27bef5f236d3   停止运行中的容器</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker rm 27bef5f236d3   删除容器</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker rmi 56d414270ae3  删除镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker pull zookeeper:3.4.11    下载zookeeper</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker images   查看下载好的镜像</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker run --name zookeeper01 -p 2181:2181 --restart always -d 56d414270ae3    启动zookeeper</span><br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker ps   查看运行中的容器</span><br>
+ <br>
+ </p>
+
+<p>第14章SpringBoot热部署</p>
+
+<p>没有docker命令</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>第15章SpringBoot监管</p>
+
+<p>没有docker命令</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>百度搜索 dockers hub</p>
+
+<p><span style="color:#f33b45;">1.安装jdk</span></p>
+
+<p><span style="color:#f33b45;">$  docker  pull  openjdk</span></p>
+
+<p><span style="color:#f33b45;">$ docker  run  -d  -it  --name myopenjdk  openjdk  /bin/bash</span></p>
+
+<p><span style="color:#f33b45;">2.安装elasticsearch </span></p>
+
+<p><span style="color:#f33b45;">docker run -e ES_JAVA_OPTS="-Xms256m -Xmx256m" -d -p 9200:9200 -p 9300:9300 --name ES01 5c1e1ecfe33a</span></p>
+
+<p><span style="color:#f33b45;">       #启动elasticsearch:5.6.9的镜像</span></p>
+
+<p><span style="color:#f33b45;">#  </span><a href="https://hub.docker.com/" rel="noopener" target="_blank"><span style="color:#f33b45;">https://hub.docker.com/</span></a><span style="color:#f33b45;">     这里可以找docker镜像的版本</span></p>
+
+<p><span style="color:#f33b45;">#下面的都做过了看一下就好了</span></p>
+
+<p>Last login: Tue Nov 12 13:56:07 2019 from 221.12.17.87<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker search elasticsearch   #查找elasticsearch</span><br>
+ <br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker pull elasticsearch:5.6.9    #拉这个版本是视频上的</span></p>
+
+<p>Get https://registry.docker-cn.com/v1/_ping: dial tcp 106.14.52.175:443: i/o timeout <span style="color:#f33b45;">  #超时</span></p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker pull elasticsearch:6.2.1   #找不到这个版本</span><br>
+Trying to pull repository docker.io/library/elasticsearch ... <br>
+manifest for docker.io/elasticsearch:6.2.1 not found<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker pull elasticsearch:6.5.0   #这个照着博客上的版本可以了   这个版本太高用不了</span><br>
+Status: Downloaded newer image for docker.io/elasticsearch:6.5.0 </p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images   #目前有的镜像 已经下载好了</span><br>
+REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE<br>
+docker.io/elasticsearch   6.5.0               ff171d17e77c        12 months ago       774 MB<br>
+[root@VM_0_13_centos ~]<span style="color:#f33b45;"># </span></p>
+
+<p><span style="color:#f33b45;">docker run -e ES_JAVA_OPTS="-Xms256m -Xmx256m" -d -p 9200:9200 -p 9300:9300 --name ES01 5c1e1ecfe33a</span></p>
+
+<p><span style="color:#f33b45;">       #启动elasticsearch:5.6.9的镜像</span><br>
+efc5eac2266b6205c111523b29184554e300ce3ee0261477d7d8175ede004b3c<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps   #查看已经启动的镜像</span><br>
+CONTAINER ID   IMAGE   COMMAND   CREATED    STATUS   PORTS   NAMES<br>
+efc5eac2266b        ff171d17e77c        "/usr/local/bin/do..."   14 seconds ago      Up 14 seconds       0.0.<br>
+0.0:9200-&gt;9200/tcp, 0.0.0.0:9300-&gt;9300/tcp   ES01</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>zimuge视频上的docker命令汇总</p>
+
+<p>第十一章redis缓存     这是第一次使用到docker</p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">systemctl status docker   查看docker运行状态</span><br>
+● docker.service - Docker Application Container Engine<br>
+   Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; vendor preset: disabled)<br>
+  <span style="color:#f33b45;"> </span><span style="color:#3399ea;">Active: </span><span style="color:#f33b45;">active (running) </span><span style="color:#3399ea;">since Mon 2019-11-11 13:46:58 CST; 4 weeks 1 days ago   </span><span style="color:#f33b45;">docker正在运行</span><br>
+     Docs: http://docs.docker.com </p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">systemctl restart docker </span>   <span style="color:#f33b45;">如果docker没有启动 就重启docker</span></p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker images    查看有哪些镜像了</span></p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker search redis     查看有哪些redis的版本</span></p>
+
+<p>[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> docker pull redis:5.0.5    这是老师找到的比较稳定的版本</span></p>
+
+<p>如果你不懂的话  可以暂时把docker理解为一个虚拟机  但是不一样的 这是2回事</p>
+
+<p><a href="https://raw.githubusercontent.com/antirez/redis/4.0/redis.conf" rel="noopener" target="_blank">https://raw.githubusercontent.com/antirez/redis/4.0/redis.conf</a>     这个配置文件 修改一下redis官方默认的配置文件</p>
+
+<p>刚才做了一下docker restart docker   然后docker ps -all 就剩下 zookeeper容器还在了</p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps       只有 zookeeper01了</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker ps -all     也只有 zookeeper01了</span></p>
+
+<p> </p>
+
+<p><strong>注意：后面所有的操作命令都要在这个目录<code>/home/docker/redis</code>下进行</strong></p>
+
+<p>获取 redis 的默认配置模版</p>
+
+<pre class="has">
+<code># 获取 redis 的默认配置模版
+# 这里主要是想设置下 redis 的 log / password / appendonly
+# redis 的 docker 运行参数提供了 --appendonly yes 但没 password
+wget https://raw.githubusercontent.com/antirez/redis/4.0/redis.conf -O conf/redis.conf
+
+# 直接替换编辑
+sed -i 's/logfile ""/logfile "access.log"/' conf/redis.conf;
+sed -i 's/# requirepass foobared/requirepass 123456/' conf/redis.conf;
+sed -i 's/appendonly no/appendonly yes/' conf/redis.conf;
+sed -i 's/bind 127.0.0.1/bind 0.0.0.0/' conf/redis.conf;</code></pre>
+
+<p>[root@VM_0_13_centos redis]# <span style="color:#f33b45;">pwd     <strong>linux如何查看当前目录的完整路径</strong></span><br>
+/home/docker/redis  </p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># pwd</span><br>
+/home/docker/redis<br>
+[root@VM_0_13_centos redis]<span style="color:#f33b45;"># cd conf</span><br>
+[root@VM_0_13_centos conf<span style="color:#f33b45;">]# pwd</span><br>
+/home/docker/redis/conf</p>
+
+<p><strong>示例：</strong></p>
+
+<p>    1、删除文件夹实例：</p>
+
+<p>    rm -rf /var/log/httpd</p>
+
+<p>    将会删除/var/log/httpd目录以及其下所有文件、文件夹</p>
+
+<p>    2、删除文件使用实例：</p>
+
+<p>    rm -f /var/log/httpd/access.log</p>
+
+<p>    将会强制删除/var/log/httpd/access.log这个文件</p>
+
+<p><strong>注意：使用 rm -rf 的时候一定要小心，Linux没有回收站。</strong></p>
+
+<p>创建宿主机 redis 容器的数据和配置文件目录  </p>
+
+<p><span style="color:#f33b45;">mkdir命令用于建立名称为 dirName 之子目录。 -p 确保目录名称存在，不存在的就建一个。</span></p>
+
+<p>[root@VM_0_13_centos redis]# <span style="color:#f33b45;">mkdir /home/docker/redis/{conf,data} -p      创建这2个目录/conf/data</span><br>
+[root@VM_0_13_centos redis]#<span style="color:#f33b45;"> cd /home/docker/redis     进入目录</span></p>
+
+<p><span style="color:#f33b45;"> 这个配置文件 修改一下redis官方默认的配置文件</span></p>
+
+<p><span style="color:#f33b45;"> wget是Linux下下载文件的最常用命令。wget支持HTTP，HTTPS和FTP协议，支持自动下载，即可以在用户退出系统后在后台执行，直到下载结束。        -O是大写的o  不是数字也不是小写的o    尼玛就一直是错在这里啊啊啊</span><br>
+[root@VM_0_13_centos redis]# <span style="color:#f33b45;">wget https://raw.githubusercontent.com/antirez/redis/4.0/redis.conf -O conf/redis.conf</span></p>
+
+<p>[root@VM_0_13_centos redis]#<span style="color:#f33b45;"> cd /home/docker/redis     进入目录</span></p>
+
+<p><span>[root@VM_0_13_centos redis]#</span><span style="color:#f33b45;"> pwd    当前目录<br>
+/home/docker/redis</span></p>
+
+<p><span>[root@VM_0_13_centos redis]#</span><span style="color:#f33b45;"> ls -ltr  查看当前目录的文件   以后就在/home/docker/redis文件夹中操作了<br>
+total 68<br>
+drwxr-xr-x 2 root root  4096 Dec 10 20:22 data<br>
+-rw-r--r-- 1 root root 58766 Dec 10 20:22 redis.conf<br>
+drwxr-xr-x 2 root root  4096 Dec 10 20:23 conf</span></p>
+
+<p><span style="color:#f33b45;">就是字符串替换   下面的代码</span><br>
+[root@VM_0_13_centos redis]<span style="color:#f33b45;"># sed -i 's/logfile ""/logfile "access.log"/' conf/redis.conf;</span></p>
+
+<p><span style="color:#f33b45;">logfile原来为空字符串的 现在远程access.log </span><br>
+[root@VM_0_13_centos redis]<span style="color:#f33b45;"># sed -i 's/# requirepass foobared/requirepass 123456/' conf/redis.conf;</span></p>
+
+<p><span style="color:#f33b45;">原来不用密码访问的现在修改为 密码登录123456</span><br>
+[root@VM_0_13_centos redis]<span style="color:#f33b45;"># sed -i 's/appendonly no/appendonly yes/' conf/redis.conf;</span></p>
+
+<p><span style="color:#f33b45;">原来持久化为no 现在修改为yes</span><br>
+[root@VM_0_13_centos redis]<span style="color:#f33b45;"># sed -i 's/bind 127.0.0.1/bind 0.0.0.0/' conf/redis.conf;</span></p>
+
+<p><span style="color:#f33b45;">原来只有127.0.0.1才能访问现在修改为全部ip可以访问</span></p>
+
+<p>protected-mode 是在没有显式定义 bind 地址（即监听全网段），又没有设置密码 requirepass时，protected-mode 只允许本地回环 127.0.0.1 访问。改为bind 0.0.0.0</p>
+
+<p>容器相当于类    镜像相当于对象</p>
+
+<p> </p>
+
+<p><br>
+[root@VM_0_13_centos ~]<span style="color:#f33b45;"># pwd   查看当前全路径</span><br>
+[root@VM_0_13_centos ~]<span style="color:#f33b45;"># docker search redis   搜索redis镜像 </span></p>
+
+<p>[root@VM_0_13_centos ~]<span style="color:#f33b45;"># docker images     查询已经下载好的镜像</span></p>
+
+<p>[root@VM_0_13_centos ~]<span style="color:#f33b45;"># mkdir /home/docker/redis/{conf,data} -p     # 这里我们在 /home/docker 下创建</span></p>
+
+<p>[root@VM_0_13_centos ~<span style="color:#f33b45;">]# cd /home/docker/redis   打开指定目录</span></p>
+
+<p><span>[root@VM_0_13_centos redis]</span><span style="color:#f33b45;"># pwd    当前全路径<br>
+/home/docker/redis</span></p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># ls -a   </span>-a 显示所有文件及目录 (ls内定将文件名或目录名称开头为"."的视为隐藏档，不会列出)<br>
+conf  data  redis.conf</p>
+
+<p><strong>ls 显示目录下的文件名</strong></p>
+
+<p><strong>-a 显示所有文件（包含隐藏文件），以.开头的文件为隐藏文件</strong></p>
+
+<p><strong>-A 显示所有文件（不包含.和..）</strong></p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># docker rm 34b604a489e4     删除容器</span></p>
+
+<p>[root@VM_0_13_centos redis<span style="color:#f33b45;">]# docker rmi 63130206b0fa    删除镜像</span></p>
+
+<p>[root@VM_0_13_centos <span style="color:#f33b45;">redis]# docker images    不能再redis目录下面做  必须cd ~ 回到主目录才行  不然报下面这行的错误</span><br><span style="color:#f33b45;">shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory</span></p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># docker pull redis:5.0.5    拉redis：5.0.5这个镜像</span></p>
+
+<p>[root@VM_0_13_centos redis<span style="color:#f33b45;">]# cd ..   回到上层目录</span></p>
+
+<p><span style="color:#f33b45;">[root@VM_0_13_centos /]# cd ~    回到主目录</span></p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># docker logs myredis5   没启动起来查看日志 # 如果没有 myredis 说明启动失败 查看错误日志</span></p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># cat conf/redis.conf      查看这个redis.conf文件</span></p>
+
+<p>[root@VM_0_13_centos conf]<span style="color:#f33b45;"># vi redis.conf   编辑redis.conf这个文件</span></p>
+
+<p>[root@VM_0_13_centos conf]<span style="color:#f33b45;"># docker ps    查看运行的容器   # 查看活跃的容器</span></p>
+
+<p><span style="color:#f33b45;">[root@VM_0_13_centos conf]# docker ps -a   查看所有运行和停止运行的容器</span></p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># docker stop 8a3ec673e16f    停止运行中的容器</span></p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># rm -rf /home/docker/redis     删除/home/docker/redis目录下的所有文件夹和文件</span></p>
+
+<p>[root@VM_0_13_centos redis]# sed -i 's/logfile ""/logfile "access.log"/' conf/redis.conf;<br>
+[root@VM_0_13_centos redis]# sed -i 's/# requirepass foobared/requirepass 123456/' conf/redis.conf;<br>
+[root@VM_0_13_centos redis]# sed -i 's/appendonly no/appendonly yes/' conf/redis.conf;<br>
+[root@VM_0_13_centos redis]# sed -i 's/bind 127.0.0.1/bind 0.0.0.0/' conf/redis.conf;</p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># docker run -p 6379:6379 -v $PWD/data:/data:rw -v $PWD/conf/redis.conf:/etc/redis/redis.conf:ro   --privileged=true --name myredis5   -d redis redis-server /etc/redis/redis.conf   <br>
+ 启动redis   必须一行写命令不然就会出错的</span></p>
+
+<p><span style="color:#f33b45;"># 命令分解</span><br>
+docker run \<br>
+-p 6379:6379 \ <span style="color:#f33b45;"># 端口映射 宿主机:容器</span><br>
+-v $PWD/data:/data:rw \ <span style="color:#f33b45;"># 映射数据目录 rw 为读写</span><br>
+-v $PWD/conf/redis.conf:/etc/redis/redis.conf:ro \ <span style="color:#f33b45;"># 挂载配置文件 ro 为readonly</span><br>
+--privileged=true \<span style="color:#f33b45;"> # 给与一些权限</span><br>
+--name myredis \<span style="color:#f33b45;"> # 给容器起个名字</span><br>
+-d redis redis-server /etc/redis/redis.conf <span style="color:#f33b45;"># deamon 运行容器 并使用配置文件启动容器内的 redis-server </span></p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># docker logs myredis5   启动失败就看看日志</span></p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># docker inspect myredis5 # 查看 myredis 的 ip 挂载 端口映射等信息</span></p>
+
+<p>[root@VM_0_13_centos redis]<span style="color:#f33b45;"># docker port myredis5  # 查看 myredis 的端口映射</span><br>
+6379/tcp -&gt; 0.0.0.0:6379<br>
+[root@VM_0_13_centos redis]<span style="color:#f33b45;"># docker exec -it myredis5 bash   三、访问 redis 容器服务</span><br>
+root@26b861b7ec37:/data# <br>
+root@26b861b7ec37:/data<span style="color:#f33b45;"># redis-cli</span><br>
+127.0.0.1:6379&gt; <br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">exit   退出</span><br>
+ root@26b861b7ec37:/data<span style="color:#f33b45;"># exit   退出</span><br>
+exit</p>
+
+<p> [root@VM_0_13_centos ~]# </p>
+
+<p><span style="color:#f33b45;">四、开启防火墙端口，提供外部访问</span><br>
+[root@VM_0_13_centos redis]<span style="color:#f33b45;"># firewall-cmd --zone=public --add-port=6379/tcp --permanent</span><br>
+FirewallD is not running<br>
+[root@VM_0_13_centos redis]<span style="color:#f33b45;"># firewall-cmd -reload</span><br>
+usage: see firewall-cmd man page<br>
+firewall-cmd: error: unrecognized arguments: -reload<br>
+[root@VM_0_13_centos redis]<span style="color:#f33b45;"># firewall-cmd --query-port=6379/tcp</span><br>
+FirewallD is not running<br>
+[root@VM_0_13_centos redis]# </p>
+
+<p> </p>
+
+<p>[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker logs myredis5   看一下redis的日志，这里暂时没有日志</span><br>
+ <br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker port myredis5     检查redis的端口  6379</span><br><span style="color:#f33b45;">6379/tcp -&gt; 0.0.0.0:6379</span><br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">docker exec -it myredis5 bash      现在是在主机上面，进入redis试试</span><br>
+root@26b861b7ec37:/data# <br>
+root@26b861b7ec37:/data# <span style="color:#f33b45;">redis-cli</span><br>
+127.0.0.1:6379&gt; <br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> keys *</span><br><span style="color:#f33b45;">(error) NOAUTH Authentication required.      没有登录</span><br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> auth 123456     登录 一下</span><br>
+OK<br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">keys *      查询</span><br>
+(empty list or set)<br>
+127.0.0.1:6379&gt; <br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">exit    退出</span><br>
+root@26b861b7ec37:/data# <br>
+root@26b861b7ec37:/data# <span style="color:#f33b45;">exit   退出redis</span><br>
+exit<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">firewall-cmd --query-port=6379/tcp     6379端口开放了没</span><br>
+FirewallD is not running<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">firewall-cmd --zone=public --add-port=6379/tcp -permanent      开放6379端口</span><br>
+usage: see firewall-cmd man page   <br>
+firewall-cmd: error: unrecognized arguments: -permanent<br>
+[root@VM_0_13_centos ~]# <span style="color:#f33b45;">firewall-cmd --reload     重启防火墙</span><br>
+FirewallD is not running   <br>
+[root@VM_0_13_centos ~]#<span style="color:#f33b45;"> firewall-cmd --query-port=6379/tcp      6379端口开放了没</span><br>
+FirewallD is not running   <br>
+[root@VM_0_13_centos ~]#    </p>
+
+<p>这个docker的内容还是很多的     这里希望开发人员能快速搭建环境   </p>
+
+<p>redis如何运维   docker如何管理   不是这节课内容    我讲的你理解不了就下载windows版的</p>
+
+<p>安装起来方便后面章节的学习    只要能把redis安装起来都无所谓   </p>
+
+<p> </p>
+
+<p>[root@VM_0_13_centos ~]<span style="color:#f33b45;"># docker exec -it myredis5 bash    登录redis</span><br>
+root@26b861b7ec37:/data<span style="color:#f33b45;"># redis-cli</span><br>
+127.0.0.1:6379&gt; keys *<br>
+(error) NOAUTH Authentication required.<br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">auth 123456   登录密码</span><br>
+OK<br>
+127.0.0.1:6379&gt; keys *<br>
+(empty list or set)<br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">set age 1   练习set集合</span><br>
+OK<br>
+127.0.0.1:6379&gt; incr age<br>
+(integer) 2<br>
+127.0.0.1:6379&gt; incr age<br>
+(integer) 3<br>
+127.0.0.1:6379&gt; decr age<br>
+(integer) 2<br>
+127.0.0.1:6379&gt; incrby age 2<br>
+(integer) 4<br>
+127.0.0.1:6379&gt; decrby age 3<br>
+(integer) 1<br>
+127.0.0.1:6379&gt; setex 10 yangjiabin<br>
+(error) ERR wrong number of arguments for 'setex' command<br>
+127.0.0.1:6379&gt; set name 10 yangjiabin<br>
+(error) ERR syntax error<br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> setex name 10 yangjiabin     设置name字段有效期为10秒钟</span><br>
+OK<br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">get name   获取name</span><br>
+"yangjiabin"<br>
+127.0.0.1:6379&gt; get name<br>
+"yangjiabin"<br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">get name   超过10秒钟就没有数据了   一般有效期用在短信验证码上面</span><br><span style="color:#f33b45;">(nil)</span><br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> lpush queue1 1       list的使用场景     l-left   r-right   lpush-left push    rpop-right pop  </span><br>
+(integer) 1<br>
+127.0.0.1:6379&gt; lpush queue1 2<br>
+(integer) 2<br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> lpop queue1      双向链表结构  可以实现栈  也可以实现队列  可以实现简单的消息队列</span><br>
+"2"<br>
+127.0.0.1:6379&gt; lpush queue1 3<br>
+(integer) 2<br>
+127.0.0.1:6379&gt; rpush queue1 4<br>
+(integer) 3<br>
+127.0.0.1:6379&gt; rpop queue1<br>
+"4"<br>
+127.0.0.1:6379&gt; lpop queue1<br>
+"3"<br>
+127.0.0.1:6379&gt; lpop queue1<br>
+"1"<br>
+127.0.0.1:6379&gt; lpop queue1<br>
+(nil)<br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> lpush queue2 a     向队列推入abcd</span><br>
+(integer) 1<br>
+127.0.0.1:6379&gt; lpush queue2 b<br>
+(integer) 2<br>
+127.0.0.1:6379&gt; lpush queue2 c<br>
+(integer) 3<br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">lpush queue2 d    最新的在最上面</span><br>
+(integer) 4<br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> lrange queue2 0 4     这种适合最新文章的排序展示</span><br>
+1) "d"<br>
+2) "c"<br>
+3) "b"<br>
+4) "a"<br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> sadd "user:101" 1    用户感兴趣的内容</span><br>
+(integer) 1<br>
+127.0.0.1:6379&gt; sadd "user:101" 2<br>
+(integer) 1<br>
+127.0.0.1:6379&gt; sadd "user:102" 1<br>
+(integer) 1<br>
+127.0.0.1:6379&gt; sadd "user:102" 3<br>
+(integer) 1<br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">sinter "user:101" "user:102"    101和102用户的交集</span><br>
+1) "1"<br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> sunion "user:101" "user:102"   101和102用户的并集</span><br>
+1) "1"<br>
+2) "2"<br>
+3) "3"<br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> hset user102 name yangjiabin       hash存储对象</span><br>
+(integer) 1<br>
+127.0.0.1:6379&gt; hset user102 age 18<br>
+(integer) 1<br>
+127.0.0.1:6379&gt; hset user102 sex male<br>
+(integer) 1<br>
+127.0.0.1:6379&gt; hget user103<br>
+(error) ERR wrong number of arguments for 'hget' command<br>
+127.0.0.1:6379&gt; hget user102<br>
+(error) ERR wrong number of arguments for 'hget' command<br>
+127.0.0.1:6379&gt; hget user102 name<br>
+"yangjiabin"<br>
+127.0.0.1:6379&gt; hget user102 age<br>
+"18"<br>
+127.0.0.1:6379&gt; hget user102 sex<br>
+"male"<br>
+127.0.0.1:6379&gt; <br>
+127.0.0.1:6379&gt;<span style="color:#f33b45;"> zadd hot_product 100 apple    热销商品可以按照分数排序</span><br>
+(integer) 1<br>
+127.0.0.1:6379&gt; zadd hot_product 99 htc<br>
+(integer) 1<br>
+127.0.0.1:6379&gt; zadd hot_product 98 hawe<br>
+(integer) 1<br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">zrange hot_product 0 -1     正序</span><br>
+1) "hawe"<br>
+2) "htc"<br>
+3) "apple"<br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">zrevrange hot_product 0 -1    逆序</span><br>
+1) "apple"<br>
+2) "htc"<br>
+3) "hawe"<br>
+127.0.0.1:6379&gt; <br>
+127.0.0.1:6379&gt; <span style="color:#f33b45;">exit    退出</span><br>
+root@26b861b7ec37:/data# <span style="color:#f33b45;">exit   退出</span><br>
+exit<br>
+[root@VM_0_13_centos ~]# </p>
+
+<p>第11章终于看完了 </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>第12章整合分布式文件系统fastdfs</p>
+
+<p>算过了    全是封装号调用了一下</p>
+
+<p> </p>
+
+<p>第13章服务器推送技术    </p>
+
+<p>sse 和websoket  websocket更加通用一些    </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>第14章消息队列的整合与使用</p>
+
+<p>算了    消息队列  算了</p>
+
+<p> </p>
+
+<p> 第十五章 邮件发送的整合与使用</p>
+
+<p>这个看代码好了    还是比较简单的  </p>
+
+<p>这个视频对应的docker不是很好   只是辅助springboot搭建一下环境而已  </p>
+
+<p>讲解的太快了。</p>
+
+<p> </p>
+
+<p>第16章响应式框架webflux</p>
+
+<p>这个可能史下一代的框架  代替springboot的</p>
+
+<p>还是不是很成熟 有bug</p>
+
+<p>全部看完了</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p><br>
+ </p>
+                                    </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/102459405/" data-toggle="tooltip" data-placement="top" title="第10章尚硅谷SpringBoot检索">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/102966775/" data-toggle="tooltip" data-placement="top" title="一次性加载树结构数据表   mapper加载">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
+                    
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yangjiabin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2020 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ageniuse.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://ageniuse.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

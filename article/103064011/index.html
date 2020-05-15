@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          docker 安装elasticsearch - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://ageniuse.github.io/article/103064011/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>docker 安装elasticsearch</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2019-11-14
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+                                            <p>1.安装jdk</p>
+
+<p>$  docker  pull  openjdk</p>
+
+<p>$ docker  run  -d  -it  --name myopenjdk  openjdk  /bin/bash</p>
+
+<p>2.安装elasticsearch </p>
+
+<p>docker run -d -p 9200:9200 --name="es" -e ES_JAVA_OPTS="-Xms256m -Xmx256m" elasticsearch:5.6</p>
+
+<p> docker pull elasticsearch:5.6.9    #拉这个版本是视频上的<br>
+docker run -e ES_JAVA_OPTS="-Xms256m -Xmx256m" -d -p 9200:9200 -p 9300:9300 --name ES01 5c1e1ecfe33a<br>
+ #启动elasticsearch:5.6.9的镜像</p>
+
+<p>*************************************************************************************************************</p>
+
+<p>*************************************************************************************************************</p>
+
+<p>*************************************************************************************************************</p>
+
+<p>*************************************************************************************************************</p>
+
+<p>*************************************************************************************************************</p>
+
+<p>*************************************************************************************************************</p>
+
+<p>*************************************************************************************************************</p>
+
+<p>*************************************************************************************************************</p>
+
+<p>*************************************************************************************************************</p>
+
+<p>*************************************************************************************************************</p>
+
+<p>*************************************************************************************************************</p>
+
+<p> </p>
+
+<h1 id="docker安装elasticsearch的遇到的那些坑">Docker安装Elasticsearch的遇到的那些坑</h1>
+
+<p> </p>
+
+<p><a href="https://www.jianshu.com/u/78f8ec62f0d8" rel="noopener" target="_blank">weylau</a>关注</p>
+
+<p>0.0612018.10.16 20:28:32字数 65阅读 1,170</p>
+
+<h3 id="1-docker-运行-elasticsearch-报错">1、docker 运行 Elasticsearch 报错</h3>
+
+<pre class="has">
+<code>$ docker run -d -p 9200:9200 --name="es" elasticsearch:5.6
+</code></pre>
+
+<p>报错：failed; error='Cannot allocate memory' (errno=12)<br>
+原因：5.0默认分配jvm空间大小为2g 5.0之前好像是1g</p>
+
+<p>解决方法:-e ES_JAVA_OPTS="-Xms256m -Xmx256m" //设置初始内存 和最大内存</p>
+
+<pre class="has">
+<code>docker run -d -p 9200:9200 --name="es" -e ES_JAVA_OPTS="-Xms256m -Xmx256m" elasticsearch:5.6
+</code></pre>
+
+<p> </p>
+
+<p>*************************************************************************************************************</p>
+
+<h1 id="docker安装jdk">docker安装jdk</h1>
+
+<p>2018-12-21 10:06:52 <a href="https://me.csdn.net/zhujuntiankong" rel="noopener" target="_blank">zhujuntiankong</a> 阅读数 6288更多</p>
+
+<p>分类专栏： <a href="https://blog.csdn.net/zhujuntiankong/article/category/8548829" target="_blank" rel="noopener">docker学习笔记</a></p>
+
+<p>版权声明：本文为博主原创文章，遵循<a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。</p>
+
+<p>本文链接：<a href="https://blog.csdn.net/zhujuntiankong/article/details/85157420" target="_blank" rel="noopener">https://blog.csdn.net/zhujuntiankong/article/details/85157420</a></p>
+
+<h2 id="docker安装jdk">docker安装jdk</h2>
+
+<p><strong>1查找jdk镜像: </strong> </p>
+
+<pre class="has">
+<code>$ docker  search  jdk    </code></pre>
+
+<p>2<strong>下载openjdk镜像：</strong> </p>
+
+<pre class="has">
+<code>$  docker  pull  openjdk</code></pre>
+
+<p> </p>
+
+<p><strong>3运行jdk容器：</strong></p>
+
+<pre class="has">
+<code>$ docker  run  -d  -it  --name myopenjdk  openjdk  /bin/bash</code></pre>
+
+<p><strong>格式：</strong> docker  run  -d  -it   [镜像名称或id]    /bin/bash</p>
+
+<p>注意： -it   /bin/bash  一定不能省了，不然jdk起不来，或者懒人写法 -it  bash  也可以。</p>
+
+<p><img alt="" class="has" height="123" src="https://img-blog.csdnimg.cn/20181221100434631.png" width="664"></p>
+
+<p> </p>
+
+<p><strong>4进入容器验证:</strong></p>
+
+<pre class="has">
+<code>$ docker  exec  -it  myopenjdk  /bin/bash</code></pre>
+
+<p><img alt="" class="has" height="74" src="https://img-blog.csdnimg.cn/20181221100529136.png" width="554"></p>
+
+<p> </p>
+
+<p>*************************************************************************************************************</p>
+
+<h1 id="docker安装elasticsearch的遇到的那些坑">Docker安装Elasticsearch的遇到的那些坑</h1>
+
+<p>2016-12-25 14:38:01 <a href="https://me.csdn.net/sun1021873926" rel="noopener" target="_blank">夕阳雨晴</a> 阅读数 16062更多</p>
+
+<p>分类专栏： <a href="https://blog.csdn.net/sun1021873926/article/category/6576397" target="_blank" rel="noopener">Web开发</a> <a href="https://blog.csdn.net/sun1021873926/article/category/6640781" target="_blank" rel="noopener">Docker容器化</a></p>
+
+<p>版权声明：本文为博主原创文章，遵循<a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。</p>
+
+<p>本文链接：<a href="https://blog.csdn.net/sun1021873926/article/details/53869775" target="_blank" rel="noopener">https://blog.csdn.net/sun1021873926/article/details/53869775</a></p>
+
+<p>1.根据百度到的一篇文章<a href="https://segmentfault.com/a/1190000004376504" rel="noopener" target="_blank">https://segmentfault.com/a/1190000004376504</a>下载其最新镜像</p>
+
+<p>hangxin1940/docker-elasticsearch-cn:v2.1.0</p>
+
+<p>使用</p>
+
+<p>docker run -d -p 9200:9200 -p 9300:9300 --name es hangxin1940/docker-elasticsearch-cn:v2.1.0</p>
+
+<p>进行启动，报出异常，搜索两个多小时，没有找到可以解决此问题的答案</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20161225144052003?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3VuMTAyMTg3MzkyNg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center"></p>
+
+<p> </p>
+
+<p>2.回归本源，查看并下载elasticsearch的官方镜像</p>
+
+<p>docker pull elasticsearch</p>
+
+<p>即：<a href="https://github.com/docker-library/elasticsearch/blob/4e4394f9563a109180289d8eb2ff3bc6c1e2dcb2/5/Dockerfile" target="_blank" rel="noopener">5.1.1, 5.1, 5, latest (5/Dockerfile)</a></p>
+
+<p>采用其官方推荐的最简方式启动</p>
+
+<p>docker run -d elasticsearch</p>
+
+<p>抛出异常</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20161225144122155?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3VuMTAyMTg3MzkyNg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center"></p>
+
+<p> </p>
+
+<p>又花费了两个小时，问题还是没有解决。又放弃。</p>
+
+<p>3.找同事帮助，最后在同事的帮助下，他发给我</p>
+
+<p>elasticsearch：2.3的镜像，并同时将启动命令发给我</p>
+
+<p>docker run -d --name=esNode1 -p 9200:9200 -p 9300:9300 elasticsearch:2.3 -Des.network.publish_host="192.168.56.101"</p>
+
+<p>启动后无异常</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20161225144146129?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3VuMTAyMTg3MzkyNg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center"></p>
+
+<p> </p>
+
+<p>查看es(这里的ip是docker的default machine的ip)</p>
+
+<p>访问http://192.168.56.101:9200/，可正确访问</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20161225144244021?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3VuMTAyMTg3MzkyNg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center"></p>
+
+<p> </p>
+
+<p>同时按照的有两个插件head和kopf</p>
+
+<p> </p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20161225144341773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3VuMTAyMTg3MzkyNg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center"></p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20161225144409133?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3VuMTAyMTg3MzkyNg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center"></p>
+
+<p> </p>
+
+<p>问题终于得到解决。</p>
+
+<p>有经验的伙伴可以尝试使用小编跑出异常的方式尝试哈，方便的话可以将解决方案描述哈。</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>*************************************************************************************************************</p>
+
+<h1 id="docker-安装elasticsearch">docker 安装elasticsearch</h1>
+
+<p>2018-07-07 04:18:22 <a href="https://me.csdn.net/weixin_36104843" rel="noopener" target="_blank">纠结哥_Shrek</a> 阅读数 2313更多</p>
+
+<p>分类专栏： <a href="https://blog.csdn.net/weixin_36104843/article/category/7688693" target="_blank" rel="noopener">docker</a></p>
+
+<p>原文连接：https://www.cnblogs.com/yangzhenlong/p/8604010.html</p>
+
+<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td>
+			<p>1</p>
+			</td>
+			<td>
+			<p><code>docker search elasticsearch</code></p>
+			</td>
+		</tr></tbody></table><p>　<img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvNTQ2MTcyLzIwMTgwMy81NDYxNzItMjAxODAzMTkxODQ2NTQ3ODQtMjA3Mzc4NTMyMi5wbmc?x-oss-process=image/format,png"></p>
+
+<p>选择一个版本，拉取镜像</p>
+
+<p> </p>
+
+<pre class="has">
+<code class="language-html">docker pull elasticsearch:2.4.4</code></pre>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvNTQ2MTcyLzIwMTgwMy81NDYxNzItMjAxODAzMTkxODQ3Mjg4NDQtODI0NTk2NTk0LnBuZw?x-oss-process=image/format,png"></p>
+
+<p>查看镜像 </p>
+
+<pre class="has">
+<code class="language-html">docker images</code></pre>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvNTQ2MTcyLzIwMTgwMy81NDYxNzItMjAxODAzMTkxODQ5NTExNjMtNTg2NDE3MjMzLnBuZw?x-oss-process=image/format,png"></p>
+
+<p>通过镜像，启动一个容器，并将9200和9300端口映射到本机</p>
+
+<pre class="has">
+<code class="language-html">docker run -d -p 9200:9200 -p 9300:9300 --name elasticsearch elasticsearch:2.4.4</code></pre>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvNTQ2MTcyLzIwMTgwMy81NDYxNzItMjAxODAzMTkxODUwNTYxOTEtMjQ2MDk0OTExLnBuZw?x-oss-process=image/format,png"></p>
+
+<p>查看已启动容器</p>
+
+<pre class="has">
+<code class="language-html">docker ps</code></pre>
+
+<p>验证是否安装成功？访问：</p>
+
+<pre class="has">
+<code class="language-html">http://localhost:9200/</code></pre>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvNTQ2MTcyLzIwMTgwMy81NDYxNzItMjAxODAzMTkxODUyMjAzNjMtMjEyNTEzNjMyMy5wbmc?x-oss-process=image/format,png"></p>
+
+<p>安装插件，先进入容器：</p>
+
+<pre class="has">
+<code class="language-html">docker exec -it 4d34fbf944a5 /bin/bash</code></pre>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvNTQ2MTcyLzIwMTgwMy81NDYxNzItMjAxODAzMTkxODUzMTIwNDEtMjAxMTk0MjYwOS5wbmc?x-oss-process=image/format,png"></p>
+
+<p>进入容器bin目录，并执行安装插件命令：</p>
+
+<pre class="has">
+<code class="language-html">cd bin
+ls</code></pre>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvNTQ2MTcyLzIwMTgwMy81NDYxNzItMjAxODAzMTkxODU0MTM0MDEtMTk3NDc2MTQ1MC5wbmc?x-oss-process=image/format,png"></p>
+
+<pre class="has">
+<code class="language-html"> plugin install mobz/elasticsearch-head
+
+/**（低版本执行命令有所不同）**/
+ plugin -install mobz/elasticsearch-head</code></pre>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvNTQ2MTcyLzIwMTgwMy81NDYxNzItMjAxODAzMTkxODU1Mzc0MTQtMTE1NDY2Nzc0My5wbmc?x-oss-process=image/format,png"></p>
+
+<p>访问：</p>
+
+<pre class="has">
+<code class="language-html">http://localhost:9200/_plugin/head/</code></pre>
+
+<p><img alt="" class="has" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvNTQ2MTcyLzIwMTgwMy81NDYxNzItMjAxODAzMTkxODU2MTQwMTktNDYxOTAxNTgyLnBuZw?x-oss-process=image/format,png"></p>
+
+<p> </p>
+
+<p>插件安装成功</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+                                    </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/103295312/" data-toggle="tooltip" data-placement="top" title="总结尚硅谷的视频springboot视频">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/102459405/" data-toggle="tooltip" data-placement="top" title="第10章尚硅谷SpringBoot检索">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
+                    
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yangjiabin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2020 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ageniuse.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://ageniuse.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

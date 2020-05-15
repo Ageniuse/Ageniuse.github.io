@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          总结尚硅谷的视频springboot视频 - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://ageniuse.github.io/article/103295312/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>总结尚硅谷的视频springboot视频</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2019-11-28
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+                                            <p>第1章尚硅谷SpringBoot入门<br>
+P01、尚硅谷_SpringBoot_入门-课程简介<br>
+P02、尚硅谷_SpringBoot_入门-Spring Boot简介<br>
+P03、尚硅谷_SpringBoot_入门-微服务简介<br>
+P04、尚硅谷_SpringBoot_入门-环境准备<br>
+P05、尚硅谷_SpringBoot_入门-springboot-helloworld<br>
+P06、尚硅谷_SpringBoot_入门-HelloWorld细节-场景启动器（starter）<br>
+P07、尚硅谷_SpringBoot_入门-HelloWorld细节-自动配置<br>
+P08、尚硅谷_SpringBoot_入门-使用向导快速创建Spring Boot应用</p>
+
+<p><br>
+第2章尚硅谷SpringBoot配置<br>
+P09、尚硅谷_SpringBoot_配置-yaml简介<br>
+P10、尚硅谷_SpringBoot_配置-yaml语法<br>
+P11、尚硅谷_SpringBoot_配置-yaml配置文件值获取<br>
+P12、尚硅谷_SpringBoot_配置-properties配置文件编码问题<br>
+P13、尚硅谷_SpringBoot_配置-@ConfigurationProperties与@Value区别<br>
+P14、尚硅谷_SpringBoot_配置-@PropertySource、@ImportResource、@Bean<br>
+P15、尚硅谷_SpringBoot_配置-配置文件占位符<br>
+P16、尚硅谷_SpringBoot_配置-Profile多环境支持<br>
+P17、尚硅谷_SpringBoot_配置-配置文件的加载位置<br>
+P18、尚硅谷_SpringBoot_配置-外部配置加载顺序<br>
+P19、尚硅谷_SpringBoot_配置-自动配置原理<br>
+P20、尚硅谷_SpringBoot_配置-@Conditional&amp;自动配置报告</p>
+
+<p><br>
+第3章尚硅谷SpringBoot日志<br>
+P21、尚硅谷_SpringBoot_日志-日志框架分类和选择<br>
+P22、尚硅谷_SpringBoot_日志-slf4j使用原理<br>
+P23、尚硅谷_SpringBoot_日志-其他日志框架统一转换为slf4j<br>
+P24、尚硅谷_SpringBoot_日志-SpringBoot日志关系<br>
+P25、尚硅谷_SpringBoot_日志-SpringBoot默认配置<br>
+P26、尚硅谷_SpringBoot_日志-指定日志文件和日志Profile功能<br>
+P27、尚硅谷_SpringBoot_日志-切换日志框架</p>
+
+<p><br>
+第4章尚硅谷SpringBootWeb开发<br>
+P28、尚硅谷_SpringBoot_web开发-简介<br>
+P29、尚硅谷_SpringBoot_web开发-webjars&amp;静态资源映射规则<br>
+P30、尚硅谷_SpringBoot_web开发-引入thymeleaf<br>
+P31、尚硅谷_SpringBoot_web开发-thymeleaf语法<br>
+P32、尚硅谷_SpringBoot_web开发-SpringMVC自动配置原理<br>
+P33、尚硅谷_SpringBoot_web开发-扩展与全面接管SpringMVC<br>
+P34、尚硅谷_SpringBoot_web开发-【实验】-引入资源<br>
+P35、尚硅谷_SpringBoot_web开发-【实验】-国际化<br>
+P36、尚硅谷_SpringBoot_web开发-【实验】-登陆&amp;拦截器<br>
+P37、尚硅谷_SpringBoot_web开发-【实验】-Restful实验要求<br>
+P38、尚硅谷_SpringBoot_web开发-【实验】-员工列表-公共页抽取<br>
+P39、尚硅谷_SpringBoot_web开发-【实验】-员工列表-链接高亮&amp;列表完成<br>
+P40、尚硅谷_SpringBoot_web开发-【实验】-员工添加-来到添加页面<br>
+P41、尚硅谷_SpringBoot_web开发-【实验】-员工添加-添加完成<br>
+P42、尚硅谷_SpringBoot_web开发-【实验】-员工修改-重用页面&amp;修改完成<br>
+P43、尚硅谷_SpringBoot_web开发-【实验】-员工删除-删除完成<br>
+P44、尚硅谷_SpringBoot_web开发-错误处理原理&amp;定制错误页面<br>
+P45、尚硅谷_SpringBoot_web开发-定制错误数据<br>
+P46、尚硅谷_SpringBoot_web开发-嵌入式Servlet容器配置修改<br>
+P47、尚硅谷_SpringBoot_web开发-注册servlet三大组件<br>
+P48、尚硅谷_SpringBoot_web开发-切换其他嵌入式Servlet容器<br>
+P49、尚硅谷_SpringBoot_web开发-嵌入式Servlet容器自动配置原理<br>
+P50、尚硅谷_SpringBoot_web开发-嵌入式Servlet容器启动原理<br>
+P51、尚硅谷_SpringBoot_web开发-使用外部Servlet容器&amp;JSP支持<br>
+P52、尚硅谷_SpringBoot_web开发-外部Servlet容器启动SpringBoot应用原理</p>
+
+<p><br>
+第5章尚硅谷SpringBoot_Docker<br>
+P53、尚硅谷_SpringBoot_Docker-简介<br>
+P54、尚硅谷_SpringBoot_Docker-核心概念<br>
+P55、尚硅谷_SpringBoot_Docker-linux环境准备<br>
+P56、尚硅谷_SpringBoot_Docker-docker安装&amp;启动&amp;停止<br>
+P57、尚硅谷_SpringBoot_Docker-docker镜像操作常用命令<br>
+P58、尚硅谷_SpringBoot_Docker-docker容器操作常用命令<br>
+P59、尚硅谷_SpringBoot_Docker-docker安装MySQL</p>
+
+<p><br>
+第6章尚硅谷SpringBoot数据访问<br>
+P60、尚硅谷_SpringBoot_数据访问-简介<br>
+P61、尚硅谷_SpringBoot_数据访问-JDBC&amp;自动配置原理<br>
+P62、尚硅谷_SpringBoot_数据访问-整合Druid&amp;配置数据源监控<br>
+P63、尚硅谷_SpringBoot_数据访问-整合MyBatis（一）-基础环境搭建<br>
+P64、尚硅谷_SpringBoot_数据访问-整合MyBatis（二）-注解版MyBatis<br>
+P65、尚硅谷_SpringBoot_数据访问-整合MyBatis（二）-配置版MyBatis<br>
+P66、尚硅谷_SpringBoot_数据访问-SpringData JPA简介<br>
+P67、尚硅谷_SpringBoot_数据访问-整合JPA</p>
+
+<p>第7章尚硅谷SpringBoot原理<br>
+P68、尚硅谷_SpringBoot_原理-第一步：创建SpringApplication<br>
+P69、尚硅谷_SpringBoot_原理-第二步：启动应用<br>
+P70、尚硅谷_SpringBoot_原理-事件监听机制相关测试<br>
+P71、尚硅谷_SpringBoot_原理-自定义starter<br>
+P72、尚硅谷_SpringBoot_结束语</p>
+
+<p>第8章尚硅谷SpringBoot缓存<br>
+P01、尚硅谷-SpringBoot高级-缓存-JSR107简介<br>
+P02、尚硅谷-SpringBoot高级-缓存-Spring缓存抽象简介<br>
+P03、尚硅谷-SpringBoot高级-缓存-基本环境搭建<br>
+P04、尚硅谷-SpringBoot高级-缓存-@Cacheable初体验<br>
+P05、尚硅谷-SpringBoot高级-缓存-缓存工作原理&amp;@Cacheable运行流程<br>
+P06、尚硅谷-SpringBoot高级-缓存-@Cacheable其他属性<br>
+P07、尚硅谷-SpringBoot高级-缓存-@CachePut<br>
+P08、尚硅谷-SpringBoot高级-缓存-@CacheEvict<br>
+P09、尚硅谷-SpringBoot高级-缓存-@Caching&amp;@CacheConfig<br>
+P10、尚硅谷-SpringBoot高级-缓存-搭建redis环境&amp;测试<br>
+P11、尚硅谷-SpringBoot高级-缓存-RedisTemplate&amp;序列化机制<br>
+P12、尚硅谷-SpringBoot高级-缓存-自定义CacheManager</p>
+
+<p>第9章尚硅谷SpringBoot消息<br>
+P13、尚硅谷-SpringBoot高级-消息-JMS&amp;AMQP简介<br>
+P14、尚硅谷-SpringBoot高级-消息-RabbitMQ基本概念简介<br>
+P15、尚硅谷-SpringBoot高级-消息-RabbitMQ运行机制<br>
+P16、尚硅谷-SpringBoot高级-消息-RabbitMQ安装测试<br>
+P17、尚硅谷-SpringBoot高级-消息-RabbitTemplate发送接受消息&amp;序列化机制<br>
+P18、尚硅谷-SpringBoot高级-消息-@RabbitListener&amp;@EnableRabbit<br>
+P19、尚硅谷-SpringBoot高级-消息-AmqpAdmin管理组件的使用</p>
+
+<p><br>
+第10章尚硅谷SpringBoot检索<br>
+P20、尚硅谷-SpringBoot高级-检索-Elasticsearch简介&amp;安装<br>
+P21、尚硅谷-SpringBoot高级-检索-Elasticsearch快速入门<br>
+P22、尚硅谷-SpringBoot高级-检索-SpringBoot整合Jest操作ES<br>
+P23、尚硅谷-SpringBoot高级-检索-整合SpringDataElasticsearch</p>
+
+<p>第11章尚硅谷SpringBoot任务<br>
+P24、尚硅谷-SpringBoot高级-任务-异步任务<br>
+P25、尚硅谷-SpringBoot高级-任务-定时任务<br>
+P26、尚硅谷-SpringBoot高级-任务-邮件任务</p>
+
+<p>第12章尚硅谷SpringBoot安全<br>
+P27、尚硅谷-SpringBoot高级-安全-测试环境搭建<br>
+P28、尚硅谷-SpringBoot高级-安全-登录&amp;认证&amp;授权<br>
+P29、尚硅谷-SpringBoot高级-安全-权限控制&amp;注销<br>
+P30、尚硅谷-SpringBoot高级-安全-记住我&amp;定制登陆页</p>
+
+<p><br>
+第13章尚硅谷SpringBoot分布式<br>
+P31、尚硅谷-SpringBoot高级-分布式-dubbo简介<br>
+P32、尚硅谷-SpringBoot高级-分布式-docker安装zookeeper<br>
+P33、尚硅谷-SpringBoot高级-分布式-SpringBoot、Dubbo、Zookeeper整合<br>
+P34、尚硅谷-SpringBoot高级-分布式-SpringCloud-Eureka注册中心<br>
+P35、尚硅谷-SpringBoot高级-分布式-服务注册<br>
+P36、尚硅谷-SpringBoot高级-分布式-服务发现&amp;消费</p>
+
+<p><br>
+第14章尚硅谷SpringBoot热部署<br>
+P37、尚硅谷-SpringBoot高级-热部署-devtools开发热部署</p>
+
+<p>第15章尚硅谷SpringBoot监管<br>
+P38、尚硅谷-SpringBoot高级-监管-监管端点测试<br>
+P39、尚硅谷-SpringBoot高级-监管-定制端点<br>
+P40、尚硅谷-SpringBoot高级-监管-自定义HealthIn</p>
+
+<p> </p>
+                                    </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/103295367/" data-toggle="tooltip" data-placement="top" title="总结尚硅谷的视频springboot视频">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/103064011/" data-toggle="tooltip" data-placement="top" title="docker 安装elasticsearch">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
+                    
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yangjiabin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2020 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ageniuse.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://ageniuse.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

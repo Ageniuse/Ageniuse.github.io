@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          金田项目的总结 - 杨加彬 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://ageniuse.github.io/article/105071532/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>金田项目的总结</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by 杨加彬 on
+                            2020-03-24
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">杨加彬</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div class="htmledit_views" id="content_views">
+                                            <p> </p>
+
+<p>一个搜索框对手机、姓名、内容进行搜索</p>
+
+<pre>
+<code class="language-html">&lt;select id="list" parameterType="java.lang.String" resultMap="BaseResultMap"&gt;
+  select
+  &lt;include refid="Base_Column_List"/&gt;
+  from user_backstage
+  where 1=1 and is_deleted='N'
+  &lt;if test="content!=null and content!=''"&gt;
+    and (fullname=#{content} or username=#{content} or phone=#{content})
+  &lt;/if&gt;
+  order by create_time desc
+&lt;/select&gt;</code></pre>
+
+<p> </p>
+
+<pre>
+<code class="language-html">&lt;select id="selectByPhoneOrUserName" parameterType="java.lang.String" resultMap="BaseResultMap"&gt;
+  select
+  &lt;include refid="Base_Column_List"/&gt;
+  from user_backstage
+  where is_deleted='N'
+  and (username=#{username} or phone=#{phone})
+&lt;/select&gt;</code></pre>
+
+<p> </p>
+
+<p> </p>
+
+<p>@NotEmpty、@NotNull、@NotBlank的源码注释、区别、举例<br>
+原创山月风成 最后发布于2018-04-04 20:17:30 阅读数 4908  收藏<br>
+展开<br>
+网上搜索总结如下，<br>
+@NotEmpty、@NotNull、@NotBlank的区别<br>
+1 @NotEmpty :不能为null，且Size&gt;0<br>
+2 @NotNull:不能为null，但可以为empty,没有Size的约束<br>
+3 @NotBlank:只用于String,不能为null且trim()之后size&gt;0</p>
+
+<p>不够具体，不权威，直接上源码注释！</p>
+
+<p>@NotEmpty<br>
+/** <br>
+* Asserts that the annotated string, collection, map or array is not {@code null} or empty. <br>
+* <br>
+* @author Emmanuel Bernard <br>
+* @author Hardy Ferentschik <br>
+*/<br>
+ <br>
+断言，带注解的String，collection，map或数组不能为null，也不能为空。<br>
+也就是说，有@NotEmpty注解的String、Collection、Map、数组是不能为null或长度为0</p>
+
+<p>踩坑<br>
+@NotEmpty(message = "id不能为null或空")<br>
+pirvate Long id;   <br>
+错！这是基础类型的包装类、除了以上4种类型都不能使用@NotEmpty</p>
+
+<p>@NotNull(message = "id不能为null或空")<br>
+private Long id； <br>
+正确<br>
+ <br>
+@NotBlank<br>
+/** <br>
+* Validate that the annotated string is not {@code null} or empty. <br>
+* The difference to {@code NotEmpty} is that trailing whitespaces are getting ignored. <br>
+* <br>
+* @author Hardy Ferentschik <br>
+*/<br>
+ <br>
+验证注释的String不是null或空的，与@NotEmpty的区别在于，尾部空格被忽略，也就是说，纯空格的String也是不符合规则的，此注解只能用于验证String类型</p>
+
+<p>@NotNull<br>
+/** <br>
+* The annotated element must not be {@code null}. <br>
+* Accepts any type. <br>
+* <br>
+* @author Emmanuel Bernard <br>
+*/<br>
+ <br>
+带注释的元素不能为null。接受任何类型。完美！</p>
+
+<p>应用场景<br>
+数据库表student_message<br>
+实体类时Student<br>
+属性有</p>
+
+<p>//id不能为null<br>
+@NotNull<br>
+private int id；</p>
+
+<p>//姓名不能为null，也不能为“  ”<br>
+@NotEmpty<br>
+private String name；</p>
+
+<p>//爱好不能为null，但可以为“  ”<br>
+@NotNull<br>
+private String favorite;</p>
+
+<p>//家庭住址不能为null，只能填String，trim()去掉尾部空格后，<br>
+//字符串个数大于0.类别：（必填项）<br>
+@NotBlank<br>
+private String address;</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>手机号/用户名/昵称  模糊查询</p>
+
+<p> </p>
+
+<p><img alt="" height="846" src="https://img-blog.csdnimg.cn/20200401164605662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3MzI3MjYx,size_16,color_FFFFFF,t_70" width="1185"></p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>金田公寓查看线上的额错误日志</p>
+
+<p>Administrator@PC-201908221240 MINGW64 ~/Desktop<br><span style="color:#f33b45;">$ ssh root@10.23.12.48</span><br>
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-88-generic x86_64)</p>
+
+<p> * Documentation:  https://help.ubuntu.com<br>
+ * Management:     https://landscape.canonical.com<br>
+ * Support:        https://ubuntu.com/advantage</p>
+
+<p>  System information as of Mon May 11 14:41:17 CST 2020</p>
+
+<p>  System load:                    0.43<br>
+  Usage of /:                     43.0% of 48.96GB<br>
+  Memory usage:                   62%<br>
+  Swap usage:                     0%<br>
+  Processes:                      262<br>
+  Users logged in:                1<br>
+  IP address for ens160:          10.23.12.48<br>
+  IP address for br-cb039c25af75: 172.18.0.1<br>
+  IP address for docker_gwbridge: 172.19.0.1<br>
+  IP address for docker0:         172.17.0.1<br>
+  IP address for br-3f998dfe0380: 172.21.0.1<br>
+  IP address for br-664b1781737b: 172.20.0.1</p>
+
+<p> * Ubuntu 20.04 LTS is out, raising the bar on performance, security,<br>
+   and optimisation for Intel, AMD, Nvidia, ARM64 and Z15 as well as<br>
+   AWS, Azure and Google Cloud.</p>
+
+<p>     https://ubuntu.com/blog/ubuntu-20-04-lts-arrives</p>
+
+<p><br>
+ * Canonical Livepatch is available for installation.<br>
+   - Reduce system reboots and improve kernel security. Activate at:<br>
+     https://ubuntu.com/livepatch</p>
+
+<p>119 packages can be updated.<br>
+0 updates are security updates.</p>
+
+<p><br>
+*** System restart required ***<br>
+Last login: Mon May 11 14:34:37 2020 from 10.23.12.34<span style="color:#f33b45;"> </span></p>
+
+<p><span style="color:#f33b45;">root@yyyf:~# docker logs -f apartmentFinance</span></p>
+
+<p><br>
+ :: Dubbo Spring Boot (v0.2.0) : https://github.com/apache/incubator-dubbo-spring-boot-project<br>
+ :: Dubbo (v2.6.2) : https://github.com/apache/incubator-dubbo<br>
+ :: Google group : dev@dubbo.incubator.apache.org</p>
+
+<p>  .   ____          _            __ _ _<br>
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \<br>
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \<br>
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )<br>
+  '  |____| .__|_| |_|_| |_\__, | / / / /<br>
+ =========|_|==============|___/=/_/_/_/<br>
+ :: Spring Boot ::        (v2.1.4.RELEASE)</p>
+
+<p>2020-05-11 14:36:55.432 INFO  com.unicom.apartment.FinanceApplication:50 - Starting FinanceApplication v0.0.1-SNAPSHOT on 03cc382518ba with PID 1 (/app/finance.jar started by root in /app)<br>
+2020-05-11 14:36:55.435 DEBUG com.unicom.apartment.FinanceApplication:53 - Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE<br>
+2020-05-11 14:36:55.436 INFO  com.unicom.apartment.FinanceApplication:679 - The following profiles are active: dev<br>
+2020-05-11 14:36:57.087 WARN  com.alibaba.dubbo.config.spring.beans.factory.annotation.ServiceAnnotationBeanPostProcessor:155 -  [DUBBO] No Spring Bean annotating Dubbo's @Service was found under package[com.unicom.apartment.service.impl], dubbo version: 2.6.2, current host: 172.21.0.9<br>
+2020-05-11 14:37:00.283 WARN  io.seata.common.loader.EnhancedServiceLoader:318 - load [io.seata.codec.hessian.HessianCodec] class fail. com/caucho/hessian/io/AbstractHessianOutput<br>
+2020-05-11 14:37:00.389 WARN  org.mybatis.spring.SqlSessionFactoryBean:44 - Property 'mapperLocations' was specified but matching resources are not found.<br>
+Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl' adapter.<br>
+2020-05-11 14:37:06.152 INFO  com.unicom.apartment.FinanceApplication:59 - Started FinanceApplication in 11.363 seconds (JVM running for 11.94)<br>
+Creating a new SqlSession<br>
+2020-05-11 14:38:27.890 INFO  com.unicom.apartment.controller.BillController:79 - 普通财务列表  FinancialListDto={"apartmentId":"442111143688880128","billType":"","createTime":"","resourceName":"","state":[]} pageNum=1 pageSize=10<br>
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fc2c12f] was not registered for synchronization because synchronization is not active<br>
+JDBC Connection [io.seata.rm.datasource.ConnectionProxy@23071f9e] will not be managed by Spring<br>
+==&gt;  Preparing: select 'true' as QUERYID, id, bill_type_name, billing_model_int, billing_model, image_name, remark, create_user, create_time, update_user, update_time, is_deleted from bill_type WHERE ( is_deleted = ? )<br>
+==&gt; Parameters: N(String)<br>
+&lt;==    Columns: QUERYID, id, bill_type_name, billing_model_int, billing_model, image_name, remark, create_user, create_time, update_user, update_time, is_deleted<br>
+&lt;==        Row: true, 450995678040264704, 房租, 1, 每月价格, https://oss.hurcjt.com/apartment/2020/03/29/6d8734d7ce76401bb6b3499e8466638e.jpg, null, 100, 2020-03-29 12:15:48, 100, 2020-03-29 12:15:48, N<br>
+&lt;==        Row: true, 461176823137456128, 履约金, 3, 固定金额, https://oss.hurcjt.com/apartment/2020/05/09/8193f8f32e124e499a4e8625a5dc3263.jpg, null, 100, 2020-04-26 14:32:02, 100, 2020-05-09 14:55:12, N<br>
+&lt;==        Row: true, 461176823137456129, 家电维修2, 3, 固定金额, https://oss.hurcjt.com/apartment/2020/05/09/96c8262baa1e4250b55ed02fb61251ed.jpeg, 家电维修2, 1, 2020-05-09 11:44:38, 100, 2020-05-09 14:55:35, N<br>
+&lt;==        Row: true, 465881174116438016, 停车费, 3, 固定金额, https://oss.hurcjt.com/apartment/2020/05/09/4e6a4cab23e346f99ad3a2bb1a5165ed.jpeg, null, 100, 2020-05-09 14:05:27, 100, 2020-05-09 14:56:36, N<br>
+&lt;==        Row: true, 466605939085053952, 物业费, 2, 每月单位价格, https://oss.hurcjt.com/apartment/2020/05/11/05224193c9784f9cb59ee0e6c4e02058.jpg, null, 100, 2020-05-11 14:05:24, 100, 2020-05-11 14:05:24, N<br>
+&lt;==      Total: 5<br>
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fc2c12f]<br>
+2020-05-11 14:38:28.241 INFO  com.unicom.apartment.service.impl.BillServiceImpl:722 - resourceIdList=[456427715992072192, 456427716025626624, 456427716034015232, 456427716042403840, 456427716050792448, 456427716059181056, 456427716067569664, 456427716075958272, 456427716084346880, 456427716096929792, 456427716109512704, 456427716117901312, 456427716122095616, 456427716130484224, 456427716138872832, 456427716147261440, 456427716151455744, 456427716159844352, 456777194725289984, 456777194729484288, 456777480739074048, 456777480747462656, 456777480760045568, 456777480764239872, 456777480768434176, 456777480772628480, 456777480781017088, 456777480785211392, 456777480793600000, 456777480801988608, 456777480822960128, 456777480827154432, 456777480831348736, 456777480835543040, 456777480843931648, 456777480860708864, 456787573358571520]<br>
+Creating a new SqlSession<br>
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6e2f9d1b] was not registered for synchronization because synchronization is not active<br>
+JDBC Connection [io.seata.rm.datasource.ConnectionProxy@167d17f0] will not be managed by Spring<br>
+==&gt;  Preparing: SELECT count(0) FROM bill WHERE (resource_id IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) AND is_deleted = ?)<br>
+==&gt; Parameters: 456427715992072192(Long), 456427716025626624(Long), 456427716034015232(Long), 456427716042403840(Long), 456427716050792448(Long), 456427716059181056(Long), 456427716067569664(Long), 456427716075958272(Long), 456427716084346880(Long), 456427716096929792(Long), 456427716109512704(Long), 456427716117901312(Long), 456427716122095616(Long), 456427716130484224(Long), 456427716138872832(Long), 456427716147261440(Long), 456427716151455744(Long), 456427716159844352(Long), 456777194725289984(Long), 456777194729484288(Long), 456777480739074048(Long), 456777480747462656(Long), 456777480760045568(Long), 456777480764239872(Long), 456777480768434176(Long), 456777480772628480(Long), 456777480781017088(Long), 456777480785211392(Long), 456777480793600000(Long), 456777480801988608(Long), 456777480822960128(Long), 456777480827154432(Long), 456777480831348736(Long), 456777480835543040(Long), 456777480843931648(Long), 456777480860708864(Long), 456787573358571520(Long), N(String)<br>
+&lt;==    Columns: count(0)<br>
+&lt;==        Row: 4<br>
+&lt;==      Total: 1<br>
+==&gt;  Preparing: select 'true' as QUERYID, id, bill_type, unit_price, area, settle_cycle, bill_startdate, bill_enddate, bill_finaldate, total_month, break_money, remove_money, actual_money, remark, notice_mode, original_money, refund_state, state, user_id, resource_id, create_user, create_time, update_user, update_time, is_deleted from bill WHERE ( resource_id in ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ) and is_deleted = ? ) order by create_time desc LIMIT ?<br>
+==&gt; Parameters: 456427715992072192(Long), 456427716025626624(Long), 456427716034015232(Long), 456427716042403840(Long), 456427716050792448(Long), 456427716059181056(Long), 456427716067569664(Long), 456427716075958272(Long), 456427716084346880(Long), 456427716096929792(Long), 456427716109512704(Long), 456427716117901312(Long), 456427716122095616(Long), 456427716130484224(Long), 456427716138872832(Long), 456427716147261440(Long), 456427716151455744(Long), 456427716159844352(Long), 456777194725289984(Long), 456777194729484288(Long), 456777480739074048(Long), 456777480747462656(Long), 456777480760045568(Long), 456777480764239872(Long), 456777480768434176(Long), 456777480772628480(Long), 456777480781017088(Long), 456777480785211392(Long), 456777480793600000(Long), 456777480801988608(Long), 456777480822960128(Long), 456777480827154432(Long), 456777480831348736(Long), 456777480835543040(Long), 456777480843931648(Long), 456777480860708864(Long), 456787573358571520(Long), N(String), 10(Integer)<br>
+&lt;==    Columns: QUERYID, id, bill_type, unit_price, area, settle_cycle, bill_startdate, bill_enddate, bill_finaldate, total_month, break_money, remove_money, actual_money, remark, notice_mode, original_money, refund_state, state, user_id, resource_id, create_user, create_time, update_user, update_time, is_deleted<br>
+&lt;==        Row: true, 466607297414598656, 450995678040264704, 1000.00, null, 3, 2020-05-01 00:00:00, 2020-06-24 00:00:00, 2020-05-30 00:00:00, 2, 100.00, 50.00, 2050, null, 1, null, 4, 3, 451764014038773760, 456427715992072192, 100, 2020-05-11 14:10:48, 100, 2020-05-11 14:10:48, N<br>
+&lt;==        Row: true, 466607154351083520, 450995678040264704, 1000.00, null, 3, 2020-05-01 00:00:00, 2020-06-24 00:00:00, 2020-05-30 00:00:00, 2, 100.00, 50.00, 2050, null, 1, null, 4, 3, 451764014038773760, 456427715992072192, 100, 2020-05-11 14:10:14, 100, 2020-05-11 14:10:14, N<br>
+&lt;==        Row: true, 466606402912161792, 466605939085053952, 10.00, 30.00, 3, 2020-05-01 00:00:00, 2020-06-17 00:00:00, 2020-05-29 00:00:00, 2, 100.00, 100.00, 600, null, 1, null, 4, 3, 450662170105118720, 456427716025626624, 100, 2020-05-11 14:07:15, 100, 2020-05-11 14:07:15, N<br>
+&lt;==        Row: true, 461173351180685312, 450995678040264704, 2100.00, null, 4, 2020-04-20 00:00:00, 2020-10-19 00:00:00, 2020-07-19 00:00:00, null, null, null, 14700, null, 1, null, 4, 3, 456432965629042688, 456427715992072192, 100, 2020-04-26 14:18:15, 100, 2020-04-26 14:18:15, N<br>
+&lt;==      Total: 4<br>
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6e2f9d1b]<br>
+2020-05-11 14:38:28.336 INFO  com.unicom.apartment.service.impl.BillTypeServiceImpl:102 - 获取id为:450995678040264704BillType<br>
+Creating a new SqlSession<br>
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a797b81] was not registered for synchronization because synchronization is not active<br>
+JDBC Connection [io.seata.rm.datasource.ConnectionProxy@38ce3d20] will not be managed by Spring<br>
+==&gt;  Preparing: select 'true' as QUERYID, id, bill_type_name, billing_model_int, billing_model, image_name, remark, create_user, create_time, update_user, update_time, is_deleted from bill_type WHERE ( id = ? and is_deleted = ? )<br>
+==&gt; Parameters: 450995678040264704(Long), N(String)<br>
+&lt;==    Columns: QUERYID, id, bill_type_name, billing_model_int, billing_model, image_name, remark, create_user, create_time, update_user, update_time, is_deleted<br>
+&lt;==        Row: true, 450995678040264704, 房租, 1, 每月价格, https://oss.hurcjt.com/apartment/2020/03/29/6d8734d7ce76401bb6b3499e8466638e.jpg, null, 100, 2020-03-29 12:15:48, 100, 2020-03-29 12:15:48, N<br>
+&lt;==      Total: 1<br>
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a797b81]<br>
+2020-05-11 14:38:28.351 ERROR com.unicom.apartment.advice.GlobalCfgControllerAdvice:48 - System.Err</p>
+
+<p>java.lang.NullPointerException: null<br>
+        at com.unicom.apartment.service.impl.BillServiceImpl.findByPage(BillServiceImpl.java:393)<br>
+        at com.unicom.apartment.controller.BillController.findByPage(BillController.java:82)<br>
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>
+        at java.lang.reflect.Method.invoke(Method.java:498)<br>
+        at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)<br>
+        at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)<br>
+        at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)<br>
+        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)<br>
+        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)<br>
+        at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)<br>
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)<br>
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)<br>
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)<br>
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)<br>
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)<br>
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)<br>
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)<br>
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)<br>
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)<br>
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:151)<br>
+        at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:81)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)<br>
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)<br>
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)<br>
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)<br>
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)<br>
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)<br>
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)<br>
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)<br>
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)<br>
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)<br>
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)<br>
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)<br>
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)<br>
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)<br>
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)<br>
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)<br>
+        at java.lang.Thread.run(Thread.java:748)</p>
+
+<p>2020-05-11 14:38:28.352 ERROR com.unicom.apartment.advice.GlobalCfgControllerAdvice:80 - null<br>
+Creating a new SqlSession<br>
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a1f7a9c] was not registered for synchronization because synchronization is not active<br>
+JDBC Connection [io.seata.rm.datasource.ConnectionProxy@10e711ec] will not be managed by Spring<br>
+==&gt;  Preparing: select 'true' as QUERYID, id, bill_type_name, billing_model_int, billing_model, image_name, remark, create_user, create_time, update_user, update_time, is_deleted from bill_type WHERE ( is_deleted = ? )<br>
+2020-05-11 14:38:43.435 INFO  com.unicom.apartment.controller.BillController:79 - 普通财务列表  FinancialListDto={"apartmentId":"442111143688880128","billType":"","createTime":"","resourceName":"","state":[]} pageNum=1 pageSize=10<br>
+==&gt; Parameters: N(String)<br>
+2020-05-11 14:38:43.440 INFO  com.unicom.apartment.service.impl.BillServiceImpl:722 - resourceIdList=[456427715992072192, 456427716025626624, 456427716034015232, 456427716042403840, 456427716050792448, 456427716059181056, 456427716067569664, 456427716075958272, 456427716084346880, 456427716096929792, 456427716109512704, 456427716117901312, 456427716122095616, 456427716130484224, 456427716138872832, 456427716147261440, 456427716151455744, 456427716159844352, 456777194725289984, 456777194729484288, 456777480739074048, 456777480747462656, 456777480760045568, 456777480764239872, 456777480768434176, 456777480772628480, 456777480781017088, 456777480785211392, 456777480793600000, 456777480801988608, 456777480822960128, 456777480827154432, 456777480831348736, 456777480835543040, 456777480843931648, 456777480860708864, 456787573358571520]<br>
+Creating a new SqlSession<br>
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6544a3a6] was not registered for synchronization because synchronization is not active<br>
+&lt;==    Columns: QUERYID, id, bill_type_name, billing_model_int, billing_model, image_name, remark, create_user, create_time, update_user, update_time, is_deleted<br>
+&lt;==        Row: true, 450995678040264704, 房租, 1, 每月价格, https://oss.hurcjt.com/apartment/2020/03/29/6d8734d7ce76401bb6b3499e8466638e.jpg, null, 100, 2020-03-29 12:15:48, 100, 2020-03-29 12:15:48, N<br>
+&lt;==        Row: true, 461176823137456128, 履约金, 3, 固定金额, https://oss.hurcjt.com/apartment/2020/05/09/8193f8f32e124e499a4e8625a5dc3263.jpg, null, 100, 2020-04-26 14:32:02, 100, 2020-05-09 14:55:12, N<br>
+&lt;==        Row: true, 461176823137456129, 家电维修2, 3, 固定金额, https://oss.hurcjt.com/apartment/2020/05/09/96c8262baa1e4250b55ed02fb61251ed.jpeg, 家电维修2, 1, 2020-05-09 11:44:38, 100, 2020-05-09 14:55:35, N<br>
+&lt;==        Row: true, 465881174116438016, 停车费, 3, 固定金额, https://oss.hurcjt.com/apartment/2020/05/09/4e6a4cab23e346f99ad3a2bb1a5165ed.jpeg, null, 100, 2020-05-09 14:05:27, 100, 2020-05-09 14:56:36, N<br>
+&lt;==        Row: true, 466605939085053952, 物业费, 2, 每月单位价格, https://oss.hurcjt.com/apartment/2020/05/11/05224193c9784f9cb59ee0e6c4e02058.jpg, null, 100, 2020-05-11 14:05:24, 100, 2020-05-11 14:05:24, N<br>
+&lt;==      Total: 5<br>
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a1f7a9c]<br>
+JDBC Connection [io.seata.rm.datasource.ConnectionProxy@29b5a7cc] will not be managed by Spring<br>
+==&gt;  Preparing: SELECT count(0) FROM bill WHERE (resource_id IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) AND is_deleted = ?)<br>
+==&gt; Parameters: 456427715992072192(Long), 456427716025626624(Long), 456427716034015232(Long), 456427716042403840(Long), 456427716050792448(Long), 456427716059181056(Long), 456427716067569664(Long), 456427716075958272(Long), 456427716084346880(Long), 456427716096929792(Long), 456427716109512704(Long), 456427716117901312(Long), 456427716122095616(Long), 456427716130484224(Long), 456427716138872832(Long), 456427716147261440(Long), 456427716151455744(Long), 456427716159844352(Long), 456777194725289984(Long), 456777194729484288(Long), 456777480739074048(Long), 456777480747462656(Long), 456777480760045568(Long), 456777480764239872(Long), 456777480768434176(Long), 456777480772628480(Long), 456777480781017088(Long), 456777480785211392(Long), 456777480793600000(Long), 456777480801988608(Long), 456777480822960128(Long), 456777480827154432(Long), 456777480831348736(Long), 456777480835543040(Long), 456777480843931648(Long), 456777480860708864(Long), 456787573358571520(Long), N(String)<br>
+&lt;==    Columns: count(0)<br>
+&lt;==        Row: 4<br>
+&lt;==      Total: 1<br>
+==&gt;  Preparing: select 'true' as QUERYID, id, bill_type, unit_price, area, settle_cycle, bill_startdate, bill_enddate, bill_finaldate, total_month, break_money, remove_money, actual_money, remark, notice_mode, original_money, refund_state, state, user_id, resource_id, create_user, create_time, update_user, update_time, is_deleted from bill WHERE ( resource_id in ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ) and is_deleted = ? ) order by create_time desc LIMIT ?<br>
+==&gt; Parameters: 456427715992072192(Long), 456427716025626624(Long), 456427716034015232(Long), 456427716042403840(Long), 456427716050792448(Long), 456427716059181056(Long), 456427716067569664(Long), 456427716075958272(Long), 456427716084346880(Long), 456427716096929792(Long), 456427716109512704(Long), 456427716117901312(Long), 456427716122095616(Long), 456427716130484224(Long), 456427716138872832(Long), 456427716147261440(Long), 456427716151455744(Long), 456427716159844352(Long), 456777194725289984(Long), 456777194729484288(Long), 456777480739074048(Long), 456777480747462656(Long), 456777480760045568(Long), 456777480764239872(Long), 456777480768434176(Long), 456777480772628480(Long), 456777480781017088(Long), 456777480785211392(Long), 456777480793600000(Long), 456777480801988608(Long), 456777480822960128(Long), 456777480827154432(Long), 456777480831348736(Long), 456777480835543040(Long), 456777480843931648(Long), 456777480860708864(Long), 456787573358571520(Long), N(String), 10(Integer)<br>
+&lt;==    Columns: QUERYID, id, bill_type, unit_price, area, settle_cycle, bill_startdate, bill_enddate, bill_finaldate, total_month, break_money, remove_money, actual_money, remark, notice_mode, original_money, refund_state, state, user_id, resource_id, create_user, create_time, update_user, update_time, is_deleted<br>
+&lt;==        Row: true, 466607297414598656, 450995678040264704, 1000.00, null, 3, 2020-05-01 00:00:00, 2020-06-24 00:00:00, 2020-05-30 00:00:00, 2, 100.00, 50.00, 2050, null, 1, null, 4, 3, 451764014038773760, 456427715992072192, 100, 2020-05-11 14:10:48, 100, 2020-05-11 14:10:48, N<br>
+&lt;==        Row: true, 466607154351083520, 450995678040264704, 1000.00, null, 3, 2020-05-01 00:00:00, 2020-06-24 00:00:00, 2020-05-30 00:00:00, 2, 100.00, 50.00, 2050, null, 1, null, 4, 3, 451764014038773760, 456427715992072192, 100, 2020-05-11 14:10:14, 100, 2020-05-11 14:10:14, N<br>
+&lt;==        Row: true, 466606402912161792, 466605939085053952, 10.00, 30.00, 3, 2020-05-01 00:00:00, 2020-06-17 00:00:00, 2020-05-29 00:00:00, 2, 100.00, 100.00, 600, null, 1, null, 4, 3, 450662170105118720, 456427716025626624, 100, 2020-05-11 14:07:15, 100, 2020-05-11 14:07:15, N<br>
+&lt;==        Row: true, 461173351180685312, 450995678040264704, 2100.00, null, 4, 2020-04-20 00:00:00, 2020-10-19 00:00:00, 2020-07-19 00:00:00, null, null, null, 14700, null, 1, null, 4, 3, 456432965629042688, 456427715992072192, 100, 2020-04-26 14:18:15, 100, 2020-04-26 14:18:15, N<br>
+&lt;==      Total: 4<br>
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6544a3a6]<br>
+2020-05-11 14:38:43.460 INFO  com.unicom.apartment.service.impl.BillTypeServiceImpl:102 - 获取id为:450995678040264704BillType<br>
+Creating a new SqlSession<br>
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44668a23] was not registered for synchronization because synchronization is not active<br>
+JDBC Connection [io.seata.rm.datasource.ConnectionProxy@4a311570] will not be managed by Spring<br>
+==&gt;  Preparing: select 'true' as QUERYID, id, bill_type_name, billing_model_int, billing_model, image_name, remark, create_user, create_time, update_user, update_time, is_deleted from bill_type WHERE ( id = ? and is_deleted = ? )<br>
+==&gt; Parameters: 450995678040264704(Long), N(String)<br>
+&lt;==    Columns: QUERYID, id, bill_type_name, billing_model_int, billing_model, image_name, remark, create_user, create_time, update_user, update_time, is_deleted<br>
+&lt;==        Row: true, 450995678040264704, 房租, 1, 每月价格, https://oss.hurcjt.com/apartment/2020/03/29/6d8734d7ce76401bb6b3499e8466638e.jpg, null, 100, 2020-03-29 12:15:48, 100, 2020-03-29 12:15:48, N<br>
+&lt;==      Total: 1<br>
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44668a23]<br>
+2020-05-11 14:38:43.469 ERROR com.unicom.apartment.advice.GlobalCfgControllerAdvice:48 - System.Err</p>
+
+<p>java.lang.NullPointerException: null<br>
+        at com.unicom.apartment.service.impl.BillServiceImpl.findByPage(BillServiceImpl.java:393)<br>
+        at com.unicom.apartment.controller.BillController.findByPage(BillController.java:82)<br>
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>
+        at java.lang.reflect.Method.invoke(Method.java:498)<br>
+        at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)<br>
+        at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)<br>
+        at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)<br>
+        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)<br>
+        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)<br>
+        at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)<br>
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)<br>
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)<br>
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)<br>
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)<br>
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)<br>
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)<br>
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)<br>
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)<br>
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)<br>
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:151)<br>
+        at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:81)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)<br>
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)<br>
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)<br>
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)<br>
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)<br>
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)<br>
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)<br>
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)<br>
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)<br>
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)<br>
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)<br>
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)<br>
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)<br>
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)<br>
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)<br>
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)<br>
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)<br>
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)<br>
+        at java.lang.Thread.run(Thread.java:748)</p>
+
+<p>2020-05-11 14:38:43.469 ERROR com.unicom.apartment.advice.GlobalCfgControllerAdvice:80 - null<br>
+^C<br><span style="color:#f33b45;">root@yyyf:~# docker logs -f apartmentFinance</span><br>
+ </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+                                    </div>
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/105291674/" data-toggle="tooltip" data-placement="top" title="win10控制视频声音大小">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/104997510/" data-toggle="tooltip" data-placement="top" title="WIN10的IE错误代码inet_e_resource_not_found解决办法">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/qq_27327261" target="_blank">CSDN Blog 杨加彬</a></li>
+                    
+                        <li><a href="https://github.com/yangjiabinylg" target="_blank">Github 杨加彬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yangjiabin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 杨加彬 2020 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ageniuse.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://ageniuse.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
